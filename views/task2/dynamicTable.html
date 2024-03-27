@@ -1,0 +1,110 @@
+<html>
+
+<HEAD>
+    <style>
+        table,tr,td
+        {
+            border-collapse: collapse;
+            border: SOLID BLACK 1PX;
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+
+    <script>
+
+        var numrow= 2;
+        var numcollum = 2;
+        
+        function insert_row()
+        {
+            numrow++;
+            var table= document.getElementById("table");
+            var row = document.createElement("tr");
+            table.appendChild(row);
+
+            for(var x = 0 ; x< numcollum ; x++)
+            {
+            var collum = document.createElement("td");
+            collum.innerHTML = "ayush"
+            row.appendChild(collum);
+            }
+
+        }
+
+        function remove_row()
+        {
+            if(numrow>2)
+            {
+            numrow--;
+            var row = document.getElementsByTagName("tr");
+            row[numrow].remove();
+            }
+            else 
+            alert("can't delete!");
+        }
+
+        function insert_collumn()
+        {
+            numcollum++;
+            var table = document.getElementById("table");
+            var row = document.getElementsByTagName("tr");
+            for( var x = 0 ; x < numrow ; x++)
+            {
+                var collum = document.createElement("td");
+                collum.innerHTML = "ayush";
+                row[x].appendChild(collum);
+
+            }
+        }
+
+
+        function remove_collumn()
+        {
+            if(numcollum>2)
+            {
+            numcollum--;
+            var row = document.getElementsByTagName("tr");
+            for( var x= 0; x< numrow ; x++)
+            {
+                row[x].lastChild.remove();
+            }
+        }
+        else 
+        alert("can't delete!");
+        }
+    </script>
+
+</HEAD>
+
+
+    <body>
+    <h1 style="text-align: center;"> Ayush Mehta - 24DEV067 - Date:01/02/2024</h1>
+    <table id="table">
+        <tr id="try">
+            <td>
+                Ayush
+            </td>
+            <td>
+                Ayush
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Ayush
+            </td>
+            <td>
+                Ayush
+            </td>
+        </tr>
+    </table>
+<br><br>
+    <button name="addrow" onclick="insert_row()">Add row </button>
+    <button name="removerow" onclick="remove_row()">Remove row </button>
+
+    <button name="addcollumn" onclick="insert_collumn()">Add Collumn </button>
+    <button name="removecollumn" onclick="remove_collumn()">Remove Collumn </button>
+
+</body>
+</html>
