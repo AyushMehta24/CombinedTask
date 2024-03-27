@@ -19,7 +19,7 @@ router.post("/loginTask/login", controller.postLogin);
 
 router.get(
   "/protected",
-  passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false,failureRedirect: "/loginTask/login"  }),
   (req, res) => {
     // If JWT is valid, proceed to the protected router
 

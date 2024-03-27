@@ -26,25 +26,27 @@ const login = (req, res) => {
 };
 
 const postLogin = (req, res) => {
-  console.log(req.body);
+  console.log(req.body , "shvaushvasjuvhasjuv");
   let val1 = parseInt(Math.random() * (9 - 0 + 1) + 0);
   let val2 = parseInt(Math.random() * (9 - 0 + 1) + 0);
   const { email, password, riddle } = req.body;
 
   con.query(
-    "select * from users where email = ?",
+    "select * from login where email = ?",
     [email],
     (error, results) => {
+      console.log(results, "ayush");
       if (error) {
         return res.status.send(500).send("Internal server Error");
       }
 
       if (results.length === 0) {
         const text = `Invalid username or password.`;
-        return res.render("login", { text, incorrectAttempts: 0, riddle: "" });
+        return res.render("/loginTask/login", { text, incorrectAttempts: 0, riddle: "" });
       }
 
       const user = results[0];
+      console.log(user , "djhascvhascv");
       const salt = user.salt;
       const concatPassword = password + salt;
       const encryptPassword = md5(concatPassword);
@@ -99,7 +101,7 @@ const postRegister = (req, res) => {
   const { username, password, email } = req.body;
 
   con.query(
-    `select username from users where email =  "${email}"`,
+    `select username from login where email =  "${email}"`,
     (error, result) => {
       if (error) {
         console.error("Error in database:", error);
@@ -114,7 +116,7 @@ const postRegister = (req, res) => {
         const encryptPassword = md5(concatPassword);
 
         con.query(
-          "insert into users (username, password, salt, activation_token, activated , email,created_at) values (?, ?, ?, ?, ?, ?, ? )",
+          "insert into login (username, password, salt, activation_token, activated , email,created_at) values (?, ?, ?, ?, ?, ?, ? )",
           [
             username,
             encryptPassword,
@@ -142,7 +144,7 @@ const activateToken = (req, res) => {
   console.log(token);
 
   con.query(
-    "select * from users where activation_token = ?",
+    "select * from login where activation_token = ?",
     [token],
     (error, results) => {
       if (error) {
@@ -155,7 +157,7 @@ const activateToken = (req, res) => {
       }
 
       con.query(
-        "UPDATE users SET activated = true WHERE activation_token = ?",
+        "UPDATE login SET activated = true WHERE activation_token = ?",
         [token],
         (error, result1) => {
           if (error) {
@@ -183,7 +185,7 @@ const forgotpass = (req, res) => {
 const setpass = (req, res) => {
   const { email } = req.body;
 
-  let sql = `select * from users where email = '${email}'`;
+  let sql = `select * from login where email = '${email}'`;
   con.query(sql, (error, result) => {
     if (error) {
       console.error("Error in database:", error);
@@ -213,7 +215,7 @@ const checkpass = (req, res) => {
   }
 
   con.query(
-    `select * from users where uid = ? and activation_token = ? `,
+    `select * from login where uid = ? and activation_token = ? `,
     [uid, activationToken],
     (error, result1) => {
       if (error) {
@@ -227,7 +229,7 @@ const checkpass = (req, res) => {
         const encryptPassword = md5(concatPassword);
 
         con.query(
-          `update users set password = ? where uid = ?`,
+          `update login set password = ? where uid = ?`,
           [encryptPassword, uid],
           (error, result2) => {
             if (error) {
