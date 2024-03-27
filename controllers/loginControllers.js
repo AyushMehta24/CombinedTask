@@ -37,7 +37,7 @@ const postLogin = (req, res) => {
     (error, results) => {
       console.log(results, "ayush");
       if (error) {
-        return res.status.send(500).send("Internal server Error");
+        return res.status(500).send("Internal server Error");
       }
 
       if (results.length === 0) {
