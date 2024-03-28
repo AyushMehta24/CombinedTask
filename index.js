@@ -1,5 +1,4 @@
 const express = require("express");
-const mysql = require("mysql");
 const app = express();
 const loginTask = require("./routes/loginRoutes");
 const task1Router = require("./routes/task1Routes");
@@ -8,6 +7,7 @@ const task3Router = require("./routes/task3Routes");
 const task4Router = require("./routes/task4Routes");
 const task5Router = require("./routes/task5Routes");
 const task6Router = require("./routes/task6Routes");
+const task7Router = require("./routes/task7Routes");
 const path = require("path");
 const bodyParser = require("body-parser");
 require("./db")
@@ -26,6 +26,7 @@ app.use("/", task3Router);
 app.use("/", task4Router);
 app.use("/", task5Router);
 app.use("/", task6Router);
+app.use("/", task7Router);
 app.use("/", loginTask);
 
 const PORT = process.env.PORT || 3000;

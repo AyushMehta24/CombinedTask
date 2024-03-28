@@ -1,12 +1,4 @@
 const express = require("express");
-// const bodyParser = require("body-parser");
-// const mysql = require("mysql");
-// const router = express();
-// const md5 = require("md5");
-// const crypto = require("crypto");
-// const schedule = require("node-schedule");
-// const jwt = require("jsonwebtoken");
-// const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const controller = require("../controllers/loginControllers");
 require("../middleware/middle")(passport);
@@ -19,7 +11,10 @@ router.post("/loginTask/login", controller.postLogin);
 
 router.get(
   "/protected",
-  passport.authenticate("jwt", { session: false,failureRedirect: "/loginTask/login"  }),
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
   (req, res) => {
     // If JWT is valid, proceed to the protected router
 
