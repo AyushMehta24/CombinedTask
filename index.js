@@ -8,6 +8,7 @@ const task4Router = require("./routes/task4Routes");
 const task5Router = require("./routes/task5Routes");
 const task6Router = require("./routes/task6Routes");
 const task7Router = require("./routes/task7Routes");
+const task8Router = require("./routes/task8Routes");
 const path = require("path");
 const bodyParser = require("body-parser");
 require("./db")
@@ -27,6 +28,7 @@ app.use("/", task4Router);
 app.use("/", task5Router);
 app.use("/", task6Router);
 app.use("/", task7Router);
+app.use("/", task8Router);
 app.use("/", loginTask);
 
 const PORT = process.env.PORT || 3000;
