@@ -7,6 +7,10 @@ app.use(express.urlencoded({ extended: true }));
 var nrp = 250,
   current = 1;
 
+const home = function (req, res) {
+  res.render("./task5/index");
+};
+
 const display = (req, res) => {
   let page = req.query.page;
   if (page == undefined || page == null) {
@@ -45,6 +49,14 @@ const order = (req, res) => {
   if (page == undefined || page == null) {
     page = 1;
   }
+
+  if (feild == undefined || feild == null) {
+    feild = "sid";
+  }
+
+  if (type == undefined || type == null) {
+    type = "asc";
+  }
   current = page;
 
   con.query(
@@ -68,4 +80,5 @@ module.exports = {
   display,
   order,
   component,
+  home,
 };

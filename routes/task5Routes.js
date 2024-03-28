@@ -6,6 +6,15 @@ require("../middleware/middle")(passport);
 const router = express.Router();
 
 router.get(
+    "/task5",
+    passport.authenticate("jwt", {
+      session: false,
+      failureRedirect: "/loginTask/login",
+    }),
+    controller.home
+  );
+
+router.get(
   "/task5/display",
   passport.authenticate("jwt", {
     session: false,

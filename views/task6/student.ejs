@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+h2{
+text-align: center;}
+
+    h1 {
+      text-align: center;
+      color: green;
+    }
+
+    table {
+      border-collapse: collapse;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      padding: 15px;
+    }
+  </style>
+  <body>
+    <h2>Name : Ayush Mehta  ID : 24DEV067</h2>
+   
+    <table> 
+        <tr>
+            <td>Student id</td>
+            <td colspan="7"><%= data1[0].sid%></td>
+        </tr>
+        
+         <tr>
+            <td>
+                Total Attendence
+            </td>
+            <td colspan="7"><%=data4[temp].att%></td>
+         </tr>
+        
+      <tr>
+        
+        <td>Subject</td>
+        <td colspan="2">Terminal</td>
+        <td colspan="2">Prelims</td>
+        <td colspan="2">Final</td>
+        <td>Total</td>
+      </tr>
+
+      <tr>
+        
+        <td></td>
+        <td>Theory</td>
+        <td>Practical</td>
+        <td>Theory</td>
+        <td>Practical</td>
+        <td>Theory</td>
+        <td>Practical</td>
+        <td></td>
+      </tr>
+      <% var sum = 0 %>
+      <% for(var i=0; i<6  ; i++) {%>
+        <tr>
+            <td><%= data1[i].subid%></td>
+            <td>
+                <%= data1[i].theory%>
+              </td>
+              <td>
+                <%= data1[i].prac%>
+              </td>
+              <td>
+                <%= data2[i].theory%>
+              </td>
+              <td>
+                <%= data2[i].prac%>
+              </td>
+              <td>
+                <%= data3[i].theory%>
+              </td>
+              <td>
+                <%= data3[i].prac%>
+              </td>
+              <td><%= data1[i].theory+data1[i].prac+data2[i].theory+data2[i].prac+data3[i].theory+data3[i].prac %></td>
+              <%sum = sum + data1[i].theory+data1[i].prac+data2[i].theory+data2[i].prac+data3[i].theory+data3[i].prac %>
+        </tr>
+     <% } %>
+     <tr>
+        <td colspan="7">Total</td>
+        <td><%= sum %></td>
+
+     </tr>
+     <tr>
+        <td colspan="7">
+            Percentage in Acedamics
+        </td>
+        <td ><%= parseFloat(sum*100/1200).toFixed(2)%>%</td>
+     </tr>
+     
+    </table>
+  </body>
+</html>

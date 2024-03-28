@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      section {
+        margin-left: 41.5%;
+        display: flex;
+        gap: 50px;
+      }
+
+      h1 {
+        text-align: center;
+        color: green;
+      }
+
+      table {
+        border-collapse: collapse;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      td,
+      th {
+        border: 1px solid black;
+        padding: 15px;
+      }
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Name : Ayush Mehta ID : 24DEV067</h2>
+
+    <label for="serachId">Search Student ID: </label>
+    <input type="text"  name="serachId" id="searchInput" tabindex="1" />
+    <input
+      tabindex="2"
+      type="button"
+      name="submit"
+      value="GO"
+      id="sub"
+      onclick="searchTable()"
+    />
+    <br />
+    <button onclick="visible()">Show More...</button>
+
+    <br />
+    <div id="visible" style="display: none">
+      <form action="/task6/exam/filter" method="post">
+      <input type="fname" name="fname" id="fname" placeholder="First Name"/>
+      <input type="emial" name="email" id="email" placeholder="Email"/>
+      <input type="contact" name="contact" id="contact" placeholder="Contact"/> 
+      <select name="opt" id="opt">
+        <option value="and">AND</option>
+        <option value="or">OR</option>
+      </select>
+      
+      <input type="submit" name="vgo" id="vgo" value="GOO" />
+    </form>
+    </div>
+    <br><br>
+
+    <!-- /////////////////////////////////////////////////////////////////////////////// -->
+
+    <table id="dataTable">
+      <tr>
+        <td rowspan="2" style="text-align: center">Student ID</td>
+        <td rowspan="2" style="text-align: center">Student Name</td>
+        <td rowspan="2" style="text-align: center">Email</td>
+        <td rowspan="2" style="text-align: center">Contact</td>
+        <td colspan="2" style="text-align: center">Prelims</td>
+        <td colspan="2" style="text-align: center">Terminal</td>
+        <td colspan="2" style="text-align: center">Final</td>
+        <td rowspan="2" style="text-align: center">Total</td>
+        <td rowspan="2" style="text-align: center">Details</td>
+      </tr>
+      <tr>
+        <td>Theory</td>
+        <td>Practical</td>
+        <td>Theory</td>
+        <td>Practical</td>
+        <td>Theory</td>
+        <td>Practical</td>
+      </tr>
+
+      <% for(var i=0; i<data1.length ; i++) {%>
+      <tr>
+        <td id="sid"><%= data1[i].sid%></td>
+        <td><%= data1[i].fname%></td>
+        <td><%= data1[i].email%></td>
+        <td><%= data1[i].phone%></td>
+        <td><%= data1[i].theory%></td>
+        <td><%= data1[i].prac%></td>
+        <td><%= data2[i].theory%></td>
+        <td><%= data2[i].prac%></td>
+        <td><%= data3[i].theory%></td>
+        <td><%= data3[i].prac%></td>
+        <td>
+          <%=
+          data1[i].theory+data2[i].theory+data3[i].theory+data1[i].prac+data2[i].prac+data3[i].prac
+          %>
+        </td>
+        <td>
+          <button><a href="/task6/studentDetails?data=<%=i%>">Details</a></button>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+
+    <script>
+      function searchTable() {
+        let input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = parseInt(input.value.toUpperCase());
+        table = document.getElementById("dataTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td");
+          let cell = td[0];
+          if (cell) {
+            txtValue = parseInt(cell.textContent);
+            if (txtValue == filter) {
+              tr[0].style.display = "";
+              tr[1].style.display = "";
+              tr[i].style.display = "";
+              for (let z = i + 1; z < tr.length; z++) {
+                tr[z].style.display = "none";
+              }
+            } else {
+              tr[0].style.display = "";
+              tr[1].style.display = "";
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+      function visible() {
+        const element = document.getElementById("visible");
+        element.style.display = "";
+      }
+    </script>
+  </body>
+</html>
