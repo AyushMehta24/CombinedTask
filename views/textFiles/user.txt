@@ -1,0 +1,1 @@
+[{"fname":"a","lname":"a","age":"20","contact":"1111111111","email":"a","gender":"male","hobby":["reading","dancing"],"address":"a","id":"dcnk2z2v5jnk8gtf3lfiel"}]

@@ -5,6 +5,7 @@ const loginTask = require("./routes/loginRoutes");
 const task1Router = require("./routes/task1Routes");
 const task2Router = require("./routes/task2Routes");
 const task3Router = require("./routes/task3Routes");
+const task4Router = require("./routes/task4Routes");
 const path = require("path");
 const bodyParser = require("body-parser");
 require("./db")
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 app.use("/", task1Router);
 app.use("/", task2Router);
 app.use("/", task3Router);
+app.use("/", task4Router);
 app.use("/", loginTask);
 
 const PORT = process.env.PORT || 3000;
