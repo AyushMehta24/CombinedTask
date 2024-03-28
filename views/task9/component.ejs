@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component</title>
+</head>
+<body>
+    <% if(result[0].combo_type == "dropbox" && result[0].multi_value == "no") {%>
+        <label>select <%=result[0].select_name%>: </label>
+        <select name="<%=result[0].select_name%>" >
+            <% for(let i=0 ; i<result.length;i++) {%>
+                <option value="<%=result[i].option_key%>"><%=result[i].option_key%></option>
+            <%}%>
+        </select>
+        
+    <% } %>
+
+    <% if(result[0].combo_type == "dropbox" && result[0].multi_value == "yes") {%>
+        <label>select <%=result[0].select_name%>: </label>
+        <select name="<%=result[0].select_name%>" multiple >
+            <% for(let i=0 ; i<result.length;i++) {%>
+                <option value="<%=result[i].option_key%>"><%=result[i].option_key%></option>
+            <%}%>
+        </select>
+        
+    <% } %>
+
+    <% if(result[0].combo_type == "radio") {%>
+        <label>select <%=result[0].select_name%>: </label>
+            <% for(let i=0 ; i<result.length; i++) {%>
+                <input type="radio" name="<%=result[0].select_name%>" value="<%=result[i].option_key%>">
+                <label for="<%=result[i].option_key%>"><%=result[i].option_key%></label>
+            <%}%>
+    <% } %>
+
+    <% if(result[0].combo_type == "checkbox" && result[0].select_name == "language") {%>
+        <label>select <%=result[0].select_name%>: </label>
+            <% for(let i=0 ; i<result.length; i++) {%>
+                <br>
+                <input type="checkbox" name="<%=result[0].select_name%>" value="<%=result[i].option_key%>">
+                <label for="<%=result[i].option_key%>"><%=result[i].option_key%></label>
+                
+                <input type="checkbox" name="<%=result[i].option_key%>" value="read">
+                <label for="<%=result[i].option_key%>">Read</label>
+                <input type="checkbox" name="<%=result[i].option_key%>" value="write">
+                <label for="<%=result[i].option_key%>">Write</label>
+                <input type="checkbox" name="<%=result[i].option_key%>" value="speak">
+                <label for="<%=result[i].option_key%>">Speak</label>
+
+            <%}%>
+    <% } %>
+
+    <% if(result[0].combo_type == "checkbox" && result[0].select_name == "technology") {%>
+        <label>select <%=result[0].select_name%>: </label>
+            <% for(let i=0 ; i<result.length; i++) {%>
+                <br>
+                <input type="checkbox" name="<%=result[0].select_name%>" value="<%=result[i].option_key%>">
+                <label for="<%=result[i].option_key%>"><%=result[i].option_key%></label>
+                
+                <input type="radio" name="<%=result[i].option_key%>" value="read">
+                <label for="<%=result[i].option_key%>">Begainer</label>
+                <input type="radio" name="<%=result[i].option_key%>" value="write">
+                <label for="<%=result[i].option_key%>">Mediator</label>
+                <input type="radio" name="<%=result[i].option_key%>" value="speak">
+                <label for="<%=result[i].option_key%>">Expert</label>
+
+            <%}%>
+    <% } %>
+
+
+  
+</body>
+</html>
