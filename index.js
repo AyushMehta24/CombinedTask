@@ -11,6 +11,8 @@ const task7Router = require("./routes/task7Routes");
 const task8Router = require("./routes/task8Routes");
 const task9Router = require("./routes/task9Routes");
 const task10Router = require("./routes/task10Routes");
+const task11Router = require("./routes/task11Routes");
+const task12Router = require("./routes/task12Routes");
 const path = require("path");
 const bodyParser = require("body-parser");
 require("./db")
@@ -33,6 +35,8 @@ app.use("/", task7Router);
 app.use("/", task8Router);
 app.use("/", task9Router);
 app.use("/", task10Router);
+app.use("/", task11Router);
+app.use("/", task12Router);
 app.use("/", loginTask);
 
 
