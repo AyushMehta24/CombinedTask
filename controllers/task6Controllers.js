@@ -35,8 +35,8 @@ const display = (req, res) => {
 
   con.query(
     `select task6_studentmaster.sid , task6_studentmaster.fname,  count(task6_attendence.attendence) as att from task6_studentmaster join task6_attendence where task6_studentmaster.sid = task6_attendence.aid and task6_attendence.attendence = "P" and MONTH(task6_attendence.date) =${month} group by task6_studentmaster.sid,task6_studentmaster.fname limit ${
-      current * 20 - 20
-    } , 20`,
+      current * 5 - 5
+    } , 5`,
     function (err, result, fields) {
       if (err) throw err;
       res.render("./task6/display", {

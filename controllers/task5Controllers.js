@@ -4,7 +4,7 @@ var express = require("express");
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 
-var nrp = 250,
+var nrp = 10,
   current = 1;
 
 const home = function (req, res) {
@@ -19,7 +19,7 @@ const display = (req, res) => {
   current = page;
 
   con.query(
-    `SELECT * FROM task5_studentmaster limit ${current * 200 - 200} , 200`,
+    `SELECT * FROM task5_studentmaster limit ${current * 10 - 10} , 10`,
     function (err, result, fields) {
       if (err) throw err;
       res.render("./task5/display", {
@@ -61,8 +61,7 @@ const order = (req, res) => {
 
   con.query(
     `SELECT * FROM task5_studentmaster order by ${feild} ${type} limit ${
-      current * 200 - 200
-    } , 200`,
+      current * 10 - 10   } , 10`,
     function (err, result, fields) {
       if (err) throw err;
       res.render("./task5/order", {

@@ -53,8 +53,8 @@
     <% if(current > 1) { %> <button><a href="/task6/display/?month=<%=month%>&page=1">&lt&lt</a> </button><% } %>
     <% if(current > 1) { %> <button><a href="/task6/display/?month=<%=month%>&page=<%= current-1%>%>">&lt</a> </button> <% } %>
     <p id = "val"><%= current %></p>
-    <% if(current < 10) { %> <button><a href="/task6/display/?month=<%=month%>&page=<%= 10 - (10 - current - 1)%>%>">&gt</a> </button><% } %>
-    <% if(current < 10) { %> <button><a href="/task6/display/?month=<%=month%>&page=10&%>">&gt&gt</a> </button><% } %>
+    <% if(current < 2) { %> <button><a href="/task6/display/?month=<%=month%>&page=<%= 2 - (2 - current - 1)%>%>">&gt</a> </button><% } %>
+    <% if(current < 2) { %> <button><a href="/task6/display/?month=<%=month%>&page=2&%>">&gt&gt</a> </button><% } %>
   </section>
 
     <table>
