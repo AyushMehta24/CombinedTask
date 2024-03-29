@@ -6,6 +6,14 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+const display = (req, res) => {
+  res.render("./task12/display");
+};
+
+const updated = (req, res) => {
+  res.render("./task12/update");
+};
+
 const form = (req, res) => {
   res.render("./task12/index", { result: "false", key: "" });
 };
@@ -499,4 +507,6 @@ module.exports = {
   form,
   submitform,
   update,
+  display,
+  updated,
 };

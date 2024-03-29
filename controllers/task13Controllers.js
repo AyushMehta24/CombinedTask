@@ -4,6 +4,14 @@ var express = require("express");
 var app = express();
 app.use(express.urlencoded({ extended: true }));
 
+const home = (req, res) => {
+  res.render("./task13/home");
+};
+
+const updated = (req, res) => {
+  res.render("./task13/updated");
+};
+
 const display = (req, res) => {
   res.render("./task13/index", { result: "false", key: "" });
 };
@@ -26,12 +34,12 @@ const submit = (req, res) => {
     dob,
   } = req.body;
   // console.log(hidden);
-console.log(req.body);
+  console.log(req.body);
   if (hidden == "false") {
     console.log("in1");
     if (req.body.page == "basic") {
-     let sql1 = `insert into task12_basic_details (fname,lname,add1,add2,city,state,zipcode,phone,designation,gender,relationshipstatus,dob,email) values ("${first_name}","${last_name}","${addressline1}","${addressline2}","${city}","${state}","${zipcode}","${phonenumber}","${designation}","${gender}","${relationship}","${dob}","${email}")`;
-     console.log(sql1);
+      let sql1 = `insert into task12_basic_details (fname,lname,add1,add2,city,state,zipcode,phone,designation,gender,relationshipstatus,dob,email) values ("${first_name}","${last_name}","${addressline1}","${addressline2}","${city}","${state}","${zipcode}","${phonenumber}","${designation}","${gender}","${relationship}","${dob}","${email}")`;
+      console.log(sql1);
       con.query(sql1, function (err, result1) {
         if (err) throw err;
         console.log(result1.insertId);
@@ -547,7 +555,7 @@ console.log(req.body);
         });
       }
       console.log("object");
-      return res.send({msg : "Data inserted successfully"});
+      return res.send({ msg: "Data inserted successfully" });
       // return res.render("./task13/validate");
     }
   }
@@ -566,13 +574,15 @@ const update = (req, res) => {
   });
 };
 
-const validate = (req,res)=>
-{
+const validate = (req, res) => {
   res.render("./task13/validate");
-}
+};
 
 module.exports = {
   display,
   submit,
-  update,validate
+  update,
+  validate,
+  home,
+  updated,
 };
