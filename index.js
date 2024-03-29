@@ -13,11 +13,15 @@ const task9Router = require("./routes/task9Routes");
 const task10Router = require("./routes/task10Routes");
 const task11Router = require("./routes/task11Routes");
 const task12Router = require("./routes/task12Routes");
+const task13Router = require("./routes/task13Routes");
+const task14Router = require("./routes/task14Routes");
 const path = require("path");
 const bodyParser = require("body-parser");
 require("./db")
 
+
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname+"/views")))
 app.get("/", (req, res) => {
@@ -37,6 +41,9 @@ app.use("/", task9Router);
 app.use("/", task10Router);
 app.use("/", task11Router);
 app.use("/", task12Router);
+app.use("/", task13Router);
+app.use("/", task14Router);
+
 app.use("/", loginTask);
 
 
