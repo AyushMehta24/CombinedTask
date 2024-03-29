@@ -5,12 +5,53 @@ require("../middleware/middle")(passport);
 
 const router = express.Router();
 
-
-router.get("/task13",controller.home)
-router.get("/task13/form",controller.display)
-router.get("/task13/update",controller.updated)
-router.get("/task13/validate",controller.validate)
-router.post("/task13/submitform",controller.submit)
-router.get("/task13/update/:id",controller.update)
+router.get(
+  "/task13",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.home
+);
+router.get(
+  "/task13/form",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.display
+);
+router.get(
+  "/task13/update",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.updated
+);
+router.get(
+  "/task13/validate",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.validate
+);
+router.post(
+  "/task13/submitform",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.submit
+);
+router.get(
+  "/task13/update/:id",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.update
+);
 
 module.exports = router;

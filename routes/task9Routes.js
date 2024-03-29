@@ -5,7 +5,21 @@ require("../middleware/middle")(passport);
 
 const router = express.Router();
 
-router.get("/task9" , controller.display)
-router.post("/task9/component" , controller.insert)
+router.get(
+  "/task9",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.display
+);
+router.post(
+  "/task9/component",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.insert
+);
 
 module.exports = router;

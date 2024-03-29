@@ -5,6 +5,13 @@ require("../middleware/middle")(passport);
 
 const router = express.Router();
 
-router.get("/task14" ,controller.display)
+router.get(
+  "/task14",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.display
+);
 
 module.exports = router;

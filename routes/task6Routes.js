@@ -5,10 +5,46 @@ require("../middleware/middle")(passport);
 
 const router = express.Router();
 
-router.get("/task6",controller.home)
-router.get("/task6/display", controller.display);
-router.get("/task6/exam", controller.exam);
-router.get("/task6/studentdetails", controller.studentdetails);
-router.post("/task6/exam/filter", controller.exampost);
+router.get(
+  "/task6",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.home
+);
+router.get(
+  "/task6/display",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.display
+);
+router.get(
+  "/task6/exam",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.exam
+);
+router.get(
+  "/task6/studentdetails",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.studentdetails
+);
+router.post(
+  "/task6/exam/filter",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/loginTask/login",
+  }),
+  controller.exampost
+);
 
 module.exports = router;
+
