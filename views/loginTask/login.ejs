@@ -48,6 +48,8 @@
       transition: border-color 0.3s ease-in-out;
       outline: none;
       color: #333;
+      width: 300px;
+      margin-left: auto;
     }
 
     input:focus {
@@ -67,35 +69,53 @@
     button:hover {
       background-color: #e63900;
     }
-    #fc 
-    {
+    #fc {
       display: flex;
       flex-direction: column;
     }
 
-    #fp{
-      font-size: 12px;
-      margin-left: 185px;
+    #fp {
+      font-size: 15px;
+      /* margin-left: 299px; */
       color: #333;
       text-decoration: none;
+    }
+
+    #fr {
+      font-size: 15px;
+      /* margin-left: 299px; */
+      color: #333;
+      text-decoration: none;
+    }
+
+    .fl {
+      display: flex;
+      align-items: center;
+    }
+    #extra{
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
     }
   </style>
   <body>
     <div class="container">
-      <div class="class">
+      <div class="card">
         <h2>Login</h2>
         <form action="/loginTask/login" method="POST">
-          <div>
+          <div class="fl">
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" required />
           </div>
           <div id="fc">
-            <div>
+            <div class="fl">
               <label for="password">Password:</label>
               <input type="password" id="password" name="password" required />
             </div>
-            <a id="fp" href="/loginTask/forgotpass">Forgot Password</a>
-            <a href="/loginTask/register">Register</a>
+            <div id="extra">
+              <a id="fp" href="/loginTask/forgotpass">Forgot Password</a>
+              <a id="fr" href="/loginTask/register">Register</a>
+            </div>
           </div>
           <div>
             <%if(incorrectAttempts >= 3){%>

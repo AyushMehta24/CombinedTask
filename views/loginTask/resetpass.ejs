@@ -42,12 +42,14 @@
 
       input {
         padding: 10px;
-        margin-bottom: 12px;
+        /* margin-bottom: 12px; */
         border: 1px solid #ddd;
         border-radius: 4px;
         transition: border-color 0.3s ease-in-out;
         outline: none;
         color: #333;
+        width: 330px;
+        margin-left: auto;
       }
 
       input:focus {
@@ -67,18 +69,26 @@
       button:hover {
         background-color: #e63900;
       }
+
+      .fl {
+        display: flex;
+        align-items: center;
+        margin-bottom:12px ;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <h2>Reset Password</h2>
-      <form action="/loginTask/setpass" method="post">
-        <div>
-          <label for="email">Email:</label>
-          <input type="text" id="email" name="email" required />
-        </div>
-        <button type="submit">Verify</button>
-      </form>
+      <div class="card">
+        <h2>Reset Password</h2>
+        <form action="/loginTask/setpass" method="post">
+          <div class="fl">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required />
+          </div>
+          <button type="submit">Verify</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>

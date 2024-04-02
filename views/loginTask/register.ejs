@@ -44,6 +44,8 @@
         transition: border-color 0.3s ease-in-out;
         outline: none;
         color: #333;
+        margin-left: auto;
+        width: 300px;
       }
 
       input:focus {
@@ -63,6 +65,10 @@
       button:hover {
         background-color: #e63900;
       }
+      .fl{
+        display: flex;
+        align-items: center;
+      }
     </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -70,18 +76,18 @@
   </head>
   <body>
     <div class="container">
-      <div class="class">
+      <div class="card">
         <h2>Register</h2>
         <form action="/loginTask/register" method="POST">
-          <div>
+          <div class="fl">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required />
           </div>
-          <div>
+          <div class="fl">
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" required />
           </div>
-          <div>
+          <div class="fl">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required />
           </div>
