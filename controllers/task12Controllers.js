@@ -258,14 +258,17 @@ const submitform = (req, res) => {
         if (tech4 !== undefined) {
           temptech.push(tech4);
         }
+        console.log(technologies);
+        console.log(temptech);
 
         for (let i = 0; i < technologies.length; i++) {
-          for (let j = 0; j < temptech[i].length; j++) {
-            sql = `insert into task12_technology (eid ,  technology , type) values (${id} , "${technologies[i]}", "${temptech[i][j]}")`;
+          
+            sql = `insert into task12_technology (eid ,  technology , type) values (${id} , "${technologies[i]}", "${temptech[i]}")`;
             con.query(sql, function (err, result) {
+              // console.log(result);
               if (err) throw err;
             });
-          }
+          
         }
       }
 
@@ -506,6 +509,7 @@ const update = (req, res) => {
   con.query(sql, function (err, result) {
     if (err) throw err;
     const key = Object.keys(result[0]);
+    console.log(result[4]);
 
     res.render("./task12/index", { result, key });
   });

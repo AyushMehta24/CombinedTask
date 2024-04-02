@@ -761,7 +761,7 @@
                   name="languages[]"
                   value="english"
                   onclick="lanupdate('english')"
-                  <% if(result !=="false" && result[3].length  > 3) { if((result[3][0].languagename == "english")||(result[3][1].languagename == "english")||(result[3][2].languagename == "english")||(result[3][3].languagename == "english")) { %> checked <%}} else { 
+                  <% if(result !=="false" && result[3].length  > 2) { if((result[3][0].languagename == "english")||(result[3][1].languagename == "english")||(result[3][2].languagename == "english")||(result[3][3].languagename == "english")) { %> checked <%}} else { 
                     value=""
                   }%>
                 />
@@ -775,7 +775,7 @@
                   class="englishradio"
                   id="e1"
                   value="read"
-                  <% if(result !=="false" && result[3].length > 3) { if((result[3][0].type == "read" && result[3][0].languagename== "english")||(result[3][1].type == "read" && result[3][1].languagename== "english")||(result[3][2].type == "read" && result[3][2].languagename== "english")||(result[3][3].type == "read" && result[3][3].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[3].length > 2) { if((result[3][0].type == "read" && result[3][0].languagename== "english")||(result[3][1].type == "read" && result[3][1].languagename== "english")||(result[3][2].type == "read" && result[3][2].languagename== "english")||(result[3][3].type == "read" && result[3][3].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="false"} %>
                 />
@@ -913,7 +913,7 @@
                   id="phpm"
                   value="Mideator"
                   class="php"
-                  <% if(result !=="false" && result[4].length > 0) { if((result[4][0].type == "Mideator" && result[4][0].technology== "php")||(result[4][1].type == "Mideator" && result[4][1].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Mideator" && result[4][0].technology== "php")||(result[4][1].type == "Mideator" && result[4][1].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="false"} %>
                 
@@ -944,7 +944,7 @@
                   id="mysql"
                   value="mysql"
                   onclick="techupdate('mysql')"
-                  <% if(result !=="false" && result[4].length  > 0) { if((result[4][0].technology == "php")||(result[4][1].technology == "php")) { %> checked <%}} else { %>
+                  <% if(result !=="false" && result[4].length  > 1) { if((result[4][0].technology == "mysql")||(result[4][1].technology == "mysql")) { %> checked <%}} else { %>
                    <% value="" %>
                   <%}%>
                 />
@@ -958,7 +958,7 @@
                   id="mysqlb"
                   value="Begainer"
                   class="mysql"
-                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Begainer" && result[4][0].technology== "mysql")||(result[4][1].type == "Begainer" && result[4][1].technology== "mysql")||(result[4][2].type == "Begainer" && result[4][2].technology== "mysql")||(result[4][3].type == "Begainer" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}} %>
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Begainer" && result[4][0].technology== "mysql")||(result[4][1].type == "Begainer" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}} %>
                 />
                 <label for="mysqlb">Beginer</label>
               </td>
@@ -970,7 +970,7 @@
                   id="mysqlm"
                   value="Mideator"
                   class="mysql"
-                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Mideator" && result[4][0].technology== "mysql")||(result[4][1].type == "Mideator" && result[4][1].technology== "mysql")||(result[4][2].type == "Mideator" && result[4][2].technology== "mysql")||(result[4][3].type == "Mideator" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}} %>
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Mideator" && result[4][0].technology== "mysql")||(result[4][1].type == "Mideator" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}} %>
                 />
                 <label for="mysqlm">Mideator</label>
               </td>
@@ -982,7 +982,7 @@
                   id="mysqle"
                   value="Expert"
                   class="mysql"
-                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Expert" && result[4][0].technology== "mysql")||(result[4][1].type == "Expert" && result[4][1].technology== "mysql")||(result[4][2].type == "Expert" && result[4][2].technology== "mysql")||(result[4][3].type == "Expert" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}} %>
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Expert" && result[4][0].technology== "mysql")||(result[4][1].type == "Expert" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}} %>
                 />
                 <label for="mysqle">Expert</label>
               </td>
@@ -1010,7 +1010,7 @@
                   id="laravelb"
                   value="Begainer"
                   class="laravel"
-                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Begainer" && result[4][0].technology== "laravel")||(result[4][1].type == "Begainer" && result[4][1].technology== "laravel")||(result[4][2].type == "Begainer" && result[4][2].technology== "laravel")||(result[4][3].type == "Begainer" && result[4][3].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Begainer" && result[4][0].technology== "laravel")||(result[4][1].type == "Begainer" && result[4][1].technology== "laravel")||(result[4][2].type == "Begainer" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
                 />
                 <label for="laravelb">Beginer</label>
               </td>
@@ -1022,7 +1022,7 @@
                   id="laravelm"
                   value="Mideator"
                   class="laravel"
-                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Mideator" && result[4][0].technology== "laravel")||(result[4][1].type == "Mideator" && result[4][1].technology== "laravel")||(result[4][2].type == "Mideator" && result[4][2].technology== "laravel")||(result[4][3].type == "Mideator" && result[4][3].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Mideator" && result[4][0].technology== "laravel")||(result[4][1].type == "Mideator" && result[4][1].technology== "laravel")||(result[4][2].type == "Mideator" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
                 
                 />
                 <label for="laravelm">Mideator</label>
@@ -1035,7 +1035,7 @@
                   id="laravele"
                   value="Expert"
                   class="laravel"
-                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Expert" && result[4][0].technology== "laravel")||(result[4][1].type == "Expert" && result[4][1].technology== "laravel")||(result[4][2].type == "Expert" && result[4][2].technology== "laravel")||(result[4][3].type == "Expert" && result[4][3].technology== "laravel")) { %>checked <% disabled = "false" %>  <%}} %>
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Expert" && result[4][0].technology== "laravel")||(result[4][1].type == "Expert" && result[4][1].technology== "laravel")||(result[4][2].type == "Expert" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%}} %>
                 />
                 <label for="laravele">Expert</label>
               </td>

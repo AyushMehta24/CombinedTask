@@ -42,7 +42,6 @@ const submit = (req, res) => {
     dob,
   } = req.body;
   // console.log(hidden);
-  console.log(req.body);
   if (hidden == "false") {
     console.log("in1");
     if (req.body.page == "basic") {
@@ -159,6 +158,7 @@ const submit = (req, res) => {
           });
         }
       }
+      console.log("helllllllllllooooo",english , "hellooooooooooooo");
       if (english.length > 0) {
         for (let i = 0; i < english.length; i++) {
           sql = `insert into task12_language (eid , languagename , type) values (${id} , "english", "${english[i]}")`;
@@ -419,6 +419,7 @@ const submit = (req, res) => {
           });
         }
       }
+      console.log("hello" , english);
       if (english.length > 0) {
         for (let i = 0; i < english.length; i++) {
           sql = `insert into task12_language (eid , languagename , type) values (${finalid} , "english", "${english[i]}")`;
@@ -577,6 +578,7 @@ const update = (req, res) => {
     if (err) throw err;
     const key = Object.keys(result[0]);
     // console.log(result);
+    console.log(result[4]);
 
     res.render("./task13/index", { result, key, id });
   });

@@ -690,7 +690,7 @@
                   id="h1"
                   value="read"
                   class="hindiradio"
-                  <% if(result !=="false" ) { if(result[3][0].type == "read" && result[3][0].languagename == "hindi") { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[3].length  > 0) { if(result[3][0].type == "read" && result[3][0].languagename == "hindi") { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="false"} %>
                 />
@@ -704,7 +704,7 @@
                   class="hindiradio"
                   id="h2"
                   value="write"
-                  <% if(result !=="false") { if((result[3][0].type == "write" && result[3][0].languagename== "hindi")||(result[3][1].type == "write" && result[3][1].languagename== "hindi")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[3].length  > 1) { if((result[3][0].type == "write" && result[3][0].languagename== "hindi")||(result[3][1].type == "write" && result[3][1].languagename== "hindi")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="false"} %>
                 />
@@ -717,7 +717,7 @@
                   class="hindiradio"
                   id="h3"
                   value="speak"
-                  <% if(result !=="false") { if((result[3][0].type == "speak" && result[3][0].languagename== "hindi")||(result[3][1].type == "speak" && result[3][1].languagename== "hindi")||(result[3][2].type == "speak" && result[3][2].languagename== "hindi")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[3].length  > 2) { if((result[3][0].type == "speak" && result[3][0].languagename== "hindi")||(result[3][1].type == "speak" && result[3][1].languagename== "hindi")||(result[3][2].type == "speak" && result[3][2].languagename== "hindi")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="false"} %>
                 />
@@ -732,7 +732,7 @@
                   name="languages"
                   value="english"
                   onclick="lanupdate('english')"
-                  <% if(result !=="false" && result[3].length  > 0) { if((result[3][0].languagename == "english")||(result[3][1].languagename == "english")||(result[3][2].languagename == "english")||(result[3][3].languagename == "english")) { %> checked <%}} else { 
+                  <% if(result !=="false" && result[3].length  > 1) { if((result[3][0].languagename == "english")||(result[3][1].languagename == "english")||(result[3][2].languagename == "english")||(result[3][3].languagename == "english")) { %> checked <%}} else { 
                     value=""
                   }%>
                 />
@@ -746,7 +746,7 @@
                   class="englishradio"
                   id="e1"
                   value="read"
-                  <% if(result !=="false") { if((result[3][0].type == "read" && result[3][0].languagename== "english")||(result[3][1].type == "read" && result[3][1].languagename== "english")||(result[3][2].type == "read" && result[3][2].languagename== "english")||(result[3][3].type == "read" && result[3][3].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[3].length  > 2) { if((result[3][0].type == "read" && result[3][0].languagename== "english")||(result[3][1].type == "read" && result[3][1].languagename== "english")||(result[3][2].type == "read" && result[3][2].languagename== "english")||(result[3][3].type == "read" && result[3][3].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="false"} %>
                 />
@@ -760,7 +760,7 @@
                   class="englishradio"
                   id="e2"
                   value="write"
-                  <% if(result !=="false" && result[3].length >4 ) { if((result[3][0].type == "write" && result[3][0].languagename== "english")||(result[3][1].type == "write" && result[3][1].languagename== "english")||(result[3][2].type == "write" && result[3][2].languagename== "english")||(result[3][3].type == "write" && result[3][3].languagename== "english")||(result[3][4].type == "write" && result[3][4].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[3].length >3 ) { if((result[3][0].type == "write" && result[3][0].languagename== "english")||(result[3][1].type == "write" && result[3][1].languagename== "english")||(result[3][2].type == "write" && result[3][2].languagename== "english")||(result[3][3].type == "write" && result[3][3].languagename== "english")||(result[3][4].type == "write" && result[3][4].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="false"} %>
                 />
@@ -895,7 +895,7 @@
                   id="phpe"
                   value="Expert"
                   class="php"
-                  <% if(result !=="false" && result[4].length > 0) { if((result[4][0].type == "Expert" && result[4][0].technology== "php")||(result[4][1].type == "Expert" && result[4][1].technology== "php")||(result[4][2].type == "Expert" && result[4][2].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Expert" && result[4][0].technology== "php")||(result[4][1].type == "Expert" && result[4][1].technology== "php")||(result[4][2].type == "Expert" && result[4][2].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="true"} %>
                 />
@@ -911,7 +911,7 @@
                   id="mysql"
                   value="mysql"
                   onclick="techupdate('mysql')"
-                  <% if(result !=="false" && result[4].length  > 0) { if((result[4][0].technology == "php")||(result[4][1].technology == "php")) { %> checked <%}} else { %>
+                  <% if(result !=="false" && result[4].length  > 0) { if((result[4][0].technology == "mysql")||(result[4][1].technology == "mysql")) { %> checked <%}} else { %>
                    <% value="" %>
                   <%}%>
                 />
@@ -925,7 +925,11 @@
                   id="mysqlb"
                   value="Begainer"
                   class="mysql"
-                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Begainer" && result[4][0].technology== "mysql")||(result[4][1].type == "Begainer" && result[4][1].technology== "mysql")||(result[4][2].type == "Begainer" && result[4][2].technology== "mysql")||(result[4][3].type == "Begainer" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}} %>
+             
+                  
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Begainer" && result[4][0].technology== "mysql")||(result[4][1].type == "Begainer" && result[4][1].technology== "mysql")||(result[4][2].type == "Begainer" && result[4][2].technology== "mysql")||(result[4][3].type == "Begainer" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="true"} %>
                 />
                 <label for="mysqlb">Beginer</label>
               </td>
@@ -937,7 +941,9 @@
                   id="mysqlm"
                   value="Mideator"
                   class="mysql"
-                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Mideator" && result[4][0].technology== "mysql")||(result[4][1].type == "Mideator" && result[4][1].technology== "mysql")||(result[4][2].type == "Mideator" && result[4][2].technology== "mysql")||(result[4][3].type == "Mideator" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}} %>
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Mideator" && result[4][0].technology== "mysql")||(result[4][1].type == "Mideator" && result[4][1].technology== "mysql")||(result[4][2].type == "Mideator" && result[4][2].technology== "mysql")||(result[4][3].type == "Mideator" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="true"} %>} %>
                 />
                 <label for="mysqlm">Mideator</label>
               </td>
@@ -949,7 +955,9 @@
                   id="mysqle"
                   value="Expert"
                   class="mysql"
-                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Expert" && result[4][0].technology== "mysql")||(result[4][1].type == "Expert" && result[4][1].technology== "mysql")||(result[4][2].type == "Expert" && result[4][2].technology== "mysql")||(result[4][3].type == "Expert" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}} %>
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Expert" && result[4][0].technology== "mysql")||(result[4][1].type == "Expert" && result[4][1].technology== "mysql")||(result[4][2].type == "Expert" && result[4][2].technology== "mysql")||(result[4][3].type == "Expert" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="true"} %>} %>
                 />
                 <label for="mysqle">Expert</label>
               </td>
@@ -963,7 +971,7 @@
                   value="laravel"
                   onclick="techupdate('laravel')"
                   id="laravel"
-                  <% if(result !=="false" && result[4].length  > 0) { if((result[4][0].technology == "laravel")||(result[4][1].technology == "laravel")||(result[4][2].technology == "laravel")) { %> checked <%}} else { 
+                  <% if(result !=="false" && result[4].length  > 2) { if((result[4][0].technology == "laravel")||(result[4][1].technology == "laravel")||(result[4][2].technology == "laravel")) { %> checked <%}} else { 
                      value="" 
                    }%>
                 />
@@ -1016,7 +1024,7 @@
                   id="oracle"
                   value="oracle"
                   onclick="techupdate('oracle')"
-                  <% if(result !=="false" && result[4].length  > 0) { if((result[4][0].technology == "oracle")||(result[4][1].technology == "oracle")||(result[4][2].technology == "oracle")||(result[4][3].technology == "oracle")) { %> checked <%}} else { %>
+                  <% if(result !=="false" && result[4].length  > 3) { if((result[4][0].technology == "oracle")||(result[4][1].technology == "oracle")||(result[4][2].technology == "oracle")||(result[4][3].technology == "oracle")) { %> checked <%}} else { %>
                     <% value="" %>
                    <%}%>
                 />
@@ -1058,7 +1066,7 @@
                   id="oraclee"
                   value="Expert"
                   class="oracle"
-                  <% if(result !=="false" && result[4].length > 4) { if((result[4][0].type == "Expert" && result[4][0].technology== "oracle")||(result[4][1].type == "Expert" && result[4][1].technology== "oracle")||(result[4][2].type == "Expert" && result[4][2].technology== "oracle")||(result[4][3].type == "Expert" && result[4][3].technology== "oracle")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Expert" && result[4][0].technology== "oracle")||(result[4][1].type == "Expert" && result[4][1].technology== "oracle")||(result[4][2].type == "Expert" && result[4][2].technology== "oracle")||(result[4][3].type == "Expert" && result[4][3].technology== "oracle")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="false"} %>
                 />
