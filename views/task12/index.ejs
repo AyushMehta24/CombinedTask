@@ -760,7 +760,7 @@
                   class="englishradio"
                   id="e2"
                   value="write"
-                  <% if(result !=="false") { if((result[3][0].type == "write" && result[3][0].languagename== "english")||(result[3][1].type == "write" && result[3][1].languagename== "english")||(result[3][2].type == "write" && result[3][2].languagename== "english")||(result[3][3].type == "write" && result[3][3].languagename== "english")||(result[3][4].type == "write" && result[3][4].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[3].length >4 ) { if((result[3][0].type == "write" && result[3][0].languagename== "english")||(result[3][1].type == "write" && result[3][1].languagename== "english")||(result[3][2].type == "write" && result[3][2].languagename== "english")||(result[3][3].type == "write" && result[3][3].languagename== "english")||(result[3][4].type == "write" && result[3][4].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="false"} %>
                 />
@@ -788,7 +788,7 @@
                   name="languages"
                   value="gujarati"
                   onclick="lanupdate('gujarati')"
-                  <% if(result !=="false" && result[3].length  > 0) { if((result[3][0].languagename == "gujarati")||(result[3][1].languagename == "gujarati")||(result[3][2].languagename == "gujarati")||(result[3][3].languagename == "gujarati")||(result[3][4].languagename == "gujarati")||(result[3][5].languagename == "gujarati")||(result[3][6].languagename == "gujarati")||(result[3][7].languagename == "gujarati")) { %> checked <%}} else { 
+                  <% if(result !=="false" && result[3].length  > 7) { if((result[3][0].languagename == "gujarati")||(result[3][1].languagename == "gujarati")||(result[3][2].languagename == "gujarati")||(result[3][3].languagename == "gujarati")||(result[3][4].languagename == "gujarati")||(result[3][5].languagename == "gujarati")||(result[3][6].languagename == "gujarati")||(result[3][7].languagename == "gujarati")) { %> checked <%}} else { 
                     value=""
                   }%>
                 />

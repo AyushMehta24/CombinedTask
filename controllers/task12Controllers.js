@@ -11,7 +11,15 @@ const display = (req, res) => {
 };
 
 const updated = (req, res) => {
-  res.render("./task12/update");
+  const sql = `select eid from all_tasks0.task12_basic_details`;
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    const key = Object.keys(result[0]);
+
+   console.log(result);
+   res.render("./task12/update" , {id : result});
+  });
+
 };
 
 const form = (req, res) => {

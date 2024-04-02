@@ -6,7 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <p>you have to insert id into url for update (for example try /52)</p>
+    <h2>You have this users for update data</h2>
+    <table>
 
+    <% for(var i=0; i<id.length  ; i++) {%>
+        <tr>
+            <td>
+                <a href="http://localhost:3000/task13/update/<%= id[i].eid%>">User <%= id[i].eid%></a>
+            </td>
+        </tr>
+     <% } %>
+    </table>
 </body>
 </html>

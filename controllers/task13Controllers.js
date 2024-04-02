@@ -9,8 +9,16 @@ const home = (req, res) => {
 };
 
 const updated = (req, res) => {
-  res.render("./task13/updated");
-};
+  const sql = `select eid from all_tasks0.task12_basic_details`;
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    const key = Object.keys(result[0]);
+
+   console.log(result);
+   res.render("./task13/updated" , {id : result});
+  });
+
+};;
 
 const display = (req, res) => {
   res.render("./task13/index", { result: "false", key: "" });
