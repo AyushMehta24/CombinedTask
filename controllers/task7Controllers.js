@@ -50,7 +50,7 @@ const display = (req, res) => {
     queryParts[limitIndex + 3] = limit;
    let  sql = queryParts.join(" ");
     con.query(sql, function (err, result, fields) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
       res.render("./task7/display", {
         result: result,
         fields: fields,
@@ -76,7 +76,7 @@ const display = (req, res) => {
     const sql = queryParts.join(" ");
 
     con.query(sql, function (err, result, fields) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
       con.query(fsql, function (err, result1, fields1) {
         totalPages = result1.length / limit;
         res.render("./task7/display", {
@@ -108,7 +108,7 @@ const display2 = (req, res) => {
     const totalPages = parseInt(tmp.tp);
     const sql = queryParts.join(" ");
     con.query(sql, function (err, result, fields) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
       res.render("./task7/display", {
         result: result,
         fields: fields,
@@ -133,7 +133,7 @@ const display2 = (req, res) => {
     const sql = queryParts.join(" ");
 
     con.query(sql, function (err, result, fields) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
       res.render("./task7/display", {
         result: result,
         fields: fields,

@@ -15,7 +15,7 @@ const result = (req, res) => {
     con.query(
       "select * from task6_studentmaster limit 20",
       function (err, result, fields) {
-        if (err) throw err;
+        if (err) return res.render("../views/error.ejs");
         res.render("./task8/result", {
           result,
           fields,
@@ -246,7 +246,7 @@ const result = (req, res) => {
   /////////////////////////////////////////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////
   con.query(query, function (err, result, fields) {
-    if (err) throw err;
+    if (err) return res.render("../views/error.ejs");
     if (result) {
       res.render("./task8/result", {
         result,

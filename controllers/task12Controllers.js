@@ -13,7 +13,7 @@ const display = (req, res) => {
 const updated = (req, res) => {
   const sql = `select eid from all_tasks0.task12_basic_details`;
   con.query(sql, function (err, result) {
-    if (err) throw err;
+    if (err) return res.render("../views/error.ejs");
     const key = Object.keys(result[0]);
 
    res.render("./task12/update" , {id : result});
@@ -78,7 +78,7 @@ const submitform = (req, res) => {
   if (hidden == "") {
     sql1 = `insert into task12_basic_details (fname,lname,add1,add2,city,state,zipcode,phone,designation,gender,relationshipstatus,dob,email) values ("${first_name}","${last_name}","${addressline1}","${addressline2}","${city}","${state}","${zipcode}","${phonenumber}","${designation}","${gender}","${relationship}","${dob}","${email}")`;
     con.query(sql1, function (err, result1) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
       console.log(result1.insertId);
       other(result1.insertId);
     });
@@ -102,7 +102,7 @@ const submitform = (req, res) => {
       for (let i = 0; i < newcourse.length; i++) {
         sql = `insert into task12_education (eid , coursename , passingyear , percentage) values (${id} , "${newcourse[i]}" , ${newyear[i]} , ${newpercentage[i]})`;
         con.query(sql, function (err, result) {
-          if (err) throw err;
+          if (err) return res.render("../views/error.ejs");
         });
       }
 
@@ -127,7 +127,7 @@ const submitform = (req, res) => {
         for (let i = 0; i < newcompnay.length; i++) {
           sql = `insert into task12_experience (eid , compnayname ,designation ,start , end) values (${id} , "${newcompnay[i]}" , "${newworkdesignation[i]}" , "${newfrom[i]}","${newto[i]}")`;
           con.query(sql, function (err, result) {
-            if (err) throw err;
+            if (err) return res.render("../views/error.ejs");
           });
         }
       }
@@ -149,7 +149,7 @@ const submitform = (req, res) => {
       for (let i = 0; i < newrname.length; i++) {
         sql = `insert into task12_reference (eid , name ,contact ,relation) values (${id} , "${newrname[i]}" , ${newrnumber[i]} , "${newrelation[i]}")`;
         con.query(sql, function (err, result) {
-          if (err) throw err;
+          if (err) return res.render("../views/error.ejs");
         });
       }
 
@@ -228,7 +228,7 @@ const submitform = (req, res) => {
           for (let j = 0; j < templan[i].length; j++) {
             sql = `insert into task12_language (eid , languagename , type) values (${id} , "${languages[i]}", "${templan[i][j]}")`;
             con.query(sql, function (err, result) {
-              if (err) throw err;
+              if (err) return res.render("../views/error.ejs");
             });
           }
         }
@@ -257,7 +257,7 @@ const submitform = (req, res) => {
           
             sql = `insert into task12_technology (eid ,  technology , type) values (${id} , "${technologies[i]}", "${temptech[i]}")`;
             con.query(sql, function (err, result) {
-              if (err) throw err;
+              if (err) return res.render("../views/error.ejs");
             });
           
         }
@@ -281,7 +281,7 @@ const submitform = (req, res) => {
         for (let i = 0; i < preferdlocation.length; i++) {
           sql = `insert into task12_preference (eid,location,noticeperiod,expectedCTC,currentCTC,department) values (${id},"${preferdlocation[i]}", ${tempnperiod}, ${expectedctc}, ${tempcctc} , "${department}")`;
           con.query(sql, function (err, result) {
-            if (err) throw err;
+            if (err) return res.render("../views/error.ejs");
           });
         }
       }
@@ -296,7 +296,7 @@ const submitform = (req, res) => {
     // sql);
 
     con.query(sql, function (err, result) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
       // result.insertId);
     });
 
@@ -305,7 +305,7 @@ const submitform = (req, res) => {
     sql = `delete from task12_experience  where eid = ${hidden}`;
     // sql);
     con.query(sql, function (err, result) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
     });
 
     let newcom = compnay_name.filter(function (el) {
@@ -315,7 +315,7 @@ const submitform = (req, res) => {
     for (let i = 0; i < newcom.length; i++) {
       sql = `insert into task12_experience (eid , compnayname ,designation ,start , end) values (${hidden} , "${compnay_name[i]}" , "${workdesignation[i]}" , "${from[i]}","${to[i]}")`;
       con.query(sql, function (err, result) {
-        if (err) throw err;
+        if (err) return res.render("../views/error.ejs");
       });
     }
 
@@ -329,14 +329,14 @@ const submitform = (req, res) => {
         sql = `delete from task12_reference where eid = ${hidden}`;
         // sql);
         con.query(sql, function (err, result) {
-          if (err) throw err;
+          if (err) return res.render("../views/error.ejs");
         });
       }
 
       for (let i = 0; i < newrname.length; i++) {
         sql = `insert into task12_reference (eid , name ,contact ,relation) values (${hidden} , "${rn[i]}" , ${rc[i]} , "${rr[i]}")`;
         con.query(sql, function (err, result) {
-          if (err) throw err;
+          if (err) return res.render("../views/error.ejs");
         });
       }
     }
@@ -346,20 +346,20 @@ const submitform = (req, res) => {
     sql = `delete from task12_preference where eid = ${hidden}`;
     // sql);
     con.query(sql, function (err, result) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
     });
 
     for (let i = 0; i < preferdlocation.length; i++) {
       sql = `insert into task12_preference (eid,location,noticeperiod,expectedCTC,currentCTC,department) values (${hidden},"${preferdlocation[i]}", ${noticeperiod}, ${expectedctc}, ${currentctc} , "${department}")`;
       con.query(sql, function (err, result) {
-        if (err) throw err;
+        if (err) return res.render("../views/error.ejs");
       });
     }
 
     //task12_education
     sql = `delete from task12_education where eid = ${hidden}`;
     con.query(sql, function (err, result) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
     });
 
     let edu = course.filter(function (el) {
@@ -369,14 +369,14 @@ const submitform = (req, res) => {
     for (let i = 0; i < edu.length; i++) {
       sql = `insert into task12_education (eid , coursename , passingyear , percentage) values (${hidden} , "${course[i]}" , ${year[i]} , ${percentage[i]})`;
       con.query(sql, function (err, result) {
-        if (err) throw err;
+        if (err) return res.render("../views/error.ejs");
       });
     }
 
     // language
     sql = `delete from task12_language where eid = ${hidden}`;
     con.query(sql, function (err, result) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
     });
 
     if (languages) {
@@ -451,7 +451,7 @@ const submitform = (req, res) => {
         for (let j = 0; j < templan[i].length; j++) {
           sql = `insert into task12_language (eid , languagename , type) values (${hidden} , "${languages[i]}", "${templan[i][j]}")`;
           con.query(sql, function (err, result) {
-            if (err) throw err;
+            if (err) return res.render("../views/error.ejs");
           });
         }
       }
@@ -479,7 +479,7 @@ const submitform = (req, res) => {
         for (let j = 0; j < temptech[i].length; j++) {
           sql = `insert into task12_technology (eid ,  technology , type) values (${hidden} , "${technologies[i]}", "${temptech[i][j]}")`;
           con.query(sql, function (err, result) {
-            if (err) throw err;
+            if (err) return res.render("../views/error.ejs");
           });
         }
       }
@@ -493,7 +493,7 @@ const update = (req, res) => {
   const id = req.params.id;
   const sql = `select * from task12_basic_details where eid = ${id} ; select * from task12_education where eid = ${id} ; select * from task12_experience where eid = ${id} ; select * from task12_language where eid = ${id} ; select * from task12_technology where eid = ${id} ; select * from task12_reference where eid = ${id} ; select * from task12_preference where eid = ${id}`;
   con.query(sql, function (err, result) {
-    if (err) throw err;
+    if (err) return res.render("../views/error.ejs");
     const key = Object.keys(result[0]);
 
     res.render("./task12/index", { result, key });

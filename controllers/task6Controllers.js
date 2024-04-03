@@ -38,7 +38,8 @@ const display = (req, res) => {
       current * 5 - 5
     } , 5`,
     function (err, result, fields) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
+
       res.render("./task6/display", {
         data: result,
         month: month,
@@ -54,15 +55,15 @@ const exam = (req, res) => {
   con.query(
     `select task6_studentmaster.sid,task6_studentmaster.email,task6_studentmaster.phone, task6_exam.sid, task6_studentmaster.fname , sum(task6_exam.prac) as prac , sum(task6_exam.theory) as theory from task6_studentmaster  join task6_exam where task6_studentmaster.sid = task6_exam.sid and task6_exam.type =1 group by task6_exam.sid;`,
     function (err, result1, fields) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
       con.query(
         `select task6_studentmaster.sid,task6_studentmaster.email,task6_studentmaster.phone, task6_exam.sid, task6_studentmaster.fname , sum(task6_exam.prac) as prac , sum(task6_exam.theory) as theory from task6_studentmaster  join task6_exam where task6_studentmaster.sid = task6_exam.sid and task6_exam.type =2 group by task6_exam.sid;`,
         function (err, result2, fields) {
-          if (err) throw err;
+          if (err) return res.render("../views/error.ejs");
           con.query(
             `select task6_studentmaster.sid,task6_studentmaster.email,task6_studentmaster.phone, task6_exam.sid, task6_studentmaster.fname , sum(task6_exam.prac) as prac , sum(task6_exam.theory) as theory from task6_studentmaster  join task6_exam where task6_studentmaster.sid = task6_exam.sid and task6_exam.type =3 group by task6_exam.sid;`,
             function (err, result3, fields) {
-              if (err) throw err;
+              if (err) return res.render("../views/error.ejs");
               res.render("./task6/exam", {
                 data1: result1,
                 data2: result2,
@@ -84,21 +85,21 @@ const studentdetails = (req, res) => {
   con.query(
     `select sid, subid , theory , prac from task6_exam where type =1 and sid = ${temp};`,
     function (err, result1, fields) {
-      if (err) throw err;
+      if (err) return res.render("../views/error.ejs");
       con.query(
         `select subid , theory , prac from task6_exam where type =2 and sid = ${temp};`,
         function (err, result2, fields) {
-          if (err) throw err;
+          if (err) return res.render("../views/error.ejs");
 
           con.query(
             `select subid , theory , prac from task6_exam where type =3 and sid = ${temp};`,
             function (err, result3, fields) {
-              if (err) throw err;
+              if (err) return res.render("../views/error.ejs");
               con.query(
                 `select task6_studentmaster.sid as sid,   count(attendence) as att from task6_studentmaster join task6_attendence where task6_studentmaster.sid = task6_attendence.aid and task6_attendence.attendence = "P"  group by task6_studentmaster.sid;
                   `,
                 function (err, result4, fields) {
-                  if (err) throw err;
+                  if (err) return res.render("../views/error.ejs");
                   res.render("./task6/student", {
                     data1: result1,
                     data2: result2,
@@ -127,15 +128,15 @@ const exampost = (req, res) => {
     con.query(
       `select task6_studentmaster.sid,task6_studentmaster.email,task6_studentmaster.phone, task6_exam.sid, task6_studentmaster.fname , sum(task6_exam.prac) as prac , sum(task6_exam.theory) as theory from task6_studentmaster  join task6_exam where task6_studentmaster.fname = "${name}" and task6_studentmaster.email = "${email}" and task6_studentmaster.phone = "${phone}" and task6_studentmaster.sid = task6_exam.sid and task6_exam.type =1 group by task6_exam.sid;`,
       function (err, result1, fields) {
-        if (err) throw err;
+        if (err) return res.render("../views/error.ejs");
         con.query(
           `select task6_studentmaster.sid,task6_studentmaster.email,task6_studentmaster.phone, task6_exam.sid, task6_studentmaster.fname , sum(task6_exam.prac) as prac , sum(task6_exam.theory) as theory from task6_studentmaster  join task6_exam where task6_studentmaster.fname = "${name}" and task6_studentmaster.email = "${email}" and task6_studentmaster.phone = "${phone}" and task6_studentmaster.sid = task6_exam.sid and task6_exam.type =2 group by task6_exam.sid;`,
           function (err, result2, fields) {
-            if (err) throw err;
+            if (err) return res.render("../views/error.ejs");
             con.query(
               `select task6_studentmaster.sid,task6_studentmaster.email,task6_studentmaster.phone, task6_exam.sid, task6_studentmaster.fname , sum(task6_exam.prac) as prac , sum(task6_exam.theory) as theory from task6_studentmaster  join task6_exam where task6_studentmaster.fname = "${name}" and task6_studentmaster.email = "${email}" and task6_studentmaster.phone = "${phone}" and task6_studentmaster.sid = task6_exam.sid and task6_exam.type =3 group by task6_exam.sid;`,
               function (err, result3, fields) {
-                if (err) throw err;
+                if (err) return res.render("../views/error.ejs");
 
                 res.render("exam", {
                   data1: result1,
@@ -153,15 +154,15 @@ const exampost = (req, res) => {
       `select task6_studentmaster.sid,task6_studentmaster.email,task6_studentmaster.phone, task6_exam.sid, task6_studentmaster.fname , sum(task6_exam.prac) as prac , sum(task6_exam.theory) as theory from task6_studentmaster  join task6_exam where 
       (task6_studentmaster.fname = "${name}" or task6_studentmaster.email = "${email}" or task6_studentmaster.phone = "${phone}") and task6_studentmaster.sid = task6_exam.sid and task6_exam.type =1 group by task6_exam.sid;`,
       function (err, result1, fields) {
-        if (err) throw err;
+        if (err) return res.render("../views/error.ejs");
         con.query(
           `select task6_studentmaster.sid,task6_studentmaster.email,task6_studentmaster.phone, task6_exam.sid, task6_studentmaster.fname , sum(task6_exam.prac) as prac , sum(task6_exam.theory) as theory from task6_studentmaster  join task6_exam where (task6_studentmaster.fname = "${name}" or task6_studentmaster.email = "${email}" or task6_studentmaster.phone = "${phone}") and task6_studentmaster.sid = task6_exam.sid and task6_exam.type =2 group by task6_exam.sid;`,
           function (err, result2, fields) {
-            if (err) throw err;
+            if (err) return res.render("../views/error.ejs");
             con.query(
               `select task6_studentmaster.sid,task6_studentmaster.email,task6_studentmaster.phone, task6_exam.sid, task6_studentmaster.fname , sum(task6_exam.prac) as prac , sum(task6_exam.theory) as theory from task6_studentmaster  join task6_exam where (task6_studentmaster.fname = "${name}" or task6_studentmaster.email = "${email}" or task6_studentmaster.phone = "${phone}") and task6_studentmaster.sid = task6_exam.sid and task6_exam.type =3 group by task6_exam.sid;`,
               function (err, result3, fields) {
-                if (err) throw err;
+                if (err) return res.render("../views/error.ejs");
 
                 res.render("exam", {
                   data1: result1,

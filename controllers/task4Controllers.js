@@ -19,18 +19,22 @@ const submited = function (req, res) {
   let userDataArray = [];
   if (fs.existsSync(filePath)) {
     fs.readFile(filePath, (err, data) => {
-      if (err) throw err;
-      if (data.length == 0) {
-        const temp = req.body;
-        temp.id = generateUniqueId();
-        userDataArray.push(temp);
-        fs.writeFileSync(filePath, JSON.stringify(userDataArray));
-      } else {
-        userDataArray = JSON.parse(data);
-        const temp = req.body;
-        temp.id = generateUniqueId();
-        userDataArray.push(temp);
-        fs.writeFileSync(filePath, JSON.stringify(userDataArray));
+      try {
+        if (err) throw err;
+        if (data.length == 0) {
+          const temp = req.body;
+          temp.id = generateUniqueId();
+          userDataArray.push(temp);
+          fs.writeFileSync(filePath, JSON.stringify(userDataArray));
+        } else {
+          userDataArray = JSON.parse(data);
+          const temp = req.body;
+          temp.id = generateUniqueId();
+          userDataArray.push(temp);
+          fs.writeFileSync(filePath, JSON.stringify(userDataArray));
+        }
+      } catch (err) {
+        console.log(err);
       }
     });
   } else {
@@ -76,5 +80,6 @@ module.exports = {
   form,
   submited,
   userlist,
-  userdetails,home
+  userdetails,
+  home,
 };

@@ -4,8 +4,6 @@ const passport = require("passport");
 const mysql = require("mysql");
 const con = require("../db");
 
-
-
 function cookieExtractor(req) {
   // if()
   let token;
@@ -28,13 +26,17 @@ module.exports = function authenticateToken(passport) {
         "select * from login where email = ?",
         [jwtPayload.email],
         function (err, result, fields) {
-          if (err) throw err;
+          try {
+            if (err) throw err;
 
-          let user = result[0];
-          if (jwtPayload.email === user.email) {
-            return done(null, { email: user.email });
-          } else {
-            console.log("noooo");
+            let user = result[0];
+            if (jwtPayload.email === user.email) {
+              return done(null, { email: user.email });
+            } else {
+              console.log("noooo");
+            }
+          } catch (err) {
+            return res.render("../views/error.ejs");
           }
         }
       );

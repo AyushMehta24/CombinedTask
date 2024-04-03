@@ -21,13 +21,18 @@ const display = (req, res) => {
   con.query(
     `SELECT * FROM task5_studentmaster limit ${current * 10 - 10} , 10`,
     function (err, result, fields) {
-      if (err) throw err;
-      res.render("./task5/display", {
-        nrp: nrp,
-        current: current,
-        data: result,
-        feild: false,
-      });
+      try {
+        if (err) throw err;
+        res.render("./task5/display", {
+          nrp: nrp,
+          current: current,
+          data: result,
+          feild: false,
+        });
+      } catch (err) {
+        console.log(err);
+        res.render("../views/error.ejs");
+      }
     }
   );
 };
@@ -61,16 +66,22 @@ const order = (req, res) => {
 
   con.query(
     `SELECT * FROM task5_studentmaster order by ${feild} ${type} limit ${
-      current * 10 - 10   } , 10`,
+      current * 10 - 10
+    } , 10`,
     function (err, result, fields) {
-      if (err) throw err;
-      res.render("./task5/order", {
-        nrp: nrp,
-        current: current,
-        data: result,
-        feild: feild,
-        type: type,
-      });
+      try {
+        if (err) throw err;
+        res.render("./task5/order", {
+          nrp: nrp,
+          current: current,
+          data: result,
+          feild: feild,
+          type: type,
+        });
+      } catch (err) {
+        console.log(err);
+        res.render("../views/error.ejs");
+      }
     }
   );
 };
