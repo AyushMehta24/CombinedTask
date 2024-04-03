@@ -1,1 +1,1 @@
-[{"fname":"a","lname":"a","age":"20","contact":"1111111111","email":"a","gender":"male","hobby":["reading","dancing"],"address":"a","id":"dcnk2z2v5jnk8gtf3lfiel"}]
+[{"fname":"a","lname":"a","age":"20","contact":"1111111111","email":"a","gender":"male","hobby":["reading","dancing"],"address":"a","id":"dcnk2z2v5jnk8gtf3lfiel"},{"fname":"ayush","lname":"mehta","age":"20","contact":"1111111111","email":"ayush@gmail.com","gender":"male","hobby":"reading","address":"aa","id":"6grbofkhm6ws59p1sq58ee"}]

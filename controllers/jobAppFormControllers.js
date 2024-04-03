@@ -16,9 +16,8 @@ const updated = (req, res) => {
     if (err) return res.render("../views/error.ejs");
     const key = Object.keys(result[0]);
 
-   res.render("./jobAppForm/update" , {id : result});
+    res.render("./jobAppForm/update", { id: result });
   });
-
 };
 
 const form = (req, res) => {
@@ -72,8 +71,6 @@ const submitform = (req, res) => {
     currentctc,
     department,
   } = req.body;
-
-
 
   if (hidden == "") {
     sql1 = `insert into task12_basic_details (fname,lname,add1,add2,city,state,zipcode,phone,designation,gender,relationshipstatus,dob,email) values ("${first_name}","${last_name}","${addressline1}","${addressline2}","${city}","${state}","${zipcode}","${phonenumber}","${designation}","${gender}","${relationship}","${dob}","${email}")`;
@@ -254,12 +251,10 @@ const submitform = (req, res) => {
         }
 
         for (let i = 0; i < technologies.length; i++) {
-          
-            sql = `insert into task12_technology (eid ,  technology , type) values (${id} , "${technologies[i]}", "${temptech[i]}")`;
-            con.query(sql, function (err, result) {
-              if (err) return res.render("../views/error.ejs");
-            });
-          
+          sql = `insert into task12_technology (eid ,  technology , type) values (${id} , "${technologies[i]}", "${temptech[i]}")`;
+          con.query(sql, function (err, result) {
+            if (err) return res.render("../views/error.ejs");
+          });
         }
       }
 
@@ -446,6 +441,7 @@ const submitform = (req, res) => {
       if (newgr !== undefined) {
         templan.push(newgr);
       }
+      console.log(templan);
 
       for (let i = 0; i < languages.length; i++) {
         for (let j = 0; j < templan[i].length; j++) {
@@ -475,13 +471,13 @@ const submitform = (req, res) => {
         temptech.push(tech4);
       }
 
+      console.log(technologies);
+      console.log(temptech);
       for (let i = 0; i < technologies.length; i++) {
-        for (let j = 0; j < temptech[i].length; j++) {
-          sql = `insert into task12_technology (eid ,  technology , type) values (${hidden} , "${technologies[i]}", "${temptech[i][j]}")`;
-          con.query(sql, function (err, result) {
-            if (err) return res.render("../views/error.ejs");
-          });
-        }
+        sql = `insert into task12_technology (eid ,  technology , type) values (${hidden} , "${technologies[i]}", "${temptech[i]}")`;
+        con.query(sql, function (err, result) {
+          if (err) return res.render("../views/error.ejs");
+        });
       }
     }
   }

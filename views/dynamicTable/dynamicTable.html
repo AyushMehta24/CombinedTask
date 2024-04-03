@@ -4,6 +4,7 @@
       table,
       tr,
       td {
+        /* margin-left:45%; */
         border-collapse: collapse;
         border: SOLID BLACK 1px;
         height: 10px;
@@ -16,6 +17,9 @@
       .td2 {
         background-color: bisque;
       }
+      /* .btns{
+        margin-left: 39%;
+      } */
     </style>
 
     <script>
@@ -93,12 +97,14 @@
       </tr>
     </table>
     <br /><br />
-    <button name="addrow" onclick="insert_row()">Add row</button>
-    <button name="removerow" onclick="remove_row()">Remove row</button>
+    <div class="btns">
+      <button name="addrow" onclick="insert_row()">Add row</button>
+      <button name="removerow" onclick="remove_row()">Remove row</button>
 
-    <button name="addcollumn" onclick="insert_collumn()">Add Collumn</button>
-    <button name="removecollumn" onclick="remove_collumn()">
-      Remove Collumn
-    </button>
+      <button name="addcollumn" onclick="insert_collumn()">Add Collumn</button>
+      <button name="removecollumn" onclick="remove_collumn()">
+        Remove Collumn
+      </button>
+    </div>
   </body>
 </html>
