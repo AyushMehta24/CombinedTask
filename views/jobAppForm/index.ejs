@@ -1,0 +1,1810 @@
+<html>
+  <head>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        /* background-color: #556c7e; */
+        padding-left: 100px;
+        padding-bottom: 100px;
+        padding-right: 100px;
+
+        /* padding-top: -80PX; */
+      }
+      .grid-item {
+        /* background-color: rgba(92, 216, 238, 0.8); */
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding-left: -200px;
+        font-size: 30px;
+
+        padding-bottom: 50px;
+        /* text-align: center; */
+      }
+      .grid-item1 {
+        grid-column-start: 2;
+        /* background-color: rgba(238, 228, 92, 0.8); */
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding-left: -200px;
+        font-size: 30px;
+        /* text-align: center; */
+        padding-bottom: 50px;
+        margin-bottom: -40px;
+      }
+
+      #educationdetailsSSC {
+        margin-top: 50px;
+      }
+
+      #addeducation:hover {
+        cursor: pointer;
+        background-color: bisque;
+        /* font-weight: 600; */
+      }
+      #addeducation {
+        background-color: antiquewhite;
+        padding: 10px;
+        font-size: 15px;
+        margin: 100px;
+        /* margin-bottom: 100px; */
+      }
+
+      #removeeducation:hover {
+        cursor: pointer;
+        background-color: bisque;
+        /* font-weight: 600; */
+      }
+      #removeeducation {
+        margin-left: -50px;
+        background-color: antiquewhite;
+        padding: 10px;
+        font-size: 15px;
+        /* margin: 100px; */
+        /* margin-bottom: 100px; */
+      }
+
+      #addwork:hover {
+        cursor: pointer;
+        background-color: bisque;
+        /* font-weight: 600; */
+      }
+      #addwork {
+        background-color: antiquewhite;
+        padding: 10px;
+        font-size: 15px;
+        margin: 100px;
+        margin-bottom: 100px;
+      }
+
+      #removework:hover {
+        cursor: pointer;
+        background-color: bisque;
+        /* font-weight: 600; */
+      }
+      #removework {
+        margin-left: -50px;
+        background-color: antiquewhite;
+        padding: 10px;
+        font-size: 15px;
+        /* margin: 100px; */
+        /* margin-bottom: 100px; */
+      }
+
+      #workexp {
+        margin-top: 50px;
+      }
+
+      #addreference:hover {
+        cursor: pointer;
+        background-color: bisque;
+        /* font-weight: 600; */
+      }
+      #addreference {
+        background-color: antiquewhite;
+        padding: 10px;
+        font-size: 15px;
+        margin: 100px;
+        margin-bottom: 100px;
+      }
+
+      #removereference:hover {
+        cursor: pointer;
+        background-color: bisque;
+        /* font-weight: 600; */
+      }
+      #removereference {
+        margin-left: -50px;
+
+        background-color: antiquewhite;
+        padding: 10px;
+        font-size: 15px;
+      }
+
+      #referencecontact {
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+
+  <body>    
+    <h1>Nmae: Ayush Mehta Empid: 24DEV067 Date:31/01/2024</h1>
+<% var result = result || null; %>
+    <form
+      id="form1"
+      name="frm1"
+      action="/jobAppForm/submitform"
+      method="POST"
+      onsubmit="return validatefun()"
+    >
+      <h1 style="text-align: center">Job Application Form 5</h1>
+
+      <div class="grid-container">
+        <div class="grid-item">
+          <h2 style="margin-left: 100px">Basic Details</h2>
+          <table id="bascidetails" style="margin-left: 100px">
+            <tr>
+              <td>
+                <label for="fname">Firstname:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="fname" <% if(result) { if(result[0][0].fname) { %> value = <%=result[0][0].fname %> <%}} %> name="first_name" size="22" />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="lname">Last name:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="lname" name="last_name" size="22" <% if(result) { if(result[0][0].lname) { %> value = <%=result[0][0].lname %> <%}} %>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="designation">Designation:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                  type="text"
+                  id="designation"
+                  name="designation"
+                  size="22"
+                  <% if(result) { if(result[0][0].designation) { %> value = <%=result[0][0].designation %> <%}} %>
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="email">Email:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  value="ayush@gmail.com"
+                  size="22"
+                  onblur="emailchanged(this)"
+                  <% if(result) { if(result[0][0].email) { %> value = <%=result[0][0].email %> <%}} %>
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="add1">Address line 1:</label>
+              </td>
+
+              <td style="border: solid black 1px">
+                <input type="text" id="add1" name="addressline1" size="22" <% if(result) { if(result[0][0].add1) { %> value = <%=result[0][0].add1 %> <%}} %>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="add2">Address line 2:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="add2" name="addressline2" size="22" <% if(result) { if(result[0][0].add2) { %> value = <%=result[0][0].add2 %> <%}} %>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="state">State:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <select name="state" id="state" style="width: 201px ">
+                  <option <% if(result) { if(result[0][0].state == "Andhra Pradesh") { %> selected %> <%}} %>  value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option <% if(result) { if(result[0][0].state == "Arunachal Pradesh") { %> selected %> <%}} %> value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option <% if(result) { if(result[0][0].state == "Assam") { %> selected %> <%}} %>  value="Assam">Assam</option>
+                  <option <% if(result) { if(result[0][0].state == "Bihar") { %> selected %> <%}} %> value="Bihar">Bihar</option>
+                  <option <% if(result) { if(result[0][0].state == "Chhattisgarh") { %> selected %> <%}} %> value="Chhattisgarh">Chhattisgarh</option>
+                  <option  <% if(result) { if(result[0][0].state == "Goa") { %> selected %> <%}} %> value="Goa">Goa</option>
+                  <option <% if(result) { if(result[0][0].state == "Gujarat") { %> selected %> <%}} %> value="Gujarat">Gujarat</option>
+                  <!-- <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="West Bengal">West Bengal</option> -->
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="city">City:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="city" name="city" size="22" <% if(result) { if(result[0][0].city) { %> value = <%=result[0][0].city %> <%}} %>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="zipcode">Zipcode:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="zipcode" name="zipcode" size="22" <% if(result) { if(result[0][0].zipcode) { %> value = <%=result[0][0].zipcode %> <%}} %>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="phonenumber">Phone number:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                  type="text"
+                  id="phonenumber"
+                  name="phonenumber"
+                  size="22"
+                  <% if(result) { if(result[0][0].phone) { %> value = <%=result[0][0].phone %> <%}} %>
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="Gender" class="gender">Gender:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                  type="radio"
+                  id="Gender"
+                  name="gender"
+                  value="Male"
+                  <% if(result) { if(result[0][0].gender == "Male") { %> checked %> 
+                  <%} else {%>
+                    checked <%}%>
+                
+                <%} %>
+                /><label for="Gender" class="gender">Male</label>
+                <input
+                  type="radio"
+                  id="Gender"
+                  name="gender"
+                  value="Female"
+                  class="gender"
+                  <% if(result) { if(result[0][0].gender == "Female") { %> checked } %> 
+                    <%} 
+                  
+                } %>
+                /><label for="Gender">Female</label>
+                <input
+                  type="radio"
+                  id="Gender"
+                  name="gender"
+                  value="Others"
+                  class="gender"
+                  <% if(result) { if(result[0][0].gender == "Others") { %> checked } %> 
+                    <%} 
+                  
+                } %>
+                /><label for="Gender">Others</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="relation">Relationship status:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <select name="relationship" id="relation" style="width: 201px">
+                  <option <% if(result) { if(result[0][0].relationshipstatus == "married") { %> selected %> <%}} %>  value="married" >Married</option>
+                  <option <% if(result) { if(result[0][0].relationshipstatus == "unmarried") { %> selected %> <%}} %> value="unmarried">Unmarried</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="dob">Date of birth:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                  type="text"
+                  id="dob"
+                  name="dob"
+                  size="22"
+                  placeholder="yyyy-mm-dd"
+                  <% if(result) { if(result[0][0].dob) { %> value = "<%=result[0][0].dob.getFullYear() %>-<%=result[0][0].dob.getMonth()%>-<%=result[0][0].dob.getDate()%>" <%}} %>
+                />
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        
+        <div id="educationmain" class="grid-item">
+          <h2 style="margin-left: 100px">Education Details</h2>
+
+          <!-- <span id="addeducation" onclick="addeducation()">Add Education</span>
+          <span id="removeeducation" onclick="removeeducation()"
+            >Remove Education</span
+          > -->
+          <!-- <h3 style="margin-left: 100px">SSC result</h3> -->
+
+          <table id="educationdetailsSSC" style="margin-left: 100px">
+            <tr>
+              <td>
+                <label for="snob"> Course name:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <select name="course" id="ssc" style="width: 185px">
+                  <option value="ssc" selected>SSC</option>
+                  <option value="hsc">HSC</option>
+                  <option value="bechlor">Bechlor</option>
+                  <option value="master">Master</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="spy">Passing year:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                type="text"
+                id="spy"
+                name="year"
+                class="passyear"
+                min="2000"
+                <% if(result) { if(result[1][0].passingyear) { %> value = <%=result[1][0].passingyear %> <%}} %>
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="sp">Percentage:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="sp" name="percentage" minlength="2" <% if(result) { if(result[1][0].percentage) { %> value = <%=result[1][0].percentage %> <%}} %>/>
+              </td>
+            </tr>
+          </table>
+
+          <!-- <h3 style="margin-left: 100px">HSC result</h3> -->
+          <br />
+
+          <table id="educationdetailsHSC" style="margin-left: 100px">
+            <tr>
+              <td>
+                <label for="hnob"> Course name:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <select name="course" id="hsc" style="width: 185px">
+                  <option value="ssc">SSC</option>
+                  <option value="hsc" selected>HSC</option>
+                  <option value="bechlor">Bechlor</option>
+                  <option value="master">Master</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="hpy">Passing year:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="hpy" name="year"  <% if(result !== "false") { if(result[1][1].passingyear) { %> value = <%=result[1][1].passingyear %> <%}} %>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="hp">Percentage:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="hp" name="percentage" <% if(result !== "false") { if(result[1][1].percentage) { %> value = <%=result[1][1].percentage %> <%}} %>/>
+              </td>
+            </tr>
+          </table>
+
+          <!-- <h3 style="margin-left: 100px">Bechlor result</h3> -->
+          <br />
+          <table id="educationdetailsBechlor" style="margin-left: 100px">
+            <tr>
+              <td>
+                <label for="bcn">Course name:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <select name="course" id="bechlor" style="width: 185px">
+                  <option value="ssc">SSC</option>
+                  <option value="hsc">HSC</option>
+                  <option value="bechlor" selected>Bechlor</option>
+                  <option value="master">Master</option>
+                </select>
+              </td>
+            </tr>
+
+            <!-- <tr>
+              <td>
+                <label for="bu">Univercity:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="bu" name="bechlor_univercity" />
+              </td>
+            </tr> -->
+
+            <tr>
+              <td>
+                <label for="bpy">Passing year:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="bpy" name="year" class="passyear"  <% if(result !== "false") { if(result[1][2].passingyear) { %> value = <%=result[1][2].passingyear %> <%}} %>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="bp">Percentage:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="bp" name="percentage" <% if(result !== "false") { if(result[1][2].percentage) { %> value = <%=result[1][2].percentage %> <%}} %>/>
+              </td>
+            </tr>
+          </table>
+
+          <br />
+          <table id="educationdetailsMaster" style="margin-left: 100px">
+            <tr>
+              <td>
+                <label for="bcn">Course name:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <select name="course" id="master" style="width: 185px">
+                  <option value="">Select</option>
+                  <option value="ssc">SSC</option>
+                  <option value="hsc">HSC</option>
+                  <option value="bechlor">Bechlor</option>
+                  <option value="master" <% if(result !== "false" && result[1].length > 3) { if(result[1][3].coursename) { %> selected %> <%}}
+                    
+                  %>>Master</option>
+                </select>
+              </td>
+            </tr>
+
+            <!-- <tr>
+              <td>
+                <label for="mu">Univercity:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="mu" name="master_univercity" />
+              </td>
+            </tr> -->
+
+            <tr>
+              <td>
+                <label for="mpy">Passing year:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                  type="text"
+                  id="mpy"
+                  name="year"
+                  class="passyear master"
+                  <% if(result !== "false" && result[1].length > 3) { if(result[1][3].passingyear) { %> value = <%=result[1][3].passingyear %> <%}}else { 
+                    value=""
+                  }%>
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="mp">Percentage:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="mp" name="percentage" class="master"  <% if(result !== "false"&& result[1].length > 3) { if(result[1][3].percentage) { %> value = <%=result[1][3].percentage %> <%}}else { 
+                  value=""
+                }%>/>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="grid-item">
+          <h2 style="padding-left: 100px">Work experience</h2>
+
+          <span id="addwork" onclick="addworkrow()">Add Experience</span>
+          <span id="removework" onclick="removeworkrow()"
+            >Remove Experience</span
+          >
+
+          <table id="workexp" style="padding-left: 100px">
+            <tr>
+              <td>
+                <label for="cname1">Compnay name:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                  type="text"
+                  id="cname1"
+                  name="compnay_name"
+                  class="compnay1"
+                  <% if(result !== "false" && result[2].length > 0) { if(result[2][0].compnayname) { %> value = <%=result[2][0].compnayname %> <%}} else { 
+                    value=""
+                  }%>
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="d1">Designation:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                  type="text"
+                  id="d1"
+                  name="workdesignation"
+                  class="compnay1"
+                  <% if(result !== "false" && result[2].length > 0) { if(result[2][0].designation) { %> value = <%=result[2][0].designation %> <%}} else { 
+                    value=""
+                  }%>
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="from1">From:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="from1" name="from" class="compnay1" <% if(result !== "false" && result[2].length > 0) { if(result[2][0].start) { %> value = "<%=result[2][0].start.getFullYear() %>-<%=result[2][0].start.getMonth()+ 1 %>-<%=result[2][0].start.getDate()%>" <%}} else { 
+                  value=""
+                }%>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="to1">To:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="to1" name="to" class="compnay1" <% if(result !== "false" && result[2].length > 0) { if(result[2][0].end) { %> value = "<%=result[2][0].end.getFullYear() %>-<%=result[2][0].end.getMonth()+ 1 %>-<%=result[2][0].end.getDate()%>" <%}} else { 
+                  value=""
+                }%>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="cname2">Compnay name:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                  type="text"
+                  id="cname2"
+                  name="compnay_name"
+                  class="compnay2"
+                  <% if(result !== "false" && result[2].length > 1) { if(result[2][1].compnayname) { %> value = <%=result[2][1].compnayname %> <%}} else { 
+                    value=""
+                  }%>
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="d2">Designation:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input
+                  type="text"
+                  id="d2"
+                  name="workdesignation"
+                  class="compnay2"
+                  <% if(result !== "false" && result[2].length > 1) { if(result[2][1].designation) { %> value = <%=result[2][1].designation %> <%}} else { 
+                    value=""
+                  }%>
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="from2">From:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="from2" name="from" class="compnay2" <% if(result !== "false" && result[2].length > 1) { if(result[2][1].start) { %> value = "<%=result[2][1].start.getFullYear() %>-<%=result[2][1].start.getMonth()+ 1 %>-<%=result[2][1].start.getDate()%>" <%}} else { 
+                  value=""
+                }%>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="to2">To:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" id="to2" name="to" class="compnay2" <% if(result !== "false" && result[2].length > 1) { if(result[2][1].end) { %> value = "<%=result[2][1].end.getFullYear() %>-<%=result[2][1].end.getMonth()+ 1 %>-<%=result[2][1].end.getDate()%>" <%}} else { 
+                  value=""
+                }%>/>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="grid-item">
+          <h2 style="padding-left: 100px">Language known</h2>
+          <table id="languagespoken" style="padding-left: 100px">
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name="languages"
+                  value="hindi"
+                  onclick="lanupdate('hindi')"
+                  <% if(result && result[3].length  > 0) { if(result[3][0].languagename == "hindi") { %> checked <%}} else { 
+                    value=""
+                  }%>
+                />
+                <label for="lan">Hindi</label>
+              </td>
+
+              <td>
+                <input
+                  type="checkbox"
+                  name="hindiradio"
+                  id="h1"
+                  value="read"
+                  class="hindiradio"
+                  <% if(result !=="false" && result[3].length  > 0) { if(result[3][0].type == "read" && result[3][0].languagename == "hindi") { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="h1">Read</label>
+              </td>
+
+              <td>
+                <input
+                  type="checkbox"
+                  name="hindiradio"
+                  class="hindiradio"
+                  id="h2"
+                  value="write"
+                  <% if(result !=="false" && result[3].length  > 1) { if((result[3][0].type == "write" && result[3][0].languagename== "hindi")||(result[3][1].type == "write" && result[3][1].languagename== "hindi")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="h2">Write</label>
+              </td>
+              <td>
+                <input
+                  type="checkbox"
+                  name="hindiradio"
+                  class="hindiradio"
+                  id="h3"
+                  value="speak"
+                  <% if(result !=="false" && result[3].length  > 2) { if((result[3][0].type == "speak" && result[3][0].languagename== "hindi")||(result[3][1].type == "speak" && result[3][1].languagename== "hindi")||(result[3][2].type == "speak" && result[3][2].languagename== "hindi")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="h3">Speak</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name="languages"
+                  value="english"
+                  onclick="lanupdate('english')"
+                  <% if(result !=="false" && result[3].length  > 2) { if((result[3][0].languagename == "english")||(result[3][1].languagename == "english")||(result[3][2].languagename == "english")||(result[3][3].languagename == "english")) { %> checked <%}} else { 
+                    value=""
+                  }%>
+                />
+                <label for="lan">English</label>
+              </td>
+
+              <td>
+                <input
+                  type="checkbox"
+                  name="englishradio"
+                  class="englishradio"
+                  id="e1"
+                  value="read"
+                  <% if(result !=="false" && result[3].length  > 2) { if((result[3][0].type == "read" && result[3][0].languagename== "english")||(result[3][1].type == "read" && result[3][1].languagename== "english")||(result[3][2].type == "read" && result[3][2].languagename== "english")||(result[3][3].type == "read" && result[3][3].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="e1">Read</label>
+              </td>
+
+              <td>
+                <input
+                  type="checkbox"
+                  name="englishradio"
+                  class="englishradio"
+                  id="e2"
+                  value="write"
+                  <% if(result !=="false" && result[3].length >3 ) { if((result[3][0].type == "write" && result[3][0].languagename== "english")||(result[3][1].type == "write" && result[3][1].languagename== "english")||(result[3][2].type == "write" && result[3][2].languagename== "english")||(result[3][3].type == "write" && result[3][3].languagename== "english")||(result[3][4].type == "write" && result[3][4].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="e2">Write</label>
+              </td>
+              <td>
+                <input
+                  type="checkbox"
+                  name="englishradio"
+                  class="englishradio"
+                  id="e3"
+                  value="speak"
+                  <% if(result !=="false" && result[3].length > 5) { if((result[3][0].type == "speak" && result[3][0].languagename== "english")||(result[3][1].type == "speak" && result[3][1].languagename== "english")||(result[3][2].type == "speak" && result[3][2].languagename== "english")||(result[3][3].type == "speak" && result[3][3].languagename== "english")||(result[3][4].type == "speak" && result[3][4].languagename== "english")||(result[3][5].type == "speak" && result[3][5].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="e3">Speak</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name="languages"
+                  value="gujarati"
+                  onclick="lanupdate('gujarati')"
+                  <% if(result !=="false" && result[3].length  > 7) { if((result[3][0].languagename == "gujarati")||(result[3][1].languagename == "gujarati")||(result[3][2].languagename == "gujarati")||(result[3][3].languagename == "gujarati")||(result[3][4].languagename == "gujarati")||(result[3][5].languagename == "gujarati")||(result[3][6].languagename == "gujarati")||(result[3][7].languagename == "gujarati")) { %> checked <%}} else { 
+                    value=""
+                  }%>
+                />
+                <label for="lan">Gujarati</label>
+              </td>
+
+              <td>
+                <input
+                  type="checkbox"
+                  name="gujaratiradio"
+                  class="gujaratiradio"
+                  id="g1"
+                  value="read"
+                  <% if(result !=="false" && result[3].length > 6) { if((result[3][0].type == "read" && result[3][0].languagename== "gujarati")||(result[3][1].type == "read" && result[3][1].languagename== "gujarati")||(result[3][2].type == "read" && result[3][2].languagename== "gujarati")||(result[3][3].type == "read" && result[3][3].languagename== "gujarati")||(result[3][4].type == "read" && result[3][4].languagename== "gujarati")||(result[3][5].type == "read" && result[3][5].languagename== "gujarati")||(result[3][6].type == "read" && result[3][6].languagename== "gujarati")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="g1">Read</label>
+              </td>
+
+              <td>
+                <input
+                  type="checkbox"
+                  name="gujaratiradio"
+                  class="gujaratiradio"
+                  id="g2"
+                  value="write"
+                  <% if(result !=="false" && result[3].length > 7) { if((result[3][0].type == "write" && result[3][0].languagename== "gujarati")||(result[3][1].type == "write" && result[3][1].languagename== "gujarati")||(result[3][2].type == "write" && result[3][2].languagename== "gujarati")||(result[3][3].type == "write" && result[3][3].languagename== "gujarati")||(result[3][4].type == "write" && result[3][4].languagename== "gujarati")||(result[3][5].type == "write" && result[3][5].languagename== "gujarati")||(result[3][6].type == "write" && result[3][6].languagename== "gujarati")||(result[3][7].type == "write" && result[3][7].languagename== "gujarati")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="g2">Write</label>
+              </td>
+              <td>
+                <input
+                  type="checkbox"
+                  name="gujaratiradio"
+                  class="gujaratiradio"
+                  id="g3"
+                  value="speak"
+                  <% if(result !=="false" && result[3].length > 8) { if((result[3][0].type == "speak" && result[3][0].languagename== "gujarati")||(result[3][1].type == "speak" && result[3][1].languagename== "gujarati")||(result[3][2].type == "speak" && result[3][2].languagename== "gujarati")||(result[3][3].type == "speak" && result[3][3].languagename== "gujarati")||(result[3][4].type == "speak" && result[3][4].languagename== "gujarati")||(result[3][5].type == "speak" && result[3][5].languagename== "gujarati")||(result[3][6].type == "speak" && result[3][6].languagename== "gujarati")||(result[3][7].type == "speak" && result[3][7].languagename== "gujarati")||(result[3][8].type == "speak" && result[3][8].languagename== "gujarati")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="g3">Speak</label>
+              </td>
+            </tr>
+          </table>
+          <span id="lreq"></span>
+          <span id="lreq2"></span>
+        </div>
+
+        <div class="grid-item">
+          <h2 style="margin-left: 100px">Technologies you know</h2>
+          <table id="technologyknown" style="margin-left: 100px">
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  id="php"
+                  value="php"
+                  onclick="techupdate('php')"
+                  <% if(result && result[4].length  > 0) { if(result[4][0].technology == "php") { %> checked <%}} else { 
+                    value=""
+                  }%>
+                />
+                <label for="php" class="php">PHP</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech1"
+                  id="phpb"
+                  value="Begainer"
+                  class="php"
+                  <% if(result !=="false" && result[4].length > 0) { if((result[4][0].type == "Begainer" && result[4][0].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="phpb">Beginer</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech1"
+                  id="phpm"
+                  value="Mideator"
+                  class="php"
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Mideator" && result[4][0].technology== "php")||(result[4][1].type == "Mideator" && result[4][1].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                
+                />
+                <label for="phpm">Mideator</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech1"
+                  id="phpe"
+                  value="Expert"
+                  class="php"
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Expert" && result[4][0].technology== "php")||(result[4][1].type == "Expert" && result[4][1].technology== "php")||(result[4][2].type == "Expert" && result[4][2].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="true"} %>
+                />
+                <label for="phpe">Expert</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  id="mysql"
+                  value="mysql"
+                  onclick="techupdate('mysql')"
+                  <% if(result !=="false" && result[4].length  > 1) { if((result[4][0].technology == "mysql")||(result[4][1].technology == "mysql")) { %> checked <%}} else { %>
+                   <% value="" %>
+                  <%}%>
+                />
+                <label for="mysql" class="mysql">Mysql</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech2"
+                  id="mysqlb"
+                  value="Begainer"
+                  class="mysql"
+             
+                  
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Begainer" && result[4][0].technology== "mysql")||(result[4][1].type == "Begainer" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="true"} %>
+                />
+                <label for="mysqlb">Beginer</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech2"
+                  id="mysqlm"
+                  value="Mideator"
+                  class="mysql"
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Mideator" && result[4][0].technology== "mysql")||(result[4][1].type == "Mideator" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="true"} %>} %>
+                />
+                <label for="mysqlm">Mideator</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech2"
+                  id="mysqle"
+                  value="Expert"
+                  class="mysql"
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Expert" && result[4][0].technology== "mysql")||(result[4][1].type == "Expert" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="true"} %>} %>
+                />
+                <label for="mysqle">Expert</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  value="laravel"
+                  onclick="techupdate('laravel')"
+                  id="laravel"
+                  <% if(result !=="false" && result[4].length  > 2) { if((result[4][0].technology == "laravel")||(result[4][1].technology == "laravel")||(result[4][2].technology == "laravel")) { %> checked <%}} else { 
+                     value="" 
+                   }%>
+                />
+                <label for="laravel" class="laravel">Laravel</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech3"
+                  id="laravelb"
+                  value="Begainer"
+                  class="laravel"
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Begainer" && result[4][0].technology== "laravel")||(result[4][1].type == "Begainer" && result[4][1].technology== "laravel")||(result[4][2].type == "Begainer" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
+                />
+                <label for="laravelb">Beginer</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech3"
+                  id="laravelm"
+                  value="Mideator"
+                  class="laravel"
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Mideator" && result[4][0].technology== "laravel")||(result[4][1].type == "Mideator" && result[4][1].technology== "laravel")||(result[4][2].type == "Mideator" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
+                
+                />
+                <label for="laravelm">Mideator</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech3"
+                  id="laravele"
+                  value="Expert"
+                  class="laravel"
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Expert" && result[4][0].technology== "laravel")||(result[4][1].type == "Expert" && result[4][1].technology== "laravel")||(result[4][2].type == "Expert" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%}} %>
+                />
+                <label for="laravele">Expert</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <input
+                  type="checkbox"
+                  name="technologies"
+                  id="oracle"
+                  value="oracle"
+                  onclick="techupdate('oracle')"
+                  <% if(result !=="false" && result[4].length  > 3) { if((result[4][0].technology == "oracle")||(result[4][1].technology == "oracle")||(result[4][2].technology == "oracle")||(result[4][3].technology == "oracle")) { %> checked <%}} else { %>
+                    <% value="" %>
+                   <%}%>
+                />
+                <label for="oracle" class="oracle">Oracle</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech4"
+                  id="oracleb"
+                  value="Begainer"
+                  class="oracle"
+                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Begainer" && result[4][0].technology== "oracle")||(result[4][1].type == "Begainer" && result[4][1].technology== "oracle")||(result[4][2].type == "Begainer" && result[4][2].technology== "oracle")||(result[4][3].type == "Begainer" && result[4][3].technology== "oracle")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="oracleb">Beginer</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech4"
+                  id="oraclem"
+                  value="Mideator"
+                  class="oracle"
+                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Mideator" && result[4][0].technology== "oracle")||(result[4][1].type == "Mideator" && result[4][1].technology== "oracle")||(result[4][2].type == "Mideator" && result[4][2].technology== "oracle")||(result[4][3].type == "Mideator" && result[4][3].technology== "oracle")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="oraclem">Mideator</label>
+              </td>
+
+              <td>
+                <input
+                  type="radio"
+                  name="tech4"
+                  id="oraclee"
+                  value="Expert"
+                  class="oracle"
+                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Expert" && result[4][0].technology== "oracle")||(result[4][1].type == "Expert" && result[4][1].technology== "oracle")||(result[4][2].type == "Expert" && result[4][2].technology== "oracle")||(result[4][3].type == "Expert" && result[4][3].technology== "oracle")) { %>checked <% disabled = "false" %>  <%}else{
+                    disabled = "false"
+                  } }else{disabled="false"} %>
+                />
+                <label for="oraclee">Expert</label>
+              </td>
+            </tr>
+          </table>
+          <span id="treq"></span>
+          <span id="treq2"></span>
+        </div>
+
+        <div class="grid-item">
+          <h2 style="margin-left: 100px">Reference contact</h2>
+
+          <span id="addreference" onclick="addreferencerow()"
+            >Add Reference</span
+          >
+          <span id="removereference" onclick="removereferencerow()"
+            >Remove References</span
+          >
+
+          <table id="referencecontact" style="margin-left: 100px">
+            <tr>
+              <td>
+                <label for="rn1">Name:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text " name="rn" id="rn1" class="ref1" <% if(result !=="false" && result[5].length > 0) { if(result[5][0].name) { %> value = <%= result[5][0].name%>
+                <%} 
+              
+            } %> 
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="rn1">Contact number:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text " name="rc" id="rc1" class="ref1" <% if(result !=="false" && result[5].length > 0) { if(result[5][0].contact) { %> value = <%= result[5][0].contact%>
+                  <%} 
+                
+              } %> />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="rr1">Relation:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text " name="rr" id="rr1" class="ref1" <% if(result !=="false" && result[5].length > 0) { if(result[5][0].relation) { %> value = <%= result[5][0].relation%>
+                  <%} 
+                
+              } %> />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="rn2">Name:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text " name="rn" id="rn2" class="ref2" <% if(result !=="false" && result[5].length > 1) { if(result[5][1].name) { %> value = <%= result[5][1].name%>
+                  <%} 
+                
+              } %> />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="rn2">Contact number:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text " name="rc" id="rc2" class="ref2" <% if(result !=="false" && result[5].length > 1) { if(result[5][1].contact) { %> value = <%= result[5][1].contact%>
+                  <%} 
+                
+              } %> />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="rr2">Relation:</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text " name="rr" id="rr2" class="ref2" <% if(result !=="false" && result[5].length > 1) { if(result[5][1].relation) { %> value = <%= result[5][1].relation%>
+                  <%} 
+                
+              } %> />
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="grid-item1">
+          <h2 style="margin-left: 200px">Preferances</h2>
+          <table id="preference" style="margin-left: 100px">
+            <tr>
+              <td>
+                <label for="pl">Preferd location</label>
+              </td>
+              <!-- <td style="border: solid black 1px">
+                <input type="text" name="preferdlocation" id="pl" />
+              </td> -->
+              <td>
+                <select name="preferdlocation" id="pl" multiple>
+                  <option value="ahmedabad"
+                  <% if(result !== "false" && result[6].length > 0) { if(result[6][0].location == "ahmedabad") { %> selected %> <%}}else{ selected = "false"} %>
+
+                  >Ahmedabad</option>
+                  <option value="surat"  <% if(result !== "false" && result[6].length > 1) { if((result[6][0].location == "surat")||(result[6][1].location == "surat")) { %> selected %> <%}} %>>Surat</option>
+                  <option value="gandhinagar" <% if(result !== "false" && result[6].length > 2) { if((result[6][0].location == "gandhinagar")||(result[6][1].location == "gandhinagar")||(result[6][2].location == "gandhinagar")) { %> selected %> <%}} %>>Gandhinagar</option>
+                  <option value="usa" <% if(result !== "false" && result[6].length > 3) { if((result[6][0].location == "usa")||(result[6][1].location == "usa")||(result[6][2].location == "usa")||(result[6][3].location == "usa")) { %> selected %> <%}} %>>USA</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="nl">Notice period</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" name="noticeperiod" id="nl" <% if(result !== "false") { %> value = <%=result[6][0].noticeperiod %> <%}%>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="ec">Expected CTC</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" name="expectedctc" id="ec" <% if(result !== "false") { if(result[6][0].expectedCTC) { %> value = <%=result[6][0].expectedCTC %> <%}} %>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="cc">Current CTC</label>
+              </td>
+              <td style="border: solid black 1px">
+                <input type="text" name="currentctc" id="cc" <% if(result !== "false") { %> value = <%=result[6][0].currentCTC %> <%} %>/>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="department">Department</label>
+              </td>
+              <td>
+                <select name="department" id="department">
+                  <option value="designing" <% if(result !== "false" && result[6].length > 0) { if(result[6][0].department == "designing") { %> selected %> <%}} %>>Designing</option>
+                  <option value="devlopement" <% if(result !== "false" && result[6].length > 0) { if(result[6][0].department == "devlopement") { %> selected %> <%}} %>>Developement</option>
+                  <option value="human resource"  <% if(result !== "false" && result[6].length > 0) { if(result[6][0].department == "human resource") { %> selected %> <%}} %>>Human resource</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="sub" style="text-align: center">
+        <input type="hidden" name="hidden" id="hidden" <% if(result !== "false")  { %> value = "<%=result[0][0].eid%>" <%} else{ value = ""} %>/>
+        <input type="submit" value="submit" />
+      </div>
+    </form>
+
+    <script>
+      let newwork = 0;
+      let cnum = 2;
+      let fnum = 2;
+      function validatefun() {
+        let allow = true;
+        const formelement = document.getElementById("form1");
+        let radioclass = ["gender", "php", "mysql", "laravel", "oracle"];
+
+        //required all basic details validation
+        for (let i = 0; i < 15; i++) {
+          if (formelement[i].value == "") {
+            formelement[i].style.borderColor = "red";
+            allow = false;
+          }
+        }
+
+        //required all education details validation
+        for (let i = 15; i < 24; i++) {
+          if (formelement[i].value == "") {
+            formelement[i].style.borderColor = "red";
+            allow = false;
+          }
+        }
+
+        //required all work details validation
+        // for (let i = 25; i < 25; i++) {
+        //   if (formelement[i].value == "") {
+        //     formelement[i].style.borderColor = "red";
+        //     allow = false;
+        //   }
+        // }
+
+        //zipcode
+        const zipcode = /^\d{6}$/;
+        if (zipcode.test(document.getElementById("zipcode").value) === false) {
+          document.getElementById("zipcode").style.borderColor = "red";
+          allow = false;
+        }
+
+        //PHONENUMBER
+        const phone = /^\d{10}$/;
+        if (
+          phone.test(document.getElementById("phonenumber").value) === false
+        ) {
+          document.getElementById("phonenumber").style.borderColor = "red";
+          allow = false;
+        }
+
+        //date
+
+        const dateRegex = /^\d{4}-\d{1,2}-\d{1,2}$/;
+        if (dateRegex.test(document.getElementById("dob").value) === false) {
+          document.getElementById("dob").style.borderColor = "red";
+          allow = false;
+        }
+
+        //passing year
+
+        const year = /^\d{4}$/;
+        if (year.test(document.getElementById("spy").value) === false) {
+          document.getElementById("spy").style.borderColor = "red";
+          allow = false;
+        }
+        if (year.test(document.getElementById("hpy").value) === false) {
+          document.getElementById("hpy").style.borderColor = "red";
+          allow = false;
+        }
+        if (year.test(document.getElementById("bpy").value) === false) {
+          document.getElementById("bpy").style.borderColor = "red";
+          allow = false;
+        }
+        // if (year.test(document.getElementById("mpy").value) === false) {
+        //   document.getElementById("mpy").style.borderColor = "red";
+        // }
+
+        //percentage
+
+        const per = /^(100(\.0{1,2})?|([0-9]?[0-9](\.[0-9]{1,2})))$/;
+        if (per.test(document.getElementById("sp").value) === false) {
+          document.getElementById("sp").style.borderColor = "red";
+          allow = false;
+        }
+        if (per.test(document.getElementById("hp").value) === false) {
+          document.getElementById("hp").style.borderColor = "red";
+          allow = false;
+        }
+        if (per.test(document.getElementById("bp").value) === false) {
+          document.getElementById("bp").style.borderColor = "red";
+          allow = false;
+        }
+        // if (per.test(document.getElementById("mp").value) === false) {
+        //   document.getElementById("mp").style.borderColor = "red";
+        // }
+
+        //from and to
+        const character = /^[a-zA-Z]+$/;
+
+        const from = /^\d{4}-\d{2}-\d{2}$/;
+
+        if (document.getElementById("cname1").value) {
+          if (character.test(document.getElementById("d1").value) === false) {
+            document.getElementById("d1").style.borderColor = "red";
+            allow = false;
+          }
+          if (
+            dateRegex.test(document.getElementById("from1").value) === false
+          ) {
+            document.getElementById("from1").style.borderColor = "red";
+            allow = false;
+          }
+          if (dateRegex.test(document.getElementById("to1").value) === false) {
+            document.getElementById("to1").style.borderColor = "red";
+            allow = false;
+          }
+        }
+
+        if (document.getElementById("cname2").value) {
+          if (character.test(document.getElementById("d2").value) === false) {
+            document.getElementById("d2").style.borderColor = "red";
+            allow = false;
+          }
+          if (
+            dateRegex.test(document.getElementById("from2").value) === false
+          ) {
+            document.getElementById("from2").style.borderColor = "red";
+            allow = false;
+          }
+          if (dateRegex.test(document.getElementById("to2").value) === false) {
+            document.getElementById("to2").style.borderColor = "red";
+            allow = false;
+          }
+        }
+
+        //master only
+        const master = document.querySelectorAll(".master");
+
+        let mendetory = false;
+        master.forEach((element) => {
+          if (element.value != "") mendetory = true;
+        });
+        if (mendetory) {
+          master.forEach((element) => {
+            element.classList.add("mendetory");
+          });
+        }
+
+        const men = document.querySelectorAll(".mendetory");
+        men.forEach((element) => {
+          if (element.value == "") {
+            element.style.borderColor = "red";
+            allow = false;
+          }
+        });
+
+        //work
+
+        const c1 = document.querySelectorAll(".compnay1");
+        c1.forEach((element) => {
+          if (element.value != "") mendetory = true;
+        });
+        if (mendetory) {
+          c1.forEach((element) => {
+            element.classList.add("mendetory");
+          });
+        }
+        const c11 = document.querySelectorAll(".mendetory");
+        c11.forEach((element) => {
+          if (element.value == "") {
+            element.style.borderColor = "red";
+            allow = false;
+          }
+        });
+        mendetory = false;
+
+        const c2 = document.querySelectorAll(".compnay2");
+        c2.forEach((element) => {
+          if (element.value != "") mendetory = true;
+        });
+        if (mendetory) {
+          c2.forEach((element) => {
+            element.classList.add("mendetory");
+          });
+        }
+        const c21 = document.querySelectorAll(".mendetory");
+        c21.forEach((element) => {
+          if (element.value == "") {
+            element.style.borderColor = "red";
+            allow = false;
+          }
+        });
+        mendetory = false;
+
+        //dynamic work validation
+        for (let i = 0; i < newwork; i++) {
+          const c2 = document.querySelectorAll(`.compnay${i + 3}`);
+          c2.forEach((element) => {
+            if (element.value != "") mendetory = true;
+          });
+          if (mendetory) {
+            c2.forEach((element) => {
+              element.classList.add("mendetory");
+            });
+          }
+          const c21 = document.querySelectorAll(".mendetory");
+          c21.forEach((element) => {
+            if (element.value == "") {
+              element.style.borderColor = "red";
+              allow = false;
+            }
+          });
+          mendetory = false;
+        }
+
+        //reference
+
+        for (let i = 0; i < newref; i++) {
+          const r1 = document.querySelectorAll(`.ref${i + 2}`);
+          r1.forEach((element) => {
+            if (element.value != "") mendetory = true;
+          });
+          if (mendetory) {
+            r1.forEach((element) => {
+              element.classList.add("mendetory");
+            });
+          }
+          const r11 = document.querySelectorAll(".mendetory");
+          r11.forEach((element) => {
+            if (element.value == "") {
+              element.style.borderColor = "red";
+              allow = false;
+            }
+          });
+          mendetory = false;
+        }
+
+        const r1 = document.querySelectorAll(".ref1");
+        r1.forEach((element) => {
+          if (element.value != "") mendetory = true;
+        });
+        if (mendetory) {
+          r1.forEach((element) => {
+            element.classList.add("mendetory");
+          });
+        }
+        const r11 = document.querySelectorAll(".mendetory");
+        r11.forEach((element) => {
+          if (element.value == "") {
+            element.style.borderColor = "red";
+            allow = false;
+          }
+        });
+        mendetory = false;
+
+        const r2 = document.querySelectorAll(".ref2");
+        r2.forEach((element) => {
+          if (element.value != "") mendetory = true;
+        });
+        if (mendetory) {
+          r2.forEach((element) => {
+            element.classList.add("mendetory");
+          });
+        }
+        const r21 = document.querySelectorAll(".mendetory");
+        r21.forEach((element) => {
+          if (element.value == "") {
+            element.style.borderColor = "red";
+            allow = false;
+          }
+        });
+        mendetory = false;
+
+        //languages
+        // let cntt = 0;
+        // const lan = document.getElementsByName("languages");
+        // for (let i = 0; i < lan.length; i++) {
+        //   if (lan[i].checked === true) {
+        //     const r1 = document.getElementById(lan[i].value[0] + "1");
+        //     const w1 = document.getElementById(lan[i].value[0] + "2");
+        //     const s1 = document.getElementById(lan[i].value[0] + "3");
+
+        //     if (r1.checked || w1.checked || s1.checked) {
+        //       lreq2.innerHTML = ``;
+        //     } else {
+        //       lreq2.innerHTML = `<p>select atleast one field for ${lan[i].value}</p>`;
+        //       lreq2.style.color = "red";
+        //       lreq2.style.fontSize = "20px";
+        //       lreq2.style.textAlign = "center";
+        //       allow = false;
+
+        //     }
+        //   }
+
+        //   if (!lan[i].checked === true) {
+        //     cntt++;
+        //   }
+        //   if (cntt == lan.length) {
+        //     lreq.innerHTML = `<p>Select atleast One field</p>`;
+        //     lreq.style.color = "red";
+        //     lreq.style.fontSize = "20px";
+        //     lreq.style.textAlign = "center";
+        //     allow = false;
+
+        //   } else {
+        //     lreq.innerHTML = ``;
+        //   }
+        // }
+
+        //technology
+        // let cnt = 0;
+        // const techno = document.getElementsByName("technologies");
+        // for (let i = 0; i < techno.length; i++) {
+        //   if (techno[i].checked === true) {
+        //     const b1 = document.getElementById(techno[i].id + "b");
+        //     const m1 = document.getElementById(techno[i].id + "m");
+        //     const e1 = document.getElementById(techno[i].id + "e");
+
+        //     if (b1.checked || m1.checked || e1.checked) {
+        //       treq2.innerHTML = ``;
+        //     } else {
+        //       treq2.innerHTML = `<p>select atleast one field for ${techno[i].value}</p>`;
+        //       treq2.style.color = "red";
+        //       treq2.style.fontSize = "20px";
+        //       treq2.style.textAlign = "center";
+        //       allow = false;
+
+        //     }
+        //   }
+
+        //   if (!techno[i].checked === true) {
+        //     cnt++;
+        //   }
+
+        //   if (cnt == techno.length) {
+        //     treq.innerHTML = `<p>Select atleast One field</p>`;
+        //     treq.style.color = "red";
+        //     treq.style.fontSize = "20px";
+        //     treq.style.textAlign = "center";
+        //     allow = false;
+
+        //   } else {
+        //     treq.innerHTML = ``;
+        //   }
+        // }
+
+        // expected ctc
+        if (!document.getElementById("ec").value) {
+          document.getElementById("ec").style.borderColor = "red";
+          allow = false;
+        }
+
+        if (allow) {
+          return true;
+        }
+
+        return false;
+      }
+
+
+      function addworkrow() {
+        newwork++;
+
+        const table1 = document.getElementById("workexp");
+        const tr1 = document.createElement("tr");
+        const td1 = document.createElement("td");
+        const label1 = document.createElement("label");
+        label1.innerText = "Company name:";
+        td1.appendChild(label1);
+        tr1.appendChild(td1);
+        const td2 = document.createElement("td");
+        td2.style = "border: solid black 1px";
+        const input1 = document.createElement("input");
+        input1.type = "text";
+        input1.classList.add(`compnay${cnum + 1}`);
+        input1.name = "compnay_name";
+        td2.appendChild(input1);
+        tr1.appendChild(td2);
+        table1.appendChild(tr1);
+
+        ////////////////////////////////////////////////////
+
+        const tr2 = document.createElement("tr");
+        const td3 = document.createElement("td");
+        const label2 = document.createElement("label");
+        label2.innerText = "Designation:";
+        td3.appendChild(label2);
+        tr2.appendChild(td3);
+        const td4 = document.createElement("td");
+        td4.style = "border: solid black 1px";
+        const input2 = document.createElement("input");
+        input2.type = "text";
+        input2.classList.add(`compnay${cnum + 1}`);
+
+        input2.name = "workdesignation";
+        td4.appendChild(input2);
+        tr2.appendChild(td4);
+        table1.appendChild(tr2);
+
+        ///////////////////////////////////////////////////////
+
+        const tr3 = document.createElement("tr");
+        const td5 = document.createElement("td");
+        const label3 = document.createElement("label");
+        label3.innerText = "From:";
+        td5.appendChild(label3);
+        tr3.appendChild(td5);
+        const td6 = document.createElement("td");
+        td6.style = "border: solid black 1px";
+        const input3 = document.createElement("input");
+        input3.type = "text";
+        input3.classList.add(`compnay${cnum + 1}`);
+
+        input3.name = "from";
+        td6.appendChild(input3);
+        tr3.appendChild(td6);
+        table1.appendChild(tr3);
+
+        ///////////////////////////////////////////////////////
+
+        const tr4 = document.createElement("tr");
+        const td7 = document.createElement("td");
+        const label4 = document.createElement("label");
+        label4.innerText = "To:";
+        td7.appendChild(label4);
+        tr4.appendChild(td7);
+        const td8 = document.createElement("td");
+        td8.style = "border: solid black 1px";
+        const input4 = document.createElement("input");
+        input4.type = "text";
+        input4.classList.add(`compnay${cnum + 1}`);
+
+        input4.name = "to";
+        td8.appendChild(input4);
+        tr4.appendChild(td8);
+        table1.appendChild(tr4);
+        cnum++;
+      }
+
+      function removeworkrow() {
+        const table1 = document.getElementById("workexp");
+        if (newwork > 0) {
+          newwork--;
+          for (let i = 0; i < 4; i++) {
+            const temp = table1.lastElementChild;
+            temp.remove();
+          }
+        }
+      }
+
+      let newref = 0;
+
+      function addreferencerow() {
+        newref++;
+
+        const table1 = document.getElementById("referencecontact");
+        const tr1 = document.createElement("tr");
+        const td1 = document.createElement("td");
+        const label1 = document.createElement("label");
+        label1.innerText = "Name:";
+        td1.appendChild(label1);
+        tr1.appendChild(td1);
+        const td2 = document.createElement("td");
+        td2.style = "border: solid black 1px";
+        const input1 = document.createElement("input");
+        input1.type = "text";
+        input1.name = "rn";
+        input1.classList.add(`ref${fnum + 1}`);
+        td2.appendChild(input1);
+        tr1.appendChild(td2);
+        table1.appendChild(tr1);
+
+        //////////////////////////////////////////////////////////////
+
+        const tr2 = document.createElement("tr");
+        const td3 = document.createElement("td");
+        const label2 = document.createElement("label");
+        label2.innerText = " Contact number: :";
+        td3.appendChild(label2);
+        tr2.appendChild(td3);
+        const td4 = document.createElement("td");
+        td4.style = "border: solid black 1px";
+        const input2 = document.createElement("input");
+        input2.type = "text";
+        input2.name = "rc";
+        input2.classList.add(`ref${fnum + 1}`);
+        td4.appendChild(input2);
+        tr2.appendChild(td4);
+        table1.appendChild(tr2);
+
+        //////////////////////////////////////////////////////////////
+
+        const tr3 = document.createElement("tr");
+        const td5 = document.createElement("td");
+        const label3 = document.createElement("label");
+        label3.innerText = "Relation:";
+        td5.appendChild(label3);
+        tr3.appendChild(td5);
+        const td6 = document.createElement("td");
+        td6.style = "border: solid black 1px";
+        const input3 = document.createElement("input");
+        input3.type = "text";
+        input3.name = "rr";
+        input3.classList.add(`ref${fnum + 1}`);
+        td6.appendChild(input3);
+        tr3.appendChild(td6);
+        table1.appendChild(tr3);
+        fnum++;
+      }
+      function removereferencerow() {
+        const table1 = document.getElementById("referencecontact");
+        if (newref > 0) {
+          newref--;
+          for (let i = 0; i < 3; i++) {
+            const temp = table1.lastElementChild;
+            temp.remove();
+          }
+        }
+      }
+
+      // function addeducation() {
+      //   const br = document.createElement("br");
+      //   const div = document.getElementById("educationmain");
+      //   div.appendChild(br);
+      //   const table = document.createElement("table");
+      //   table.style = "margin-left:100px";
+      //   // const tr1 = document.createElement("tr");
+      //   // const td1 = document.createElement("td");
+      //   // const label1 = document.createElement("label");
+      //   // label1.innerText = "Course name:";
+      //   // td1.appendChild(label1);
+      //   // tr1.appendChild(td1);
+      //   // //
+      //   // const td2 = document.createElement("td");
+      //   // const select = document.createElement("select");
+      //   // select.name = "course[]";
+      //   // select.style = "width: 185px";
+      //   // const option = document.createElement("option");
+      //   // option.value= "master"
+      //   // option.innerText = "Master";
+      //   // select.appendChild(option)
+      //   // td2.appendChild(select);
+      //   // tr1.appendChild(td2);
+      //   // table.appendChild(tr1);
+      //   // div.appendChild(table);
+
+      //         <td>
+      //           <label for="snob"> Course name:</label>
+      //         </td>
+      //         <td style="border: solid black 1px">
+      //           <select name="course[]" id="ssc" style="width: 185px">
+      //             <option value="ssc" selected>SSC</option>
+      //             <option value="hsc">HSC</option>
+      //             <option value="bechlor">Bechlor</option>
+      //             <option value="master">Master</option>
+      //           </select>
+      //         </td>
+      //       </tr>`
+      // }
+      // function removeeducation() {
+      // }
+
+      ////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////
+
+      //update
+
+    </script>
+  </body>
+</html>

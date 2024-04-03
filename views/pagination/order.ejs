@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        section {
+       margin-left: 40%;
+        display: flex;
+        gap: 50px;
+      }
+
+        h1{
+            text-align: center;
+            color: green;
+        }
+
+        table{
+            border-collapse: collapse;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        td,th{
+            border: 1px solid black;
+            padding: 15px;
+        }
+    </style>
+  </head>
+  <body>
+
+    <section>
+        <% if(current > 1) { %> <button><a href="/pagination/order?feild=<%=feild%>&page=1&type=<%=type%>">&lt&lt</a> </button><% } %>
+        <% if(current > 1) { %> <button><a href="/pagination/order?feild=<%=feild%>&page=<%= current-1%>&type=<%=type%>">&lt</a> </button> <% } %>
+        <p id = "val"><%= current %></p>
+        <% if(current < 10) { %> <button><a href="/pagination/order?feild=<%=feild%>&page=<%= 10 - (10 - current - 1)%>&type=<%=type%>">&gt</a> </button><% } %>
+        <% if(current < 10) { %> <button><a href="/pagination/order?feild=<%=feild%>&page=10&type=<%=type%>">&gt&gt</a> </button><% } %>
+      </section>
+
+    <table>
+      <tr>
+        <td><a href="/pagination/order?feild=sid&page=1&type=asc">&uarr;</a><strong>Id</strong><a href="/pagination/order?feild=sid&page=1&type=desc">&darr;</a></td>
+        <td><a href="/pagination/order?feild=fname&page=1&type=asc">&uarr;</a><strong>First Name</strong><a href="/pagination/order?feild=fname&page=1&type=desc">&darr;</a></td>
+        <td><a href="/pagination/order?feild=lname&page=1&type=asc">&uarr;</a><strong>Last Name</strong><a href="/pagination/order?feild=lname&page=1&type=desc">&darr;</a></td>
+        <td><a href="/pagination/order?feild=pincode&page=1&type=asc">&uarr;</a><strong>Pincode</strong><a href="/pagination/order?feild=pincode&page=1&type=desc">&darr;</a></td>
+        <td><a href="/pagination/order?feild=city&page=1&type=asc">&uarr;</a><strong>City</strong><a href="/pagination/order?feild=city&page=1&type=desc">&darr;</a></td>
+        <td><a href="/pagination/order?feild=state&page=1&type=asc">&uarr;</a><strong>State</strong><a href="/pagination/order?feild=state&page=1&type=desc">&darr;</a></td>
+        <td><a href="/pagination/order?feild=phone&page=1&type=asc">&uarr;</a><strong>Phone</strong><a href="/pagination/order?feild=phone&page=1&type=desc">&darr;</a></td>
+        <td><a href="/pagination/order?feild=collage&page=1&type=asc">&uarr;</a><strong>Collage</strong><a href="/pagination/order?feild=collage&page=1&type=desc">&darr;</a></td>
+        <td><a href="/pagination/order?feild=email&page=1&type=asc">&uarr;</a><strong>Email</strong><a href="/pagination/order?feild=email&page=1&type=desc">&darr;</a></td>
+        <td><a href="/pagination/order?feild=created&page=1&type=asc">&uarr;</a><strong>Created At</strong><a href="/pagination/order?feild=created&page=1&type=desc">&darr;</a></td>
+       
+      </tr>
+
+      <% for(let i=0; i<data.length; i++) {%>
+        <tr>
+            <td>
+                <%= data[i].sid%>
+              </td>
+          <td>
+            <%= data[i].fname%>
+          </td>
+          <td>
+            <%= data[i].lname%>
+          </td>
+          <td>
+            <%= data[i].pincode%>
+          </td>
+          <td>
+            <%= data[i].city%>
+          </td>
+          <td>
+            <%= data[i].state%>
+          </td>
+          <td>
+            <%= data[i].phone%>
+          </td>
+          <td>
+            <%= data[i].collage%>
+          </td>
+          <td>
+            <%= data[i].email%>
+          </td>
+          <td>
+            <%= data[i].created%>
+          </td>
+        </tr>
+     <% } %>
+    </table>
+  </body>
+</html>

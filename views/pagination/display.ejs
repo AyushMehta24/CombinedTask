@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+    <style>
+        section {
+       margin-left: 40%;
+        display: flex;
+        gap: 50px;
+      }
+
+        h1{
+            text-align: center;
+            color: green;
+        }
+
+       
+
+        
+    </style>
+  </head>
+  <body>
+
+    <section>
+        <% if(current > 1) { %> <button><a href="/pagination/display/?page=1">&lt&lt</a> </button><% } %>
+        <% if(current > 1) { %> <button><a href="/pagination/display/?page=<%= current-1%>">&lt</a> </button> <% } %>
+        <p id = "val"><%= current %></p>
+        <% if(current < 5) { %> <button><a href="/pagination/display/?page=<%= 5 - (5 - current - 1)%>">&gt</a> </button><% } %>
+        <% if(current < 5) { %> <button><a href="/pagination/display/?page=5">&gt&gt</a> </button><% } %>
+      </section>
+    <table class="table table-striped table-hover">
+      <tr>
+
+        <td><strong>Id</strong></td>
+        <td><strong>First Name</strong></td>
+        <td><strong>Last Name</strong></td>
+        <td><strong>Pincode</strong></td>
+        <td><strong>City</strong></td>
+        <td><strong>State</strong></td>
+        <td><strong>Phone</strong></td>
+        <td><strong>Collage</strong></td>
+        <td><strong>Email</strong></td>
+        <td><strong>Created At</strong></td>
+      </tr>
+
+      <% for(let i=0; i<data.length; i++) {%>
+        <tr>
+            <td>
+                <%= data[i].sid%>
+              </td>
+          <td>
+            <%= data[i].fname%>
+          </td>
+          <td>
+            <%= data[i].lname%>
+          </td>
+          <td>
+            <%= data[i].pincode%>
+          </td>
+          <td>
+            <%= data[i].city%>
+          </td>
+          <td>
+            <%= data[i].state%>
+          </td>
+          <td>
+            <%= data[i].phone%>
+          </td>
+          <td>
+            <%= data[i].collage%>
+          </td>
+          <td>
+            <%= data[i].email%>
+          </td>
+          <td>
+            <%= data[i].created%>
+          </td>
+          
+         
+        </tr>
+     <% } %>
+    </table>
+  </body>
+</html>

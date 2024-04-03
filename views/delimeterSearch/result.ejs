@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        margin-top: 50px;
+    }
+
+    table{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    td{
+        border: 1px solid black;
+        padding: 15px;
+    }
+    div{
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+        gap: 100px;
+    }
+</style>
+<body>
+
+    <h2>Ayush Mehta (24DEV067)</h2>
+
+    <form action="/delimeterSearch/result" , method="post">
+        <input type="text" name="input" id="input" placeholder="input query">
+        <input type="submit" name="submit" value="GO">
+    </form>
+    <div>
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td>_</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>^</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>$</td>
+        </tr>
+        <tr>
+            <td>Collage</td>
+            <td>}</td>
+        </tr>
+        <tr>
+            <td>Mobile No</td>
+            <td>{</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>:</td>
+        </tr>
+
+    </table>
+    
+    
+        <table id="dataTable">
+            <% let z = [];  %>
+            <tr>
+            <% for(let i=0; i<fields.length  ; i++) {%>
+                    <td>   <strong style="font-size: 20px;"><%= fields[i].name%></strong>  </td>
+                    <% z[i] = fields[i].name; %>
+            <% } %>
+            </tr>
+            <% for(let i=0; i<result.length  ; i++) {%>
+           <tr>
+            <% for(let j=0; j<fields.length  ; j++) {%> 
+                    <td><%= result[i][z[j]]%></td>      
+            <% } %>
+        </tr>
+            <% } %>
+        </table>
+    </div>
+</body>
+</html>

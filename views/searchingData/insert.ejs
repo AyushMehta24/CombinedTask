@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+      label , input {
+        font-size: 20px;
+      }
+      #go
+      {
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ayush Mehta (24DEV067)</h1>
+
+    <p>Try this query : select * from task6_exam order by sid asc</p>
+    <p>Try this query : select * from task6_studentmaster order by sid desc</p>
+    <p>Try this query : select * from task6_attendence order by date asc</p>
+    <form action="/searchingData/display" method="post">
+      <label for="inp">Enter Only select query: </label>
+      <input type="text" name="inp" id="inp" />
+      <input id="go" type="submit" value="GO" />
+    </form>
+  </body>
+</html>

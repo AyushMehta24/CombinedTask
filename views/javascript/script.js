@@ -1,6 +1,6 @@
-var box = document.querySelectorAll(".box");
-var statusText = document.querySelector("#status");
-var restart = document.querySelector("#restart");
+let box = document.querySelectorAll(".box");
+let statusText = document.querySelector("#status");
+let restart = document.querySelector("#restart");
 let x = "x";
 let o = "o";
 
@@ -33,7 +33,7 @@ function start() {
 }
 
 function boxClick() {
-  var index = this.dataset.index;
+  let index = this.dataset.index;
   if (option[index] != "" || !running) {
     return;
   }

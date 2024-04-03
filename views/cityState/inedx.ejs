@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="states">Select State: </label>
+    <select name="states" id="states" onchange="getCities(this.value)">
+      <%for(let i = 0 ; i < temp.length ; i++){%>
+      <option value="<%=temp[i]%>"><%=temp[i]%></option>
+      <%}%>
+    </select>
+
+    <div id = "cities">
+        <label for="cities">Select city: </label>
+        <select name="cities" id="def">
+            <option value="Anjaw">Anjaw</option>
+            <option value="Changlang">Changlang</option>
+            <option value="Dibang Valley">Dibang Valley</option>
+            <option value="East Kameng">East Kameng</option>
+            <option value="Lohit">Lohit</option>
+            <option value="Lower Subansiri">Lower Subansiri</option>
+            <option value="Papum Pare">Papum Pare</option>
+            <option value="Tirap">Tirap</option>
+            <option value="Upper Subansiri">Upper Subansiri</option>
+            <option value="West Kameng">West Kameng</option>
+        </select>
+    </div>
+
+    <script>
+      async function getCities(val) {
+        const om = await fetch("/cityState/city/" + val);
+        const om2 = await om.json();
+
+        let out = "";
+        out+=`<label for="cities">Select city: </label>`
+        out+= `<select name="cities">`
+        for (let city of om2) {
+          out += `<option value="${city}">${city}</otion>`;
+        }
+        out+=`</select>`
+        let c = document.getElementById("cities");
+        c.innerHTML = out;
+
+      }
+    </script>
+  </body>
+</html>
