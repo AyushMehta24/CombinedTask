@@ -14,7 +14,6 @@ const updated = (req, res) => {
     if (err) throw err;
     const key = Object.keys(result[0]);
 
-   console.log(result);
    res.render("./task13/updated" , {id : result});
   });
 
@@ -41,12 +40,9 @@ const submit = (req, res) => {
     relationship,
     dob,
   } = req.body;
-  // console.log(hidden);
   if (hidden == "false") {
-    console.log("in1");
     if (req.body.page == "basic") {
       let sql1 = `insert into task12_basic_details (fname,lname,add1,add2,city,state,zipcode,phone,designation,gender,relationshipstatus,dob,email) values ("${first_name}","${last_name}","${addressline1}","${addressline2}","${city}","${state}","${zipcode}","${phonenumber}","${designation}","${gender}","${relationship}","${dob}","${email}")`;
-      console.log(sql1);
       con.query(sql1, function (err, result1) {
         if (err) throw err;
         console.log(result1.insertId);
@@ -56,9 +52,7 @@ const submit = (req, res) => {
     let sql = ``;
     if (req.body.page === "education") {
       let id = req.body.id;
-      // console.log(req.body);
 
-      //delete
 
       sql = `delete from task12_education where eid = ${id}`;
       con.query(sql, function (err, result) {
@@ -74,7 +68,6 @@ const submit = (req, res) => {
         passingyear.push(req.body.year4);
         percentage.push(req.body.per4);
       }
-      // console.log(coursename, percentage, passingyear);
 
       for (let i = 0; i < coursename.length; i++) {
         sql = `insert into task12_education (eid , coursename , passingyear , percentage) values (${id} , "${coursename[i]}" , ${passingyear[i]} , ${percentage[i]})`;
@@ -83,7 +76,6 @@ const submit = (req, res) => {
           if (err) throw err;
         });
       }
-      console.log("Education details inserted successfully");
       return res.sendStatus(200);
     } else if (req.body.page === "work") {
       let id = req.body.id;
@@ -114,7 +106,6 @@ const submit = (req, res) => {
         return el != "";
       });
 
-      // console.log(newcompnay, newworkdesignation, newfrom, newto);
 
       for (let i = 0; i < newcompnay.length; i++) {
         sql = `insert into task12_experience (eid , compnayname ,designation ,start , end) values (${id} , "${newcompnay[i]}" , "${newworkdesignation[i]}" , "${newfrom[i]}","${newto[i]}")`;
@@ -122,7 +113,6 @@ const submit = (req, res) => {
           if (err) throw err;
         });
       }
-      console.log("Work experience details inserted successfully");
 
       return res.sendStatus(200);
     } else if (req.body.page === "language") {
@@ -135,7 +125,6 @@ const submit = (req, res) => {
 
       /////////////////////////////////////////
 
-      // console.log(id);
       const lname = req.body.lname;
       const hindi = req.body.hindi;
       const english = req.body.english;
@@ -143,7 +132,6 @@ const submit = (req, res) => {
       if (hindi.length > 0) {
         for (let i = 0; i < hindi.length; i++) {
           sql = `insert into task12_language (eid , languagename , type) values (${id} , "hindi", "${hindi[i]}")`;
-          // console.log(sql);
           con.query(sql, function (err, result1) {
             if (err) throw err;
           });
@@ -152,23 +140,19 @@ const submit = (req, res) => {
       if (gujarati.length > 0) {
         for (let i = 0; i < gujarati.length; i++) {
           sql = `insert into task12_language (eid , languagename , type) values (${id} , "gujarati", "${gujarati[i]}")`;
-          // console.log(sql);
           con.query(sql, function (err, result1) {
             if (err) throw err;
           });
         }
       }
-      console.log("helllllllllllooooo",english , "hellooooooooooooo");
       if (english.length > 0) {
         for (let i = 0; i < english.length; i++) {
           sql = `insert into task12_language (eid , languagename , type) values (${id} , "english", "${english[i]}")`;
-          // console.log(sql);
           con.query(sql, function (err, result1) {
             if (err) throw err;
           });
         }
       }
-      console.log("Language details inserted successfully");
 
       return res.sendStatus(200);
     } else if (req.body.page === "technology") {
@@ -254,7 +238,6 @@ const submit = (req, res) => {
           if (err) throw err;
         });
       }
-      console.log("Technology details inserted successfully");
 
       return res.sendStatus(200);
     } else if (req.body.page === "reference") {
@@ -286,7 +269,6 @@ const submit = (req, res) => {
           if (err) throw err;
         });
       }
-      console.log("Reference details inserted successfully");
 
       return res.sendStatus(200);
     } else if (req.body.page === "preference") {
@@ -300,7 +282,6 @@ const submit = (req, res) => {
       /////////////////////////////////////////
       const loca = req.body.location;
       const np = req.body.np;
-      // console.log(loca);
       const ectc = req.body.ectc;
       const cc = req.body.cc;
       const dep = req.body.dep;
@@ -309,7 +290,6 @@ const submit = (req, res) => {
         sql = `insert into task12_preference (eid,location,noticeperiod,expectedCTC,currentCTC,department) values (${id},"${loca[i]}", ${np}, ${ectc}, ${cc} , "${dep}")`;
         con.query(sql, function (err, result) {
           if (err) throw err;
-          console.log("Preference details inserted successfully");
         });
       }
 
@@ -341,7 +321,6 @@ const submit = (req, res) => {
         passingyear.push(req.body.year4);
         percentage.push(req.body.per4);
       }
-      // console.log(coursename, percentage, passingyear);
 
       for (let i = 0; i < coursename.length; i++) {
         sql = `insert into task12_education (eid , coursename , passingyear , percentage) values (${finalid} , "${coursename[i]}" , ${passingyear[i]} , ${percentage[i]})`;
@@ -396,7 +375,6 @@ const submit = (req, res) => {
 
       /////////////////////////////////////////
 
-      // console.log(id);
       const lname = req.body.lname;
       const hindi = req.body.hindi;
       const english = req.body.english;
@@ -404,7 +382,6 @@ const submit = (req, res) => {
       if (hindi.length > 0) {
         for (let i = 0; i < hindi.length; i++) {
           sql = `insert into task12_language (eid , languagename , type) values (${finalid} , "hindi", "${hindi[i]}")`;
-          // console.log(sql);
           con.query(sql, function (err, result1) {
             if (err) throw err;
           });
@@ -413,17 +390,14 @@ const submit = (req, res) => {
       if (gujarati.length > 0) {
         for (let i = 0; i < gujarati.length; i++) {
           sql = `insert into task12_language (eid , languagename , type) values (${finalid} , "gujarati", "${gujarati[i]}")`;
-          // console.log(sql);
           con.query(sql, function (err, result1) {
             if (err) throw err;
           });
         }
       }
-      console.log("hello" , english);
       if (english.length > 0) {
         for (let i = 0; i < english.length; i++) {
           sql = `insert into task12_language (eid , languagename , type) values (${finalid} , "english", "${english[i]}")`;
-          // console.log(sql);
           con.query(sql, function (err, result1) {
             if (err) throw err;
           });
@@ -563,12 +537,10 @@ const submit = (req, res) => {
           if (err) throw err;
         });
       }
-      console.log("object");
       return res.send({ msg: "Data inserted successfully" });
       // return res.render("./task13/validate");
     }
   }
-  // res.render("validate");
 };
 
 const update = (req, res) => {
@@ -577,8 +549,6 @@ const update = (req, res) => {
   con.query(sql, function (err, result) {
     if (err) throw err;
     const key = Object.keys(result[0]);
-    // console.log(result);
-    console.log(result[4]);
 
     res.render("./task13/index", { result, key, id });
   });

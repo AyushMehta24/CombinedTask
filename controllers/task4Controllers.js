@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 const fs = require("fs");
+const { PassThrough } = require("stream");
 var url = require("url");
 
 var filePath = "./views/textFiles/user.txt";
@@ -18,14 +19,13 @@ const submited = function (req, res) {
   let userDataArray = [];
   if (fs.existsSync(filePath)) {
     fs.readFile(filePath, (err, data) => {
-      if (err) console.log(err);
+      if (err) throw err;
       if (data.length == 0) {
         const temp = req.body;
         temp.id = generateUniqueId();
         userDataArray.push(temp);
         fs.writeFileSync(filePath, JSON.stringify(userDataArray));
       } else {
-        console.log("dbvjsvsvh");
         userDataArray = JSON.parse(data);
         const temp = req.body;
         temp.id = generateUniqueId();
@@ -34,7 +34,6 @@ const submited = function (req, res) {
       }
     });
   } else {
-    console.log("else");
     return res.send("Filepath is not valid");
   }
   res.send("Data inserted successfully!");

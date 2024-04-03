@@ -16,7 +16,6 @@ const updated = (req, res) => {
     if (err) throw err;
     const key = Object.keys(result[0]);
 
-   console.log(result);
    res.render("./task12/update" , {id : result});
   });
 
@@ -74,9 +73,7 @@ const submitform = (req, res) => {
     department,
   } = req.body;
 
-  // console.log(hidden);
 
-  console.log(req.body);
 
   if (hidden == "") {
     sql1 = `insert into task12_basic_details (fname,lname,add1,add2,city,state,zipcode,phone,designation,gender,relationshipstatus,dob,email) values ("${first_name}","${last_name}","${addressline1}","${addressline2}","${city}","${state}","${zipcode}","${phonenumber}","${designation}","${gender}","${relationship}","${dob}","${email}")`;
@@ -115,9 +112,6 @@ const submitform = (req, res) => {
 
       if (compnay_name.length > 0) {
         let newcompnay, newworkdesignation, newfrom, newto;
-        // if (typeof compnay_name === "string") {
-        //   // console.log("object");
-        // }
         newcompnay = compnay_name.filter(function (el) {
           return el != "";
         });
@@ -258,14 +252,11 @@ const submitform = (req, res) => {
         if (tech4 !== undefined) {
           temptech.push(tech4);
         }
-        console.log(technologies);
-        console.log(temptech);
 
         for (let i = 0; i < technologies.length; i++) {
           
             sql = `insert into task12_technology (eid ,  technology , type) values (${id} , "${technologies[i]}", "${temptech[i]}")`;
             con.query(sql, function (err, result) {
-              // console.log(result);
               if (err) throw err;
             });
           
@@ -274,7 +265,6 @@ const submitform = (req, res) => {
 
       ///////////////////////////////////////////////////////////////
 
-      // console.log(preferdlocation);
       let templocation = [];
       let tempcctc = currentctc;
       let tempnperiod = noticeperiod;
@@ -287,7 +277,6 @@ const submitform = (req, res) => {
       if (tempcctc == "") {
         tempcctc = 0;
       }
-      // console.log(tempnperiod, "vbdfjkvbh");
       if (preferdlocation) {
         for (let i = 0; i < preferdlocation.length; i++) {
           sql = `insert into task12_preference (eid,location,noticeperiod,expectedCTC,currentCTC,department) values (${id},"${preferdlocation[i]}", ${tempnperiod}, ${expectedctc}, ${tempcctc} , "${department}")`;
@@ -298,23 +287,23 @@ const submitform = (req, res) => {
       }
     }
   } else {
-    // console.log("object");
+    // "object");
 
     //basic details
 
     let sql = `update task12_basic_details set fname = "${first_name}" , lname = "${last_name}" , add1 = "${addressline1}" , add2 = "${addressline2}" , city = "${city}" , state = "${state}" , zipcode = 
       ${zipcode} , phone = ${phonenumber} , designation = "${designation}" , gender = "${gender}" , relationshipstatus = "${relationship}" , dob = "${dob}" , email = "${email}" where eid = ${hidden} `;
-    // console.log(sql);
+    // sql);
 
     con.query(sql, function (err, result) {
       if (err) throw err;
-      // console.log(result.insertId);
+      // result.insertId);
     });
 
     //work
 
     sql = `delete from task12_experience  where eid = ${hidden}`;
-    // console.log(sql);
+    // sql);
     con.query(sql, function (err, result) {
       if (err) throw err;
     });
@@ -338,7 +327,7 @@ const submitform = (req, res) => {
     if (newrname.length > 0) {
       for (let i = 0; i < newrname.length; i++) {
         sql = `delete from task12_reference where eid = ${hidden}`;
-        // console.log(sql);
+        // sql);
         con.query(sql, function (err, result) {
           if (err) throw err;
         });
@@ -355,7 +344,7 @@ const submitform = (req, res) => {
     ///ptask12_references
 
     sql = `delete from task12_preference where eid = ${hidden}`;
-    // console.log(sql);
+    // sql);
     con.query(sql, function (err, result) {
       if (err) throw err;
     });
@@ -369,7 +358,6 @@ const submitform = (req, res) => {
 
     //task12_education
     sql = `delete from task12_education where eid = ${hidden}`;
-    // console.log(sql);
     con.query(sql, function (err, result) {
       if (err) throw err;
     });
@@ -380,7 +368,6 @@ const submitform = (req, res) => {
 
     for (let i = 0; i < edu.length; i++) {
       sql = `insert into task12_education (eid , coursename , passingyear , percentage) values (${hidden} , "${course[i]}" , ${year[i]} , ${percentage[i]})`;
-      // console.log(sql);
       con.query(sql, function (err, result) {
         if (err) throw err;
       });
@@ -388,7 +375,6 @@ const submitform = (req, res) => {
 
     // language
     sql = `delete from task12_language where eid = ${hidden}`;
-    // console.log(sql);
     con.query(sql, function (err, result) {
       if (err) throw err;
     });
@@ -509,7 +495,6 @@ const update = (req, res) => {
   con.query(sql, function (err, result) {
     if (err) throw err;
     const key = Object.keys(result[0]);
-    console.log(result[4]);
 
     res.render("./task12/index", { result, key });
   });

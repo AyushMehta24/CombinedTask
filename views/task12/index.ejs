@@ -732,7 +732,7 @@
                   name="languages"
                   value="english"
                   onclick="lanupdate('english')"
-                  <% if(result !=="false" && result[3].length  > 1) { if((result[3][0].languagename == "english")||(result[3][1].languagename == "english")||(result[3][2].languagename == "english")||(result[3][3].languagename == "english")) { %> checked <%}} else { 
+                  <% if(result !=="false" && result[3].length  > 2) { if((result[3][0].languagename == "english")||(result[3][1].languagename == "english")||(result[3][2].languagename == "english")||(result[3][3].languagename == "english")) { %> checked <%}} else { 
                     value=""
                   }%>
                 />
@@ -880,7 +880,7 @@
                   id="phpm"
                   value="Mideator"
                   class="php"
-                  <% if(result !=="false" && result[4].length > 0) { if((result[4][0].type == "Mideator" && result[4][0].technology== "php")||(result[4][1].type == "Mideator" && result[4][1].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Mideator" && result[4][0].technology== "php")||(result[4][1].type == "Mideator" && result[4][1].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="false"} %>
                 
@@ -911,7 +911,7 @@
                   id="mysql"
                   value="mysql"
                   onclick="techupdate('mysql')"
-                  <% if(result !=="false" && result[4].length  > 0) { if((result[4][0].technology == "mysql")||(result[4][1].technology == "mysql")) { %> checked <%}} else { %>
+                  <% if(result !=="false" && result[4].length  > 1) { if((result[4][0].technology == "mysql")||(result[4][1].technology == "mysql")) { %> checked <%}} else { %>
                    <% value="" %>
                   <%}%>
                 />
@@ -927,7 +927,7 @@
                   class="mysql"
              
                   
-                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Begainer" && result[4][0].technology== "mysql")||(result[4][1].type == "Begainer" && result[4][1].technology== "mysql")||(result[4][2].type == "Begainer" && result[4][2].technology== "mysql")||(result[4][3].type == "Begainer" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Begainer" && result[4][0].technology== "mysql")||(result[4][1].type == "Begainer" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="true"} %>
                 />
@@ -941,7 +941,7 @@
                   id="mysqlm"
                   value="Mideator"
                   class="mysql"
-                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Mideator" && result[4][0].technology== "mysql")||(result[4][1].type == "Mideator" && result[4][1].technology== "mysql")||(result[4][2].type == "Mideator" && result[4][2].technology== "mysql")||(result[4][3].type == "Mideator" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Mideator" && result[4][0].technology== "mysql")||(result[4][1].type == "Mideator" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="true"} %>} %>
                 />
@@ -955,7 +955,7 @@
                   id="mysqle"
                   value="Expert"
                   class="mysql"
-                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Expert" && result[4][0].technology== "mysql")||(result[4][1].type == "Expert" && result[4][1].technology== "mysql")||(result[4][2].type == "Expert" && result[4][2].technology== "mysql")||(result[4][3].type == "Expert" && result[4][3].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
+                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Expert" && result[4][0].technology== "mysql")||(result[4][1].type == "Expert" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
                     disabled = "false"
                   } }else{disabled="true"} %>} %>
                 />
@@ -985,7 +985,7 @@
                   id="laravelb"
                   value="Begainer"
                   class="laravel"
-                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Begainer" && result[4][0].technology== "laravel")||(result[4][1].type == "Begainer" && result[4][1].technology== "laravel")||(result[4][2].type == "Begainer" && result[4][2].technology== "laravel")||(result[4][3].type == "Begainer" && result[4][3].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Begainer" && result[4][0].technology== "laravel")||(result[4][1].type == "Begainer" && result[4][1].technology== "laravel")||(result[4][2].type == "Begainer" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
                 />
                 <label for="laravelb">Beginer</label>
               </td>
@@ -997,7 +997,7 @@
                   id="laravelm"
                   value="Mideator"
                   class="laravel"
-                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Mideator" && result[4][0].technology== "laravel")||(result[4][1].type == "Mideator" && result[4][1].technology== "laravel")||(result[4][2].type == "Mideator" && result[4][2].technology== "laravel")||(result[4][3].type == "Mideator" && result[4][3].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Mideator" && result[4][0].technology== "laravel")||(result[4][1].type == "Mideator" && result[4][1].technology== "laravel")||(result[4][2].type == "Mideator" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
                 
                 />
                 <label for="laravelm">Mideator</label>
@@ -1010,7 +1010,7 @@
                   id="laravele"
                   value="Expert"
                   class="laravel"
-                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Expert" && result[4][0].technology== "laravel")||(result[4][1].type == "Expert" && result[4][1].technology== "laravel")||(result[4][2].type == "Expert" && result[4][2].technology== "laravel")||(result[4][3].type == "Expert" && result[4][3].technology== "laravel")) { %>checked <% disabled = "false" %>  <%}} %>
+                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Expert" && result[4][0].technology== "laravel")||(result[4][1].type == "Expert" && result[4][1].technology== "laravel")||(result[4][2].type == "Expert" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%}} %>
                 />
                 <label for="laravele">Expert</label>
               </td>
@@ -1243,7 +1243,6 @@
       function validatefun() {
         let allow = true;
         const formelement = document.getElementById("form1");
-        // console.log(formelement[25]);
         var radioclass = ["gender", "php", "mysql", "laravel", "oracle"];
 
         //required all basic details validation
@@ -1433,7 +1432,6 @@
         //dynamic work validation
         for (let i = 0; i < newwork; i++) {
           const c2 = document.querySelectorAll(`.compnay${i + 3}`);
-          console.log(c2);
           c2.forEach((element) => {
             if (element.value != "") mendetory = true;
           });
@@ -1596,37 +1594,6 @@
         return false;
       }
 
-      ////langauge select disable checkbox
-
-      // function lanupdate(language) {
-      //   const sub = document.getElementsByClassName(`${language}radio`);
-      //   // console.log(sub);
-
-      //   for (let i = 0; i < sub.length; i++) {
-      //     if (sub[i].disabled) {
-      //       sub[i].disabled = false;
-      //     } else {
-      //       sub[i].disabled = true;
-      //       sub[i].checked = false;
-      //     }
-      //   }
-      // }
-
-      ////technology select radion button
-
-      // function techupdate(tech) {
-      //   const sub = document.getElementsByClassName(`${tech}`);
-
-      //   // console.log(sub);
-      //   for (let i = 0; i < sub.length; i++) {
-      //     if (sub[i].disabled) {
-      //       sub[i].disabled = false;
-      //     } else {
-      //       sub[i].disabled = true;
-      //       sub[i].checked = false;
-      //     }
-      //   }
-      // }
 
       function addworkrow() {
         newwork++;
@@ -1643,7 +1610,6 @@
         const input1 = document.createElement("input");
         input1.type = "text";
         input1.classList.add(`compnay${cnum + 1}`);
-        // console.log();
         input1.name = "compnay_name";
         td2.appendChild(input1);
         tr1.appendChild(td2);
@@ -1713,8 +1679,8 @@
         if (newwork > 0) {
           newwork--;
           for (let i = 0; i < 4; i++) {
-            const ayush = table1.lastElementChild;
-            ayush.remove();
+            const temp = table1.lastElementChild;
+            temp.remove();
           }
         }
       }
@@ -1783,14 +1749,13 @@
         if (newref > 0) {
           newref--;
           for (let i = 0; i < 3; i++) {
-            const ayush = table1.lastElementChild;
-            ayush.remove();
+            const temp = table1.lastElementChild;
+            temp.remove();
           }
         }
       }
 
       // function addeducation() {
-      //   // console.log("object");
       //   const br = document.createElement("br");
       //   const div = document.getElementById("educationmain");
       //   div.appendChild(br);
@@ -1816,7 +1781,6 @@
       //   // table.appendChild(tr1);
       //   // div.appendChild(table);
 
-      //  const ayush =  `<tr>
       //         <td>
       //           <label for="snob"> Course name:</label>
       //         </td>
@@ -1831,7 +1795,6 @@
       //       </tr>`
       // }
       // function removeeducation() {
-      //   console.log("object");
       // }
 
       ////////////////////////////////////////////////////////

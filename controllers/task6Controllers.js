@@ -122,7 +122,6 @@ const exampost = (req, res) => {
   const email = body.email;
   const phone = body.contact;
   const opt = req.body.opt;
-  console.log(opt);
 
   if (opt == "and") {
     con.query(
@@ -138,7 +137,6 @@ const exampost = (req, res) => {
               function (err, result3, fields) {
                 if (err) throw err;
 
-                // console.log(result1,result2,result3,);
                 res.render("exam", {
                   data1: result1,
                   data2: result2,
@@ -151,7 +149,6 @@ const exampost = (req, res) => {
       }
     );
   } else {
-    console.log("inside");
     con.query(
       `select task6_studentmaster.sid,task6_studentmaster.email,task6_studentmaster.phone, task6_exam.sid, task6_studentmaster.fname , sum(task6_exam.prac) as prac , sum(task6_exam.theory) as theory from task6_studentmaster  join task6_exam where 
       (task6_studentmaster.fname = "${name}" or task6_studentmaster.email = "${email}" or task6_studentmaster.phone = "${phone}") and task6_studentmaster.sid = task6_exam.sid and task6_exam.type =1 group by task6_exam.sid;`,

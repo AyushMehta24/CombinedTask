@@ -1283,7 +1283,6 @@
       function validatefun() {
         let allow = true;
         // const formelement = document.getElementById("form1");
-        // // console.log(formelement[25]);
         // var radioclass = ["gender", "php", "mysql", "laravel", "oracle"];
 
         // //required all basic details validation
@@ -1473,7 +1472,6 @@
         // //dynamic work validation
         // for (let i = 0; i < newwork; i++) {
         //   const c2 = document.querySelectorAll(`.compnay${i + 3}`);
-        //   console.log(c2);
         //   c2.forEach((element) => {
         //     if (element.value != "") mendetory = true;
         //   });
@@ -1640,7 +1638,6 @@
 
       // function lanupdate(language) {
       //   const sub = document.getElementsByClassName(`${language}radio`);
-      //   // console.log(sub);
 
       //   for (let i = 0; i < sub.length; i++) {
       //     if (sub[i].disabled) {
@@ -1657,7 +1654,7 @@
       // function techupdate(tech) {
       //   const sub = document.getElementsByClassName(`${tech}`);
 
-      //   // console.log(sub);
+      //   // sub);
       //   for (let i = 0; i < sub.length; i++) {
       //     if (sub[i].disabled) {
       //       sub[i].disabled = false;
@@ -1683,7 +1680,6 @@
         const input1 = document.createElement("input");
         input1.type = "text";
         input1.classList.add(`compnay${cnum + 1}`);
-        // console.log();
         input1.name = "compnay_name[]";
         td2.appendChild(input1);
         tr1.appendChild(td2);
@@ -1753,8 +1749,8 @@
         if (newwork > 0) {
           newwork--;
           for (let i = 0; i < 4; i++) {
-            const ayush = table1.lastElementChild;
-            ayush.remove();
+            const temp = table1.lastElementChild;
+            temp.remove();
           }
         }
       }
@@ -1823,13 +1819,13 @@
         if (newref > 0) {
           newref--;
           for (let i = 0; i < 3; i++) {
-            const ayush = table1.lastElementChild;
-            ayush.remove();
+            const temp = table1.lastElementChild;
+            temp.remove();
           }
         }
       }
 
-      let ayush;
+      let id;
       async function basicnext()
       {
         const url = location.href;
@@ -1860,31 +1856,22 @@
         gender = "others"
         }
 
-        // for(let i = 0 ; i < form.length ; i++)
-        // {
-        //   console.log(form[i]);
-        // }
         let basicarray;
         
         if(url.includes("update"))
         {
           
           basicarray = {"page": "basic" ,"first_name" : form.elements[0].value , "last_name" :  form.elements[1].value , "addressline1" : form.elements[4].value , "addressline2" : form.elements[5].value , "city" : form.elements[7].value , "state" : form.elements[6].value ,"zipcode" : form.elements[8].value, "phonenumber" : form.elements[9].value , "gender" : gender , "designation" : 
-          form.elements[2].value , "relationship" : form.elements[13].value , "dob" : form.elements[14].value , "email" : form.elements[3].value, "id" : fid , "hidden" : "ayush"};
+          form.elements[2].value , "relationship" : form.elements[13].value , "dob" : form.elements[14].value , "email" : form.elements[3].value, "id" : fid , "hidden" : "hidden"};
       
         const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(basicarray) , headers: {
           "Content-Type": "application/json"		},})
         }
         else{
-          console.log("sdvjbsauyhasuvasjkchscid");
           basicarray = {"page": "basic" ,"first_name" : form.elements[0].value , "last_name" :  form.elements[1].value , "addressline1" : form.elements[4].value , "addressline2" : form.elements[5].value , "city" : form.elements[7].value , "state" : form.elements[6].value ,"zipcode" : form.elements[8].value, "phonenumber" : form.elements[9].value , "gender" : gender , "designation" : form.elements[2].value , "relationship" : form.elements[13].value , "dob" : form.elements[14].value , "email" : form.elements[3].value , "hidden" : "false"};
-        console.log(JSON.stringify(basicarray));
-        console.log("ayush");
        const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(basicarray) , headers: {
          "Content-Type": "application/json"		},})
          let data = await temp.json()
-         // console.log(data);
-         ayush = data;
         }
 
        basic.style.display  = "none"
@@ -1905,30 +1892,21 @@
         let fid = idd[idd.length - 1]
 
 
-        // console.log(ayush);
         const form = document.getElementById("form1");
         const edu = document.getElementById("educationmain")
         const exp = document.getElementById("experience")
 
         if(url.includes("update")){
-          const eduarray = {"page": "education","course1" : form.elements[15].value , "year1":form.elements[16].value , "per1" : form.elements[17].value , "course2" : form.elements[18].value , "year2":form.elements[19].value , "per2" : form.elements[20].value , "course3" : form.elements[21].value , "year3":form.elements[22].value , "per3" : form.elements[23].value , "course4" : form.elements[24].value , "year4":form.elements[25].value , "per4" : form.elements[26].value , "id" : fid , "hidden" : "ayush"}
+          const eduarray = {"page": "education","course1" : form.elements[15].value , "year1":form.elements[16].value , "per1" : form.elements[17].value , "course2" : form.elements[18].value , "year2":form.elements[19].value , "per2" : form.elements[20].value , "course3" : form.elements[21].value , "year3":form.elements[22].value , "per3" : form.elements[23].value , "course4" : form.elements[24].value , "year4":form.elements[25].value , "per4" : form.elements[26].value , "id" : fid , "hidden" : "hidden"}
           const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(eduarray) , headers: {
 			"Content-Type": "application/json"	},})
         }
         else{
           
-          const eduarray = {"page": "education","course1" : form.elements[15].value , "year1":form.elements[16].value , "per1" : form.elements[17].value , "course2" : form.elements[18].value , "year2":form.elements[19].value , "per2" : form.elements[20].value , "course3" : form.elements[21].value , "year3":form.elements[22].value , "per3" : form.elements[23].value , "course4" : form.elements[24].value , "year4":form.elements[25].value , "per4" : form.elements[26].value , "id" : ayush , "hidden" : "false"}
+          const eduarray = {"page": "education","course1" : form.elements[15].value , "year1":form.elements[16].value , "per1" : form.elements[17].value , "course2" : form.elements[18].value , "year2":form.elements[19].value , "per2" : form.elements[20].value , "course3" : form.elements[21].value , "year3":form.elements[22].value , "per3" : form.elements[23].value , "course4" : form.elements[24].value , "year4":form.elements[25].value , "per4" : form.elements[26].value , "id" : id , "hidden" : "false"}
           const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(eduarray) , headers: {
         "Content-Type": "application/json"	},})
         }
-
-        // console.log("one");
-
-      // let data = await temp.json()
-      // console.log(data);
-        // console.log(temp);
-        // console.log("two");
-
 
         edu.style.display = "none"
         exp.style.display = "block"
@@ -1953,14 +1931,14 @@
 
 
         if(url.includes("update")){
-          const workarray = {"page" : "work" , "cname1": form.elements[27].value , "des1": form.elements[28].value, "from1": form.elements[29].value, "to1": form.elements[30].value ,"cname2": form.elements[31].value , "des2": form.elements[32].value , "from2": form.elements[33].value , "to2": form.elements[34].value, "id" : fid, "hidden" : "ayush" }
+          const workarray = {"page" : "work" , "cname1": form.elements[27].value , "des1": form.elements[28].value, "from1": form.elements[29].value, "to1": form.elements[30].value ,"cname2": form.elements[31].value , "des2": form.elements[32].value , "from2": form.elements[33].value , "to2": form.elements[34].value, "id" : fid, "hidden" : "hidden" }
 
           const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(workarray) , headers: {
 			"Content-Type": "application/json"	},})
 
         }
         else{
-          const workarray = {"page" : "work" , "cname1": form.elements[27].value , "des1": form.elements[28].value, "from1": form.elements[29].value, "to1": form.elements[30].value ,"cname2": form.elements[31].value , "des2": form.elements[32].value , "from2": form.elements[33].value , "to2": form.elements[34].value, "id" : ayush, "hidden" : "false" }
+          const workarray = {"page" : "work" , "cname1": form.elements[27].value , "des1": form.elements[28].value, "from1": form.elements[29].value, "to1": form.elements[30].value ,"cname2": form.elements[31].value , "des2": form.elements[32].value , "from2": form.elements[33].value , "to2": form.elements[34].value, "id" : id, "hidden" : "false" }
   
           const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(workarray) , headers: {
         "Content-Type": "application/json"	},})
@@ -1990,13 +1968,13 @@
         const lan = document.getElementById("language")
         const tech = document.getElementById("technologytab")
 
-        const ayush1 = document.getElementsByName("languages[]");
+        const lan1 = document.getElementsByName("languages[]");
         let lanname = [];
         for(let i=0;i<3;i++)
         {
-          if(ayush1[i].checked)
+          if(lan1[i].checked)
           {
-            lanname.push(ayush1[i].value);
+            lanname.push(lan1[i].value);
           }
         }
 
@@ -2036,7 +2014,7 @@
 
         if(url.includes("update")){
           const lanarray = {"page":"language", "lname" : lanname , 
-      "hindi" : hindi , "english" : english , "gujarati" : gujarati, "id" : fid , "hidden" : "ayush"}
+      "hindi" : hindi , "english" : english , "gujarati" : gujarati, "id" : fid , "hidden" : "hidden"}
 
       const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(lanarray) , headers: {
 			"Content-Type": "application/json"	},})
@@ -2044,7 +2022,7 @@
         else{
 
           const lanarray = {"page":"language", "lname" : lanname , 
-        "hindi" : hindi , "english" : english , "gujarati" : gujarati, "id" : ayush , "hidden" : "false"}
+        "hindi" : hindi , "english" : english , "gujarati" : gujarati, "id" : id , "hidden" : "false"}
 
         const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(lanarray) , headers: {
 			"Content-Type": "application/json"	},})
@@ -2138,13 +2116,13 @@
 
         if(url.includes("update"))
         {
-          const techarray = {"page" : "technology" , "tname" : technology , "php" : tt1 , "mysql" : tt2 , "laravel" : tt3 , "oracle" : tt4, "id" : fid, "hidden" : "ayush"}
+          const techarray = {"page" : "technology" , "tname" : technology , "php" : tt1 , "mysql" : tt2 , "laravel" : tt3 , "oracle" : tt4, "id" : fid, "hidden" : "hidden"}
 
 const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(techarray) , headers: {
 "Content-Type": "application/json"	},})
         }
         else{
-          const techarray = {"page" : "technology" , "tname" : technology , "php" : tt1 , "mysql" : tt2 , "laravel" : tt3 , "oracle" : tt4, "id" : ayush, "hidden" : "false"}
+          const techarray = {"page" : "technology" , "tname" : technology , "php" : tt1 , "mysql" : tt2 , "laravel" : tt3 , "oracle" : tt4, "id" : id, "hidden" : "false"}
 
 const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(techarray) , headers: {
 "Content-Type": "application/json"	},})
@@ -2174,17 +2152,16 @@ const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(t
         const ref = document.getElementById("referencetab")
         const pref = document.getElementById("preferencetab")
 
-        // console.log(form[63]);
 
         if(url.includes("update"))
         {
-          const refarray = {"page" : "reference" , "rn1": form.elements[63].value , "rc1": form.elements[64].value, "rr1": form.elements[65].value, "rn2": form.elements[66].value ,"rc2": form.elements[67].value , "rr2": form.elements[68].value , "id" : fid , "hidden" : "ayush"}
+          const refarray = {"page" : "reference" , "rn1": form.elements[63].value , "rc1": form.elements[64].value, "rr1": form.elements[65].value, "rn2": form.elements[66].value ,"rc2": form.elements[67].value , "rr2": form.elements[68].value , "id" : fid , "hidden" : "hidden"}
 
 const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(refarray) , headers: {
 "Content-Type": "application/json"	},})
         }
         else{
-          const refarray = {"page" : "reference" , "rn1": form.elements[63].value , "rc1": form.elements[64].value, "rr1": form.elements[65].value, "rn2": form.elements[66].value ,"rc2": form.elements[67].value , "rr2": form.elements[68].value , "id" : ayush , "hidden" : "false"}
+          const refarray = {"page" : "reference" , "rn1": form.elements[63].value , "rc1": form.elements[64].value, "rr1": form.elements[65].value, "rn2": form.elements[66].value ,"rc2": form.elements[67].value , "rr2": form.elements[68].value , "id" : id , "hidden" : "false"}
 
 const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(refarray) , headers: {
 "Content-Type": "application/json"	},})
@@ -2220,7 +2197,6 @@ const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(r
         const ec =form[71].value;
         const cc = form[72].value;
         const dep = document.getElementById("department").value;
-        // console.log(loca, np , ec , cc , dep);
         const newloca  = []
 
         for(let i=0;i<loca.length;i++)
@@ -2233,26 +2209,24 @@ const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(r
 
 if(url.includes("update"))
 {
-  const prefarray = {"page" : "preference" ,"location" : newloca , "ectc" : ec , "cc" : cc , "np" : np , "dep" : dep , "id" : fid, "hidden" : "ayush"}
+  const prefarray = {"page" : "preference" ,"location" : newloca , "ectc" : ec , "cc" : cc , "np" : np , "dep" : dep , "id" : fid, "hidden" : "hidden"}
         const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(prefarray) , headers: {
 "Content-Type": "application/json"	},})
 let res=  await temp.json();
-console.log(res);
+
 if(res.msg == "Data inserted successfully")
 window.location.href = "/task13/validate"
 }
 else{
-  const prefarray = {"page" : "preference" ,"location" : newloca , "ectc" : ec , "cc" : cc , "np" : np , "dep" : dep , "id" : ayush, "hidden" : "fasle"}
+  const prefarray = {"page" : "preference" ,"location" : newloca , "ectc" : ec , "cc" : cc , "np" : np , "dep" : dep , "id" : id, "hidden" : "fasle"}
         const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(prefarray) , headers: {
 "Content-Type": "application/json"	},})
 let res=  await temp.json();
-console.log(res);
 if(res.msg == "Data inserted successfully")
 window.location.href = "/task13/validate"
 }
        
 
-// console.log(temp);
       }
     </script>
   </body>

@@ -26,7 +26,6 @@ const login = (req, res) => {
 };
 
 const postLogin = (req, res) => {
-  console.log(req.body , "shvaushvasjuvhasjuv");
   let val1 = parseInt(Math.random() * (9 - 0 + 1) + 0);
   let val2 = parseInt(Math.random() * (9 - 0 + 1) + 0);
   const { email, password, riddle } = req.body;
@@ -35,7 +34,6 @@ const postLogin = (req, res) => {
     "select * from login where email = ?",
     [email],
     (error, results) => {
-      console.log(results, "ayush");
       if (error) {
         return res.status(500).send("Internal server Error");
       }
@@ -46,7 +44,6 @@ const postLogin = (req, res) => {
       }
 
       const user = results[0];
-      console.log(user , "djhascvhascv");
       const salt = user.salt;
       const concatPassword = password + salt;
       const encryptPassword = md5(concatPassword);
@@ -141,7 +138,6 @@ const postRegister = (req, res) => {
 
 const activateToken = (req, res) => {
   const { token } = req.params;
-  console.log(token);
 
   con.query(
     "select * from login where activation_token = ?",

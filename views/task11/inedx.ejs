@@ -8,8 +8,8 @@
   <body>
     <label for="states">Select State: </label>
     <select name="states" id="states" onchange="getCities(this.value)">
-      <%for(let i = 0 ; i < ayush.length ; i++){%>
-      <option value="<%=ayush[i]%>"><%=ayush[i]%></option>
+      <%for(let i = 0 ; i < temp.length ; i++){%>
+      <option value="<%=temp[i]%>"><%=temp[i]%></option>
       <%}%>
     </select>
 
@@ -33,7 +33,6 @@
       async function getCities(val) {
         const om = await fetch("/task11/city/" + val);
         const om2 = await om.json();
-        // console.log(om2);
 
         let out = "";
         out+=`<label for="cities">Select city: </label>`

@@ -1,17 +1,21 @@
+<!DOCTYPE html>
 <html>
   <head>
     <style>
-        body{
-            background-color: rgb(122, 222, 230);
-        }
+table{
+  margin-top: 50px;
+}
 
       table,
       tr,
       td {
         border-collapse: collapse;
-        margin-top: 200px;
         margin-left: auto;
         margin-right: auto;
+      }
+
+      p {
+        margin: 0;
       }
 
       tr,
@@ -20,69 +24,91 @@
         width: 50px;
         background-color: rgba(43, 214, 226);
       }
+
       td {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         border: solid black 5px;
-      
+      }
+
+      .fl {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
     </style>
 
     <script>
-      numrow = 2;
-      numcollum = 2;
-
+      var numrow = 2;
+      var numcollum = 2;
       var score = 0;
-      count = 10;
+      var count = 10;
+      var timer;
 
-      setTimeout(() => {location.reload()
-        
-      }, 10000);
-      var timer = setInterval(function () {
-        count--;
-        if (count == 0) {
-          alert(`Game over!!! Score is ${score}`);
-          count = 10;
-          score = 0;
-          clearInterval(timer);
+      function resetTableSize() {
+        numrow = 2;
+        numcollum = 2;
+        document.getElementById("table").innerHTML = `
+          <tr id="tr1">
+            <td
+              id="td11"
+              onclick="add()"
+              style="background-color: rgba(43, 214, 226, 0.2)"
+            ></td>
+            <td id="td12"></td>
+          </tr>
+          <tr id="tr2">
+            <td id="td21"></td>
+            <td id="td22"></td>
+          </tr>`;
+      }
 
-        }
+      function startTimer() {
+        resetTableSize();
+        document.getElementById("startButton").style.display = "none";
+        document.getElementById("score").innerHTML = score;
         document.getElementById("timer").innerHTML = count;
-      }, 1000);
 
+        // Set up the timer
+        timer = setInterval(function () {
+          count--;
+          if (count == 0) {
+            clearInterval(timer);
+            alert(`Game over!!! Score is ${score}`);
+            count = 10;
+            score = 0;
+            document.getElementById("startButton").style.display = "block";
+          }
+          document.getElementById("timer").innerHTML = count;
+        }, 1000);
+      }
 
       function add() {
-
-        if(numrow<9)
-        {
+        if (numrow < 9) {
           var table = document.getElementById("table");
-        var row = table.insertRow(numrow);
-        for (var i = 0; i < numcollum; i++) {
-          var j = row.insertCell(i);
-        }
-        numrow++;
-        var row = document.getElementsByTagName("tr");
-        for (var i = 0; i < numrow; i++) {
-          var j = row[i].insertCell(numcollum);
-        }
-        numcollum++;
+          var row = table.insertRow(numrow);
+          for (var i = 0; i < numcollum; i++) {
+            var j = row.insertCell(i);
+          }
+          numrow++;
+          var row = document.getElementsByTagName("tr");
+          for (var i = 0; i < numrow; i++) {
+            var j = row[i].insertCell(numcollum);
+          }
+          numcollum++;
         }
         document.getElementById("td11").onclick = "null";
-        
 
         var z = document.getElementsByTagName("td");
-        // console.log(z);
         colour = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
         var total = numrow * numcollum;
         var ran = Math.floor(Math.random() * (total - 4) + 4);
-        console.log(ran);
-        var cells = document.getElementById("table").getElementsByTagName("td");
 
         for (let i = 0; i < numrow * numcollum; i++) {
-          cells[i].removeEventListener("click", add);
+          z[i].removeEventListener("click", add);
         }
 
         for (let i = 0; i < numrow * numcollum; i++) {
@@ -92,24 +118,29 @@
         score++;
         document.getElementById("score").innerHTML = score;
 
-        console.log(cells[ran]);
+        cells = document.getElementById("table").getElementsByTagName("td");
+
         cells[ran].style.opacity = "0.7";
+        // cells[ran].style.borderColor = "red"
         cells[ran].addEventListener("click", add);
       }
-      // console.log(cells[ran]);
     </script>
   </head>
 
   <body>
     <h1 style="text-align: center">Ayush Mehta - 24DEV067 - Date:02/02/2024</h1>
 
-    <p style="font-size: 50px">
-      Score : <span id="score" style="font-size: 50px"> </span>
-      
-    </p>
-    <p style="font-size: 50px">Time: <span style="font-size: 50px" id="timer"> </span></p>
-    
-      
+    <div class="fl">
+      <p style="font-size: 35px">
+        Score : <span id="score" style="font-size: 50px"> </span>
+      </p>
+      <p style="font-size: 35px">
+        Time: <span style="font-size: 50px" id="timer"> </span>
+      </p>
+      <button id="startButton" onclick="startTimer()">Start Game</button>
+    </div>
+
+    <!-- Add Start Button -->
 
     <table id="table">
       <tr id="tr1">
@@ -118,7 +149,6 @@
           onclick="add()"
           style="background-color: rgba(43, 214, 226, 0.2)"
         ></td>
-
         <td id="td12"></td>
       </tr>
 

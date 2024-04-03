@@ -10,38 +10,36 @@ const display = (req, res) => {
   const sql = `select state from task11_state ; select * from task11_city`;
   con.query(sql, function (err, result) {
     if (err) throw err;
-    let ayush = [];
+    let temp = [];
     for (let i = 0; i < result[0].length; i++) {
-      ayush.push(result[0][i].state);
+      temp.push(result[0][i].state);
     }
 
-    res.render("./task11/inedx", { ayush });
+    res.render("./task11/inedx", { temp });
   });
 };
 
 const city = (req, res) => {
   let val = req.params.val;
-  console.log(val);
   const sql = `select state from task11_state ; select * from task11_city`;
   con.query(sql, function (err, result) {
     if (err) throw err;
 
-    let ayush = [];
+    let temp = [];
     for (let i = 0; i < result[0].length; i++) {
-      ayush.push(result[0][i].state);
+      temp.push(result[0][i].state);
     }
 
-    const stateid = ayush.indexOf(val) + 1;
-    console.log(stateid);
+    const stateid = temp.indexOf(val) + 1;
 
-    let ayush2 = [];
+    let temp2 = [];
     for (let i = 0; i < result[1].length; i++) {
       if (result[1][i].cid == stateid) {
-        ayush2.push(result[1][i].city);
+        temp2.push(result[1][i].city);
       }
     }
 
-    res.send(ayush2);
+    res.send(temp2);
   });
 };
 

@@ -114,7 +114,7 @@
           button.textContent = "Details";
           button.onclick = function () {
             location.href = `post/${item.id}`
-            logPostDetails(item.id);
+
           };
           td2.appendChild(button);
           tr.appendChild(td2);
@@ -157,9 +157,7 @@
         }
       }
 
-      function logPostDetails(postId) {
-        console.log("Post ID:", postId);
-      }
+  
 
       function searchData() {
         const input = document

@@ -24,17 +24,14 @@ const jwtOptions = {
 module.exports = function authenticateToken(passport) {
   passport.use(
     new JwtStrategy(jwtOptions, (jwtPayload, done) => {
-      // console.log(jwtPayload.email, "email");
       con.query(
         "select * from login where email = ?",
         [jwtPayload.email],
         function (err, result, fields) {
           if (err) throw err;
-          console.log(result, "result");
 
           let user = result[0];
           if (jwtPayload.email === user.email) {
-            console.log("hello");
             return done(null, { email: user.email });
           } else {
             console.log("noooo");

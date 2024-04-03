@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const session = require("express-session");
 
-var ayush;
+let sql;
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -58,15 +58,15 @@ app.post("/display", (req, res) => {
     queryParts[limitIndex + 1] = offset;
     queryParts[limitIndex + 2] = ",";
     queryParts[limitIndex + 3] = limit;
-    ayush = queryParts.join(" ");
-    con.query(ayush, function (err, result, fields) {
+    sql = queryParts.join(" ");
+    con.query(sql, function (err, result, fields) {
       if (err) throw err;
       res.render("display", {
         result: result,
         fields: fields,
         current: current,
         totalPages: totalPages,
-        sql: ayush,
+        sql: sql,
         boom: boom,
         type: type,
       });
@@ -74,7 +74,7 @@ app.post("/display", (req, res) => {
   } else {
     current = 1;
 
-    const vansh = tmp;
+    const fsql = tmp;
 
     const offset = current * 20 - 20;
     const queryParts = tmp.split(/\s+/);
@@ -83,18 +83,18 @@ app.post("/display", (req, res) => {
     queryParts.push(",");
     queryParts.push(limit);
 
-    const ayush1 = queryParts.join(" ");
+    const sql = queryParts.join(" ");
 
-    con.query(ayush1, function (err, result, fields) {
+    con.query(sql, function (err, result, fields) {
       if (err) throw err;
-      con.query(vansh, function (err, result1, fields1) {
+      con.query(fsql, function (err, result1, fields1) {
         totalPages = result1.length / limit;
         res.render("display", {
           result: result,
           fields: fields,
           current: current,
           totalPages: totalPages,
-          sql: vansh,
+          sql: fsql,
           boom: boom,
           type: type,
         });
@@ -106,7 +106,6 @@ app.post("/display", (req, res) => {
 });
 
 app.post("/display/:page/:boom/:type", (req, res) => {
-  console.log(req.session.query);
   const tmp = req.body;
   const pagequery = tmp.query;
   if (pagequery.includes("limit")) {
@@ -119,8 +118,8 @@ app.post("/display/:page/:boom/:type", (req, res) => {
     );
     queryParts[limitIndex + 1] = offset;
     const totalPages = parseInt(tmp.tp);
-    const ayush1 = queryParts.join(" ");
-    con.query(ayush1, function (err, result, fields) {
+    const sql = queryParts.join(" ");
+    con.query(sql, function (err, result, fields) {
       if (err) throw err;
       res.render("display", {
         result: result,
@@ -143,9 +142,9 @@ app.post("/display/:page/:boom/:type", (req, res) => {
     queryParts.push(",");
     queryParts.push(limit);
 
-    const ayush1 = queryParts.join(" ");
+    const sql = queryParts.join(" ");
 
-    con.query(ayush1, function (err, result, fields) {
+    con.query(sql, function (err, result, fields) {
       if (err) throw err;
       res.render("display", {
         result: result,
