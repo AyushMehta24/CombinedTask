@@ -544,13 +544,26 @@ const submit = (req, res) => {
 };
 
 const update = (req, res) => {
+  let sql;
   const id = req.params.id;
-  const sql = `select * from task12_basic_details where eid = ${id} ; select * from task12_education where eid = ${id} ; select * from task12_experience where eid = ${id} ; select * from task12_language where eid = ${id} ; select * from task12_technology where eid = ${id} ; select * from task12_reference where eid = ${id} ; select * from task12_preference where eid = ${id}`;
+
+  sql = `select eid from task12_basic_details where eid = ?`
+  con.query(sql,[id], function (err, result) {
+    // console.log("object");
+    if (err) return res.render("../views/error.ejs");
+    if(result.length == 0)
+    {
+      return res.render("../views/error.ejs");    }
+  });
+
+
+  ///////////////////////////////////////////////////
+   sql = `select * from task12_basic_details where eid = ${id} ; select * from task12_education where eid = ${id} ; select * from task12_experience where eid = ${id} ; select * from task12_language where eid = ${id} ; select * from task12_technology where eid = ${id} ; select * from task12_reference where eid = ${id} ; select * from task12_preference where eid = ${id}`;
   con.query(sql, function (err, result) {
     if (err) return res.render("../views/error.ejs");
     const key = Object.keys(result[0]);
 
-    res.render("./ajaxJobAppForm/index", { result, key, id });
+   return res.render("./ajaxJobAppForm/index", { result, key, id });
   });
 };
 
