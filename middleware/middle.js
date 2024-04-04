@@ -1,7 +1,7 @@
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const passport = require("passport");
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const con = require("../db");
 
 function cookieExtractor(req) {
