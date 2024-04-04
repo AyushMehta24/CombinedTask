@@ -441,12 +441,16 @@ const submitform = (req, res) => {
       if (newgr !== undefined) {
         templan.push(newgr);
       }
-      console.log(templan);
+      // console.log(templan);
+
+      // console.log(languages);
+      // console.log(templan);
 
       for (let i = 0; i < languages.length; i++) {
         for (let j = 0; j < templan[i].length; j++) {
           sql = `insert into task12_language (eid , languagename , type) values (${hidden} , "${languages[i]}", "${templan[i][j]}")`;
           con.query(sql, function (err, result) {
+            // console.log(result);
             if (err) return res.render("../views/error.ejs");
           });
         }
@@ -471,8 +475,8 @@ const submitform = (req, res) => {
         temptech.push(tech4);
       }
 
-      console.log(technologies);
-      console.log(temptech);
+      // console.log(technologies);
+      // console.log(temptech);
       for (let i = 0; i < technologies.length; i++) {
         sql = `insert into task12_technology (eid ,  technology , type) values (${hidden} , "${technologies[i]}", "${temptech[i]}")`;
         con.query(sql, function (err, result) {
@@ -491,6 +495,7 @@ const update = (req, res) => {
   con.query(sql, function (err, result) {
     if (err) return res.render("../views/error.ejs");
     const key = Object.keys(result[0]);
+    console.log("sjbdvhsdv", result[4]);
 
     res.render("./jobAppForm/index", { result, key });
   });
