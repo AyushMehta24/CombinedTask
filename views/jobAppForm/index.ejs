@@ -676,9 +676,22 @@
                   name="languages"
                   value="hindi"
                   onclick="lanupdate('hindi')"
-                  <% if(result && result[3].length  > 0) { if(result[3][0].languagename == "hindi") { %> checked <%}} else { 
-                    value=""
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "hindi")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
                   }%>
+
+
+                  
                 />
                 <label for="lan">Hindi</label>
               </td>
@@ -690,9 +703,22 @@
                   id="h1"
                   value="read"
                   class="hindiradio"
-                  <% if(result !=="false" && result[3].length  > 0) { if(result[3][0].type == "read" && result[3][0].languagename == "hindi") { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "hindi" && result[3][item].type == "read")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
+
+
+                 
                 />
                 <label for="h1">Read</label>
               </td>
@@ -704,9 +730,19 @@
                   class="hindiradio"
                   id="h2"
                   value="write"
-                  <% if(result !=="false" && result[3].length  > 1) { if((result[3][0].type == "write" && result[3][0].languagename== "hindi")||(result[3][1].type == "write" && result[3][1].languagename== "hindi")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "hindi" && result[3][item].type == "write")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="h2">Write</label>
               </td>
@@ -717,9 +753,19 @@
                   class="hindiradio"
                   id="h3"
                   value="speak"
-                  <% if(result !=="false" && result[3].length  > 2) { if((result[3][0].type == "speak" && result[3][0].languagename== "hindi")||(result[3][1].type == "speak" && result[3][1].languagename== "hindi")||(result[3][2].type == "speak" && result[3][2].languagename== "hindi")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "hindi" && result[3][item].type == "speak")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="h3">Speak</label>
               </td>
@@ -732,8 +778,18 @@
                   name="languages"
                   value="english"
                   onclick="lanupdate('english')"
-                  <% if(result !=="false" && result[3].length  > 2) { if((result[3][0].languagename == "english")||(result[3][1].languagename == "english")||(result[3][2].languagename == "english")||(result[3][3].languagename == "english")) { %> checked <%}} else { 
-                    value=""
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "english")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
                   }%>
                 />
                 <label for="lan">English</label>
@@ -746,9 +802,19 @@
                   class="englishradio"
                   id="e1"
                   value="read"
-                  <% if(result !=="false" && result[3].length  > 2) { if((result[3][0].type == "read" && result[3][0].languagename== "english")||(result[3][1].type == "read" && result[3][1].languagename== "english")||(result[3][2].type == "read" && result[3][2].languagename== "english")||(result[3][3].type == "read" && result[3][3].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "english" && result[3][item].type == "read")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="e1">Read</label>
               </td>
@@ -760,9 +826,19 @@
                   class="englishradio"
                   id="e2"
                   value="write"
-                  <% if(result !=="false" && result[3].length >3 ) { if((result[3][0].type == "write" && result[3][0].languagename== "english")||(result[3][1].type == "write" && result[3][1].languagename== "english")||(result[3][2].type == "write" && result[3][2].languagename== "english")||(result[3][3].type == "write" && result[3][3].languagename== "english")||(result[3][4].type == "write" && result[3][4].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "english" && result[3][item].type == "write")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="e2">Write</label>
               </td>
@@ -773,9 +849,19 @@
                   class="englishradio"
                   id="e3"
                   value="speak"
-                  <% if(result !=="false" && result[3].length > 5) { if((result[3][0].type == "speak" && result[3][0].languagename== "english")||(result[3][1].type == "speak" && result[3][1].languagename== "english")||(result[3][2].type == "speak" && result[3][2].languagename== "english")||(result[3][3].type == "speak" && result[3][3].languagename== "english")||(result[3][4].type == "speak" && result[3][4].languagename== "english")||(result[3][5].type == "speak" && result[3][5].languagename== "english")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "english" && result[3][item].type == "speak")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="e3">Speak</label>
               </td>
@@ -788,8 +874,18 @@
                   name="languages"
                   value="gujarati"
                   onclick="lanupdate('gujarati')"
-                  <% if(result !=="false" && result[3].length  > 7) { if((result[3][0].languagename == "gujarati")||(result[3][1].languagename == "gujarati")||(result[3][2].languagename == "gujarati")||(result[3][3].languagename == "gujarati")||(result[3][4].languagename == "gujarati")||(result[3][5].languagename == "gujarati")||(result[3][6].languagename == "gujarati")||(result[3][7].languagename == "gujarati")) { %> checked <%}} else { 
-                    value=""
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "gujarati")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
                   }%>
                 />
                 <label for="lan">Gujarati</label>
@@ -802,9 +898,19 @@
                   class="gujaratiradio"
                   id="g1"
                   value="read"
-                  <% if(result !=="false" && result[3].length > 6) { if((result[3][0].type == "read" && result[3][0].languagename== "gujarati")||(result[3][1].type == "read" && result[3][1].languagename== "gujarati")||(result[3][2].type == "read" && result[3][2].languagename== "gujarati")||(result[3][3].type == "read" && result[3][3].languagename== "gujarati")||(result[3][4].type == "read" && result[3][4].languagename== "gujarati")||(result[3][5].type == "read" && result[3][5].languagename== "gujarati")||(result[3][6].type == "read" && result[3][6].languagename== "gujarati")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "gujarati" && result[3][item].type == "read")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="g1">Read</label>
               </td>
@@ -816,9 +922,19 @@
                   class="gujaratiradio"
                   id="g2"
                   value="write"
-                  <% if(result !=="false" && result[3].length > 7) { if((result[3][0].type == "write" && result[3][0].languagename== "gujarati")||(result[3][1].type == "write" && result[3][1].languagename== "gujarati")||(result[3][2].type == "write" && result[3][2].languagename== "gujarati")||(result[3][3].type == "write" && result[3][3].languagename== "gujarati")||(result[3][4].type == "write" && result[3][4].languagename== "gujarati")||(result[3][5].type == "write" && result[3][5].languagename== "gujarati")||(result[3][6].type == "write" && result[3][6].languagename== "gujarati")||(result[3][7].type == "write" && result[3][7].languagename== "gujarati")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "gujarati" && result[3][item].type == "write")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="g2">Write</label>
               </td>
@@ -829,9 +945,19 @@
                   class="gujaratiradio"
                   id="g3"
                   value="speak"
-                  <% if(result !=="false" && result[3].length > 8) { if((result[3][0].type == "speak" && result[3][0].languagename== "gujarati")||(result[3][1].type == "speak" && result[3][1].languagename== "gujarati")||(result[3][2].type == "speak" && result[3][2].languagename== "gujarati")||(result[3][3].type == "speak" && result[3][3].languagename== "gujarati")||(result[3][4].type == "speak" && result[3][4].languagename== "gujarati")||(result[3][5].type == "speak" && result[3][5].languagename== "gujarati")||(result[3][6].type == "speak" && result[3][6].languagename== "gujarati")||(result[3][7].type == "speak" && result[3][7].languagename== "gujarati")||(result[3][8].type == "speak" && result[3][8].languagename== "gujarati")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[3].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[3]){
+                      i++;
+                      if(result[3][item].languagename == "gujarati" && result[3][item].type == "speak")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="g3">Speak</label>
               </td>
@@ -852,8 +978,18 @@
                   id="php"
                   value="php"
                   onclick="techupdate('php')"
-                  <% if(result && result[4].length  > 0) { if(result[4][0].technology == "php") { %> checked <%}} else { 
-                    value=""
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "php")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
                   }%>
                 />
                 <label for="php" class="php">PHP</label>
@@ -866,9 +1002,19 @@
                   id="phpb"
                   value="Begainer"
                   class="php"
-                  <% if(result !=="false" && result[4].length > 0) { if((result[4][0].type == "Begainer" && result[4][0].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "php" && result[4][item].type == "Begainer")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="phpb">Beginer</label>
               </td>
@@ -880,9 +1026,19 @@
                   id="phpm"
                   value="Mideator"
                   class="php"
-                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Mideator" && result[4][0].technology== "php")||(result[4][1].type == "Mideator" && result[4][1].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "php" && result[4][item].type == "Mideator")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 
                 />
                 <label for="phpm">Mideator</label>
@@ -895,9 +1051,19 @@
                   id="phpe"
                   value="Expert"
                   class="php"
-                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Expert" && result[4][0].technology== "php")||(result[4][1].type == "Expert" && result[4][1].technology== "php")||(result[4][2].type == "Expert" && result[4][2].technology== "php")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="true"} %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "php" && result[4][item].type == "Expert")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="phpe">Expert</label>
               </td>
@@ -911,9 +1077,19 @@
                   id="mysql"
                   value="mysql"
                   onclick="techupdate('mysql')"
-                  <% if(result !=="false" && result[4].length  > 1) { if((result[4][0].technology == "mysql")||(result[4][1].technology == "mysql")) { %> checked <%}} else { %>
-                   <% value="" %>
-                  <%}%>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "mysql")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="mysql" class="mysql">Mysql</label>
               </td>
@@ -927,9 +1103,19 @@
                   class="mysql"
              
                   
-                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Begainer" && result[4][0].technology== "mysql")||(result[4][1].type == "Begainer" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="true"} %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "mysql" && result[4][item].type == "Begainer")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="mysqlb">Beginer</label>
               </td>
@@ -941,9 +1127,19 @@
                   id="mysqlm"
                   value="Mideator"
                   class="mysql"
-                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Mideator" && result[4][0].technology== "mysql")||(result[4][1].type == "Mideator" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="true"} %>} %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "mysql" && result[4][item].type == "Mideator")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="mysqlm">Mideator</label>
               </td>
@@ -955,9 +1151,19 @@
                   id="mysqle"
                   value="Expert"
                   class="mysql"
-                  <% if(result !=="false" && result[4].length > 1) { if((result[4][0].type == "Expert" && result[4][0].technology== "mysql")||(result[4][1].type == "Expert" && result[4][1].technology== "mysql")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="true"} %>} %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "mysql" && result[4][item].type == "Expert")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="mysqle">Expert</label>
               </td>
@@ -971,9 +1177,19 @@
                   value="laravel"
                   onclick="techupdate('laravel')"
                   id="laravel"
-                  <% if(result !=="false" && result[4].length  > 2) { if((result[4][0].technology == "laravel")||(result[4][1].technology == "laravel")||(result[4][2].technology == "laravel")) { %> checked <%}} else { 
-                     value="" 
-                   }%>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "laravel")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="laravel" class="laravel">Laravel</label>
               </td>
@@ -985,7 +1201,19 @@
                   id="laravelb"
                   value="Begainer"
                   class="laravel"
-                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Begainer" && result[4][0].technology== "laravel")||(result[4][1].type == "Begainer" && result[4][1].technology== "laravel")||(result[4][2].type == "Begainer" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "laravel" && result[4][item].type == "Begainer")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="laravelb">Beginer</label>
               </td>
@@ -997,7 +1225,19 @@
                   id="laravelm"
                   value="Mideator"
                   class="laravel"
-                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Mideator" && result[4][0].technology== "laravel")||(result[4][1].type == "Mideator" && result[4][1].technology== "laravel")||(result[4][2].type == "Mideator" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%} } %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "laravel" && result[4][item].type == "Mideator")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 
                 />
                 <label for="laravelm">Mideator</label>
@@ -1010,7 +1250,19 @@
                   id="laravele"
                   value="Expert"
                   class="laravel"
-                  <% if(result !=="false" && result[4].length > 2) { if((result[4][0].type == "Expert" && result[4][0].technology== "laravel")||(result[4][1].type == "Expert" && result[4][1].technology== "laravel")||(result[4][2].type == "Expert" && result[4][2].technology== "laravel")) { %>checked <% disabled = "false" %>  <%}} %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "laravel" && result[4][item].type == "Expert")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="laravele">Expert</label>
               </td>
@@ -1024,9 +1276,19 @@
                   id="oracle"
                   value="oracle"
                   onclick="techupdate('oracle')"
-                  <% if(result !=="false" && result[4].length  > 3) { if((result[4][0].technology == "oracle")||(result[4][1].technology == "oracle")||(result[4][2].technology == "oracle")||(result[4][3].technology == "oracle")) { %> checked <%}} else { %>
-                    <% value="" %>
-                   <%}%>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "oracle")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="oracle" class="oracle">Oracle</label>
               </td>
@@ -1038,9 +1300,19 @@
                   id="oracleb"
                   value="Begainer"
                   class="oracle"
-                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Begainer" && result[4][0].technology== "oracle")||(result[4][1].type == "Begainer" && result[4][1].technology== "oracle")||(result[4][2].type == "Begainer" && result[4][2].technology== "oracle")||(result[4][3].type == "Begainer" && result[4][3].technology== "oracle")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "oracle" && result[4][item].type == "Begainer")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="oracleb">Beginer</label>
               </td>
@@ -1052,9 +1324,19 @@
                   id="oraclem"
                   value="Mideator"
                   class="oracle"
-                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Mideator" && result[4][0].technology== "oracle")||(result[4][1].type == "Mideator" && result[4][1].technology== "oracle")||(result[4][2].type == "Mideator" && result[4][2].technology== "oracle")||(result[4][3].type == "Mideator" && result[4][3].technology== "oracle")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "oracle" && result[4][item].type == "Mideator")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="oraclem">Mideator</label>
               </td>
@@ -1066,9 +1348,19 @@
                   id="oraclee"
                   value="Expert"
                   class="oracle"
-                  <% if(result !=="false" && result[4].length > 3) { if((result[4][0].type == "Expert" && result[4][0].technology== "oracle")||(result[4][1].type == "Expert" && result[4][1].technology== "oracle")||(result[4][2].type == "Expert" && result[4][2].technology== "oracle")||(result[4][3].type == "Expert" && result[4][3].technology== "oracle")) { %>checked <% disabled = "false" %>  <%}else{
-                    disabled = "false"
-                  } }else{disabled="false"} %>
+                  <% if(result && result[4].length  > 0) { 
+                    let i = 0;
+                    for(let item in result[4]){
+                      i++;
+                      if(result[4][item].technology == "oracle" && result[4][item].type == "Expert")
+                      {
+                        %>checked = "true"<%
+                      }
+                      else{
+                        value = ""
+                      }
+                    }
+                  }%>
                 />
                 <label for="oraclee">Expert</label>
               </td>
@@ -1314,19 +1606,19 @@
 
         //percentage
 
-        const per = /^(100(\.0{1,2})?|([0-9]?[0-9](\.[0-9]{1,2})))$/;
-        if (per.test(document.getElementById("sp").value) === false) {
-          document.getElementById("sp").style.borderColor = "red";
-          allow = false;
-        }
-        if (per.test(document.getElementById("hp").value) === false) {
-          document.getElementById("hp").style.borderColor = "red";
-          allow = false;
-        }
-        if (per.test(document.getElementById("bp").value) === false) {
-          document.getElementById("bp").style.borderColor = "red";
-          allow = false;
-        }
+        // const per = /^(100(\.0{1,2})?|([0-9]?[0-9](\.[0-9]{1,2})))$/;
+        // if (per.test(document.getElementById("sp").value) === false) {
+        //   document.getElementById("sp").style.borderColor = "red";
+        //   allow = false;
+        // }
+        // if (per.test(document.getElementById("hp").value) === false) {
+        //   document.getElementById("hp").style.borderColor = "red";
+        //   allow = false;
+        // }
+        // if (per.test(document.getElementById("bp").value) === false) {
+        //   document.getElementById("bp").style.borderColor = "red";
+        //   allow = false;
+        // }
         // if (per.test(document.getElementById("mp").value) === false) {
         //   document.getElementById("mp").style.borderColor = "red";
         // }
