@@ -363,7 +363,7 @@
                   name="dob"
                   size="22"
                   placeholder="yyyy-mm-dd"
-                  <% if(result) { if(result[0][0].dob) { %> value = "<%=result[0][0].dob.getFullYear() %>-<%=result[0][0].dob.getMonth()%>-<%=result[0][0].dob.getDate()%>" <%}} %>
+                  <% if(result) { if(result[0][0].dob) { %> value = "<%=result[0][0].dob.getFullYear() %>-<%=result[0][0].dob.getMonth()+1%>-<%=result[0][0].dob.getDate()%>" <%}} %>
                 />
               </td>
             </tr>
