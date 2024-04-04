@@ -48,6 +48,7 @@ const userlist = function (req, res) {
   if (userDataArray.length == 0) {
     return res.send("there is no user");
   } else {
+    console.log(userDataArray);
     res.render("./fileOperation/partials/displaylist", { data: userDataArray });
   }
 };
