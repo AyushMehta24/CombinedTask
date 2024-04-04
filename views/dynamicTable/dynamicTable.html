@@ -17,9 +17,9 @@
       .td2 {
         background-color: bisque;
       }
-      /* .btns{
-        margin-left: 39%;
-      } */
+      .btns{
+        margin-bottom: 50px;
+      }
     </style>
 
     <script>
@@ -85,7 +85,16 @@
 
   <body>
     <h1 style="text-align: center">Ayush Mehta - 24DEV067 - Date:01/02/2024</h1>
-    <table id="table">
+    <div align="center" class="btns">
+      <button name="addrow" onclick="insert_row()">Add row</button>
+      <button name="removerow" onclick="remove_row()">Remove row</button>
+
+      <button name="addcollumn" onclick="insert_collumn()">Add Collumn</button>
+      <button name="removecollumn" onclick="remove_collumn()">
+        Remove Collumn
+      </button>
+    </div>
+    <table align="center" id="table">
       <tr id="try">
         <td class="td1">Ayush</td>
         <td class="td2">Ayush</td>
@@ -97,14 +106,6 @@
       </tr>
     </table>
     <br /><br />
-    <div class="btns">
-      <button name="addrow" onclick="insert_row()">Add row</button>
-      <button name="removerow" onclick="remove_row()">Remove row</button>
-
-      <button name="addcollumn" onclick="insert_collumn()">Add Collumn</button>
-      <button name="removecollumn" onclick="remove_collumn()">
-        Remove Collumn
-      </button>
-    </div>
+    
   </body>
 </html>

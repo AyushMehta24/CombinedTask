@@ -495,7 +495,7 @@ const update = (req, res) => {
   con.query(sql, function (err, result) {
     if (err) return res.render("../views/error.ejs");
     const key = Object.keys(result[0]);
-    console.log("sjbdvhsdv", result[4]);
+    // console.log("sjbdvhsdv", result[4]);
 
     res.render("./jobAppForm/index", { result, key });
   });

@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <a href="/fileOperation/form">Form</a>
-    <a href="/fileOperation/userlist">User List</a>
-</body>
+    <style>
+      body {
+        font-family: "Comic Sans MS", cursive;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #f5f5f5;
+        color: #333;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .anchor {
+        font-size: 50px;
+        /* margin-left: 299px; */
+        color: #333;
+        text-decoration: none;
+      }
+      .card {
+      width: 100%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-right: 20px
+    }
+    
+    .anchor:hover {
+      color: #e63900;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a class="anchor card" href="/fileOperation/form">Form</a>
+      <a class="anchor card" href="/fileOperation/userlist">User List</a>
+    </div>
+  </body>
 </html>

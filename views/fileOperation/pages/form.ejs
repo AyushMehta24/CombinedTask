@@ -1,46 +1,153 @@
 <html>
+  <head>
+    <style>
+      body {
+        font-family: "Comic Sans MS", cursive;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #f5f5f5;
+        color: #333;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .card {
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        margin-bottom: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: border-color 0.3s ease-in-out;
+        outline: none;
+        color: #333;
+        width: 450px;
+        margin-left: auto;
+      }
+
+      input:focus {
+        border-color: #ff4500;
+      }
+
+      input[type="submit"] {
+        background-color: #ff4500;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #e63900;
+      }
+
+      #gender {
+        margin-top: 5px;
+        display: flex;
+      }
+
+      #hobby {
+        display: flex;
+        margin-bottom: 20px;
+      }
+      .couple {
+        display: flex;
+        gap: auto;
+        align-items: center;
+      }
+
+      #gen {
+        margin-right: 91px;
+      }
+
+       #hob{
+        margin-right: 86px;
+
+      }
+    </style>
+  </head>
   <body>
-    <form action="/fileOperation/submited" method="post" name = "form1">
-      <label for="fname">First Name : </label>
-      <input type="text" name="fname" id="fname" required/>
-      <br />
-      <label for="lname">Last Name : </label>
-      <input type="text" name="lname" id="lname" />
-      <br />
-      <label for="age">Age : </label>
-      <input type="text" name="age" id="age" />
-      <br />
-      <label for="fname">Contact Number: </label>
-      <input type="text" name="contact" id="contact" minlength="10" maxlength="10" required/>
-      <br />
-      <label for="email">Email id : </label>
-      <input type="text" name="email" id="email" />
-      <br />
-      <label for="gender">Gender : </label>
-      <input type="radio" id="Gender" name="gender" value="male"/><label for="Gender" required
-        >Male</label
-      >
-      <input type="radio" id="Gender" name="gender" value="female"/><label for="Gender"
-        >Female</label
-      >
-      <input type="radio" id="Gender" name="gender" value="other" /><label for="Gender"
-        >Others</label
-      >
-      <br />
-      <label for="hobby">Hobbies : </label>
-      <br />
-      <input type="checkbox" id="hobby1" name="hobby" value="reading" />
-      <label for="hobby1">Reading</label><br />
-      <input type="checkbox" id="hobby2" name="hobby" value="singing" />
-      <label for="hobby2">Singing</label><br />
-      <input type="checkbox" id="hobby3" name="hobby" value="dancing" />
-      <label for="hobby3">Dancing</label><br />
-      <input type="checkbox" id="hobby2" name="hobby" value="writing" />
-      <label for="hobby4">Writing</label><br />
-      <label for="address">Address : </label>
-      <input type="text" name="address" id="address" required/>
-      <br />
-      <input type="submit" value="submit" />
-    </form>
+    <div class="container">
+      <div class="card">
+        <form action="/fileOperation/submited" method="post" name="form1">
+          <div class="couple">
+            <label for="fname">First Name : </label>
+            <input type="text" name="fname" id="fname" required />
+          </div>
+          <div class="couple">
+            <label for="lname">Last Name : </label>
+            <input type="text" name="lname" id="lname" />
+          </div>
+          <div class="couple">
+            <label for="age">Age : </label>
+            <input type="text" name="age" id="age" />
+          </div>
+          <div class="couple">
+            <label for="contact">Contact Number: </label>
+            <input
+              type="text"
+              name="contact"
+              id="contact"
+              minlength="10"
+              maxlength="10"
+              required
+            />
+          </div>
+          <div class="couple">
+            <label for="email">Email id : </label>
+            <input type="text" name="email" id="email" />
+          </div>
+          <div class="couple" id="gender">
+            <label id="gen" for="gender">Gender : </label>
+            <input type="radio" id="male" name="gender" value="male" />
+            <label for="male" required>Male</label>
+            <input type="radio" id="female" name="gender" value="female" />
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other" /><label
+              for="other"
+              >Others</label
+            >
+          </div>
+
+          <br />
+          <div class="couple" id="hobby">
+            <label id="hob" for="hobby">Hobbies :</label>
+            <br />
+            <input type="checkbox" id="hobby1" name="hobby" value="reading" />
+            <label for="hobby1">Reading</label><br />
+            <input type="checkbox" id="hobby2" name="hobby" value="singing" />
+            <label for="hobby2">Singing</label><br />
+            <input type="checkbox" id="hobby3" name="hobby" value="dancing" />
+            <label for="hobby3">Dancing</label><br />
+            <input type="checkbox" id="hobby4" name="hobby" value="writing" />
+            <label for="hobby4">Writing</label><br />
+          </div>
+          <div class="couple">
+            <label for="address">Address : </label>
+            <input type="text" name="address" id="address" required />
+          </div>
+          <input type="submit" value="submit" />
+        </form>
+      </div>
+    </div>
   </body>
 </html>

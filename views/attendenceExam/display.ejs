@@ -63,7 +63,7 @@
             <td>Student Name</td>
             <td>Attendence</td>
             <td>Percentage</td>
-            <td></td>
+            <td>-</td>
         </tr>
 
         <% for(let i=0; i<data.length   ; i++) {%>
@@ -80,7 +80,7 @@
                   <td>
                     <%= parseFloat((data[i].att * 100)/day).toFixed(2)%>
                   </td>
-                  <td></td>
+                  <td>-</td>
             </tr>
          <% } %>
     </table>
