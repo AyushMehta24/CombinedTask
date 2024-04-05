@@ -69,6 +69,7 @@ const submit = (req, res) => {
         percentage.push(req.body.per4);
       }
 
+
       for (let i = 0; i < coursename.length; i++) {
         sql = `insert into task12_education (eid , coursename , passingyear , percentage) values (${id} , "${coursename[i]}" , ${passingyear[i]} , ${percentage[i]})`;
 
@@ -76,7 +77,7 @@ const submit = (req, res) => {
           if (err) return res.render("../views/error.ejs");
         });
       }
-      return res.sendStatus(200);
+      return res.json("done");
     } else if (req.body.page === "work") {
       let id = req.body.id;
 

@@ -2164,6 +2164,8 @@
        const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(basicarray) , headers: {
          "Content-Type": "application/json"		},})
          let data = await temp.json()
+         console.log(data , "iddddddddd");
+         localStorage.setItem("newId" , data)
         }
 
        basic.style.display  = "none"
@@ -2194,6 +2196,8 @@
 			"Content-Type": "application/json"	},})
         }
         else{
+
+         let id=  localStorage.getItem("newId")
           
           const eduarray = {"page": "education","course1" : form.elements[15].value , "year1":form.elements[16].value , "per1" : form.elements[17].value , "course2" : form.elements[18].value , "year2":form.elements[19].value , "per2" : form.elements[20].value , "course3" : form.elements[21].value , "year3":form.elements[22].value , "per3" : form.elements[23].value , "course4" : form.elements[24].value , "year4":form.elements[25].value , "per4" : form.elements[26].value , "id" : id , "hidden" : "false"}
           const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(eduarray) , headers: {
@@ -2230,6 +2234,8 @@
 
         }
         else{
+          let id=  localStorage.getItem("newId")
+
           const workarray = {"page" : "work" , "cname1": form.elements[27].value , "des1": form.elements[28].value, "from1": form.elements[29].value, "to1": form.elements[30].value ,"cname2": form.elements[31].value , "des2": form.elements[32].value , "from2": form.elements[33].value , "to2": form.elements[34].value, "id" : id, "hidden" : "false" }
   
           const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(workarray) , headers: {
@@ -2312,6 +2318,8 @@
 			"Content-Type": "application/json"	},})
         }
         else{
+          let id=  localStorage.getItem("newId")
+
 
           const lanarray = {"page":"language", "lname" : lanname , 
         "hindi" : hindi , "english" : english , "gujarati" : gujarati, "id" : id , "hidden" : "false"}
@@ -2414,6 +2422,9 @@ const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(t
 "Content-Type": "application/json"	},})
         }
         else{
+
+          let id=  localStorage.getItem("newId")
+
           const techarray = {"page" : "technology" , "tname" : technology , "php" : tt1 , "mysql" : tt2 , "laravel" : tt3 , "oracle" : tt4, "id" : id, "hidden" : "false"}
 
 const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(techarray) , headers: {
@@ -2453,6 +2464,9 @@ const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(r
 "Content-Type": "application/json"	},})
         }
         else{
+
+          let id=  localStorage.getItem("newId")
+
           const refarray = {"page" : "reference" , "rn1": form.elements[63].value , "rc1": form.elements[64].value, "rr1": form.elements[65].value, "rn2": form.elements[66].value ,"rc2": form.elements[67].value , "rr2": form.elements[68].value , "id" : id , "hidden" : "false"}
 
 const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(refarray) , headers: {
@@ -2510,6 +2524,8 @@ if(res.msg == "Data inserted successfully")
 window.location.href = "/ajaxJobAppForm/validate"
 }
 else{
+  let id=  localStorage.getItem("newId")
+
   const prefarray = {"page" : "preference" ,"location" : newloca , "ectc" : ec , "cc" : cc , "np" : np , "dep" : dep , "id" : id, "hidden" : "fasle"}
         const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(prefarray) , headers: {
 "Content-Type": "application/json"	},})
