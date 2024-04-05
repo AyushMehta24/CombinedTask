@@ -40,7 +40,7 @@ const postLogin = (req, res) => {
 
         if (results.length === 0) {
           const text = `Invalid username or password.`;
-          return res.render("/loginTask/login", {
+          return res.render("./loginTask/login", {
             text,
             incorrectAttempts: 0,
             riddle: "",
@@ -57,11 +57,11 @@ const postLogin = (req, res) => {
 
           if (incorrectAttempts < maxIncorrectAttepts) {
             const text = `Invalid username or password.`;
-            return res.render("login", { text, incorrectAttempts, riddle: "" });
+            return res.render("./loginTask/login", { text, incorrectAttempts, riddle: "" });
           } else {
             const riddle = `${val1} + ${val2}`;
             const text = `Invalid username or password.`;
-            return res.render("login", { text, riddle, incorrectAttempts });
+            return res.render("./loginTask/login", { text, riddle, incorrectAttempts });
           }
         }
 
@@ -75,8 +75,9 @@ const postLogin = (req, res) => {
 
         if (incorrectAttempts >= 3) {
           if (riddle == eval(riddle)) {
+            const text = `Invalid username or password.`;
             incorrectAttempts = 0;
-            return res.render("success");
+            return res.render("./loginTask/login", { text, riddle, incorrectAttempts });
           }
         }
         incorrectAttempts = 0;

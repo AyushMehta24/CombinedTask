@@ -1572,390 +1572,331 @@
       let newwork = 0;
       let cnum = 2;
       let fnum = 2;
-      function validatefun() {
+
+      function basicd(){
+       const formelement = document.getElementById("form1");
+
         let allow = true;
-        // const formelement = document.getElementById("form1");
-        // var radioclass = ["gender", "php", "mysql", "laravel", "oracle"];
-
-        // //required all basic details validation
-        // for (let i = 0; i < 15; i++) {
-        //   if (formelement[i].value == "") {
-        //     formelement[i].style.borderColor = "red";
-        //     allow = false;
-        //   }
-        // }
-
-        // //required all education details validation
-        // for (let i = 15; i < 24; i++) {
-        //   if (formelement[i].value == "") {
-        //     formelement[i].style.borderColor = "red";
-        //     allow = false;
-        //   }
-        // }
-
-        // //required all work details validation
-        // // for (let i = 25; i < 25; i++) {
-        // //   if (formelement[i].value == "") {
-        // //     formelement[i].style.borderColor = "red";
-        // //     allow = false;
-        // //   }
-        // // }
-
-        // //zipcode
-        // const zipcode = /^\d{6}$/;
-        // if (zipcode.test(document.getElementById("zipcode").value) === false) {
-        //   document.getElementById("zipcode").style.borderColor = "red";
-        //   allow = false;
-        // }
-
-        // //PHONENUMBER
-        // const phone = /^\d{10}$/;
-        // if (
-        //   phone.test(document.getElementById("phonenumber").value) === false
-        // ) {
-        //   document.getElementById("phonenumber").style.borderColor = "red";
-        //   allow = false;
-        // }
-
-        // //date
-
-        // const dateRegex = /^\d{4}-\d{1,2}-\d{1,2}$/;
-        // if (dateRegex.test(document.getElementById("dob").value) === false) {
-        //   document.getElementById("dob").style.borderColor = "red";
-        //   allow = false;
-        // }
-
-        // //passing year
-
-        // const year = /^\d{4}$/;
-        // if (year.test(document.getElementById("spy").value) === false) {
-        //   document.getElementById("spy").style.borderColor = "red";
-        //   allow = false;
-        // }
-        // if (year.test(document.getElementById("hpy").value) === false) {
-        //   document.getElementById("hpy").style.borderColor = "red";
-        //   allow = false;
-        // }
-        // if (year.test(document.getElementById("bpy").value) === false) {
-        //   document.getElementById("bpy").style.borderColor = "red";
-        //   allow = false;
-        // }
-        // // if (year.test(document.getElementById("mpy").value) === false) {
-        // //   document.getElementById("mpy").style.borderColor = "red";
-        // // }
-
-        // //percentage
-
-        // const per = /^(100(\.0{1,2})?|([0-9]?[0-9](\.[0-9]{1,2})))$/;
-        // if (per.test(document.getElementById("sp").value) === false) {
-        //   document.getElementById("sp").style.borderColor = "red";
-        //   allow = false;
-        // }
-        // if (per.test(document.getElementById("hp").value) === false) {
-        //   document.getElementById("hp").style.borderColor = "red";
-        //   allow = false;
-        // }
-        // if (per.test(document.getElementById("bp").value) === false) {
-        //   document.getElementById("bp").style.borderColor = "red";
-        //   allow = false;
-        // }
-        // // if (per.test(document.getElementById("mp").value) === false) {
-        // //   document.getElementById("mp").style.borderColor = "red";
-        // // }
-
-        // //from and to
-        // const character = /^[a-zA-Z]+$/;
-
-        // var from = /^\d{4}-\d{2}-\d{2}$/;
-
-        // if (document.getElementById("cname1").value) {
-        //   if (character.test(document.getElementById("d1").value) === false) {
-        //     document.getElementById("d1").style.borderColor = "red";
-        //     allow = false;
-        //   }
-        //   if (
-        //     dateRegex.test(document.getElementById("from1").value) === false
-        //   ) {
-        //     document.getElementById("from1").style.borderColor = "red";
-        //     allow = false;
-        //   }
-        //   if (dateRegex.test(document.getElementById("to1").value) === false) {
-        //     document.getElementById("to1").style.borderColor = "red";
-        //     allow = false;
-        //   }
-        // }
-
-        // if (document.getElementById("cname2").value) {
-        //   if (character.test(document.getElementById("d2").value) === false) {
-        //     document.getElementById("d2").style.borderColor = "red";
-        //     allow = false;
-        //   }
-        //   if (
-        //     dateRegex.test(document.getElementById("from2").value) === false
-        //   ) {
-        //     document.getElementById("from2").style.borderColor = "red";
-        //     allow = false;
-        //   }
-        //   if (dateRegex.test(document.getElementById("to2").value) === false) {
-        //     document.getElementById("to2").style.borderColor = "red";
-        //     allow = false;
-        //   }
-        // }
-
-        // //master only
-        // const master = document.querySelectorAll(".master");
-
-        // let mendetory = false;
-        // master.forEach((element) => {
-        //   if (element.value != "") mendetory = true;
-        // });
-        // if (mendetory) {
-        //   master.forEach((element) => {
-        //     element.classList.add("mendetory");
-        //   });
-        // }
-
-        // const men = document.querySelectorAll(".mendetory");
-        // men.forEach((element) => {
-        //   if (element.value == "") {
-        //     element.style.borderColor = "red";
-        //     allow = false;
-        //   }
-        // });
-
-        // //work
-
-        // const c1 = document.querySelectorAll(".compnay1");
-        // c1.forEach((element) => {
-        //   if (element.value != "") mendetory = true;
-        // });
-        // if (mendetory) {
-        //   c1.forEach((element) => {
-        //     element.classList.add("mendetory");
-        //   });
-        // }
-        // const c11 = document.querySelectorAll(".mendetory");
-        // c11.forEach((element) => {
-        //   if (element.value == "") {
-        //     element.style.borderColor = "red";
-        //     allow = false;
-        //   }
-        // });
-        // mendetory = false;
-
-        // const c2 = document.querySelectorAll(".compnay2");
-        // c2.forEach((element) => {
-        //   if (element.value != "") mendetory = true;
-        // });
-        // if (mendetory) {
-        //   c2.forEach((element) => {
-        //     element.classList.add("mendetory");
-        //   });
-        // }
-        // const c21 = document.querySelectorAll(".mendetory");
-        // c21.forEach((element) => {
-        //   if (element.value == "") {
-        //     element.style.borderColor = "red";
-        //     allow = false;
-        //   }
-        // });
-        // mendetory = false;
-
-        // //dynamic work validation
-        // for (let i = 0; i < newwork; i++) {
-        //   const c2 = document.querySelectorAll(`.compnay${i + 3}`);
-        //   c2.forEach((element) => {
-        //     if (element.value != "") mendetory = true;
-        //   });
-        //   if (mendetory) {
-        //     c2.forEach((element) => {
-        //       element.classList.add("mendetory");
-        //     });
-        //   }
-        //   const c21 = document.querySelectorAll(".mendetory");
-        //   c21.forEach((element) => {
-        //     if (element.value == "") {
-        //       element.style.borderColor = "red";
-        //       allow = false;
-        //     }
-        //   });
-        //   mendetory = false;
-        // }
-
-        // //reference
-
-        // for (let i = 0; i < newref; i++) {
-        //   const r1 = document.querySelectorAll(`.ref${i + 2}`);
-        //   r1.forEach((element) => {
-        //     if (element.value != "") mendetory = true;
-        //   });
-        //   if (mendetory) {
-        //     r1.forEach((element) => {
-        //       element.classList.add("mendetory");
-        //     });
-        //   }
-        //   const r11 = document.querySelectorAll(".mendetory");
-        //   r11.forEach((element) => {
-        //     if (element.value == "") {
-        //       element.style.borderColor = "red";
-        //       allow = false;
-        //     }
-        //   });
-        //   mendetory = false;
-        // }
-
-        // const r1 = document.querySelectorAll(".ref1");
-        // r1.forEach((element) => {
-        //   if (element.value != "") mendetory = true;
-        // });
-        // if (mendetory) {
-        //   r1.forEach((element) => {
-        //     element.classList.add("mendetory");
-        //   });
-        // }
-        // const r11 = document.querySelectorAll(".mendetory");
-        // r11.forEach((element) => {
-        //   if (element.value == "") {
-        //     element.style.borderColor = "red";
-        //     allow = false;
-        //   }
-        // });
-        // mendetory = false;
-
-        // const r2 = document.querySelectorAll(".ref2");
-        // r2.forEach((element) => {
-        //   if (element.value != "") mendetory = true;
-        // });
-        // if (mendetory) {
-        //   r2.forEach((element) => {
-        //     element.classList.add("mendetory");
-        //   });
-        // }
-        // const r21 = document.querySelectorAll(".mendetory");
-        // r21.forEach((element) => {
-        //   if (element.value == "") {
-        //     element.style.borderColor = "red";
-        //     allow = false;
-        //   }
-        // });
-        // mendetory = false;
-
-        // //languages
-        // // let cntt = 0;
-        // // const lan = document.getElementsByName("languages");
-        // // for (let i = 0; i < lan.length; i++) {
-        // //   if (lan[i].checked === true) {
-        // //     const r1 = document.getElementById(lan[i].value[0] + "1");
-        // //     const w1 = document.getElementById(lan[i].value[0] + "2");
-        // //     const s1 = document.getElementById(lan[i].value[0] + "3");
-
-        // //     if (r1.checked || w1.checked || s1.checked) {
-        // //       lreq2.innerHTML = ``;
-        // //     } else {
-        // //       lreq2.innerHTML = `<p>select atleast one field for ${lan[i].value}</p>`;
-        // //       lreq2.style.color = "red";
-        // //       lreq2.style.fontSize = "20px";
-        // //       lreq2.style.textAlign = "center";
-        // //       allow = false;
-
-        // //     }
-        // //   }
-
-        // //   if (!lan[i].checked === true) {
-        // //     cntt++;
-        // //   }
-        // //   if (cntt == lan.length) {
-        // //     lreq.innerHTML = `<p>Select atleast One field</p>`;
-        // //     lreq.style.color = "red";
-        // //     lreq.style.fontSize = "20px";
-        // //     lreq.style.textAlign = "center";
-        // //     allow = false;
-
-        // //   } else {
-        // //     lreq.innerHTML = ``;
-        // //   }
-        // // }
-
-        // //technology
-        // // let cnt = 0;
-        // // const techno = document.getElementsByName("technologies");
-        // // for (let i = 0; i < techno.length; i++) {
-        // //   if (techno[i].checked === true) {
-        // //     const b1 = document.getElementById(techno[i].id + "b");
-        // //     const m1 = document.getElementById(techno[i].id + "m");
-        // //     const e1 = document.getElementById(techno[i].id + "e");
-
-        // //     if (b1.checked || m1.checked || e1.checked) {
-        // //       treq2.innerHTML = ``;
-        // //     } else {
-        // //       treq2.innerHTML = `<p>select atleast one field for ${techno[i].value}</p>`;
-        // //       treq2.style.color = "red";
-        // //       treq2.style.fontSize = "20px";
-        // //       treq2.style.textAlign = "center";
-        // //       allow = false;
-
-        // //     }
-        // //   }
-
-        // //   if (!techno[i].checked === true) {
-        // //     cnt++;
-        // //   }
-
-        // //   if (cnt == techno.length) {
-        // //     treq.innerHTML = `<p>Select atleast One field</p>`;
-        // //     treq.style.color = "red";
-        // //     treq.style.fontSize = "20px";
-        // //     treq.style.textAlign = "center";
-        // //     allow = false;
-
-        // //   } else {
-        // //     treq.innerHTML = ``;
-        // //   }
-        // // }
-
-        // // expected ctc
-        // if (!document.getElementById("ec").value) {
-        //   document.getElementById("ec").style.borderColor = "red";
-        //   allow = false;
-        // }
-
-        // if (allow) {
-        //   return true;
-        // }
-
-        return false;
+         //required all basic details validation
+        for (let i = 0; i < 15; i++) {
+          if (formelement[i].value == "") {
+            formelement[i].style.borderColor = "red";
+            allow = false;
+          }
+        }
+        return allow;
       }
 
-      ////langauge select disable checkbox
+      function edud(){
+        const formelement = document.getElementById("form1");
 
-      // function lanupdate(language) {
-      //   const sub = document.getElementsByClassName(`${language}radio`);
+        let allow = true;
+         for (let i = 15; i < 24; i++) {
+          if (formelement[i].value == "") {
+            formelement[i].style.borderColor = "red";
+            allow = false;
+          }
+        }
+        return allow;
 
-      //   for (let i = 0; i < sub.length; i++) {
-      //     if (sub[i].disabled) {
-      //       sub[i].disabled = false;
-      //     } else {
-      //       sub[i].disabled = true;
-      //       sub[i].checked = false;
-      //     }
-      //   }
-      // }
+      }
 
-      ////technology select radion button
+      function zip(){
+                // //zipcode
+        let allow =true;
+        const zipcode = /^\d{6}$/;
+        if (zipcode.test(document.getElementById("zipcode").value) === false) {
+          document.getElementById("zipcode").style.borderColor = "red";
+          allow = false;
+        }
+        return allow;
+      }
 
-      // function techupdate(tech) {
-      //   const sub = document.getElementsByClassName(`${tech}`);
+      function phone(){
+        let allow =true;
 
-      //   // sub);
-      //   for (let i = 0; i < sub.length; i++) {
-      //     if (sub[i].disabled) {
-      //       sub[i].disabled = false;
-      //     } else {
-      //       sub[i].disabled = true;
-      //       sub[i].checked = false;
-      //     }
-      //   }
-      // }
+        const phone = /^\d{10}$/;
+        if (
+          phone.test(document.getElementById("phonenumber").value) === false
+        ) {
+          document.getElementById("phonenumber").style.borderColor = "red";
+          allow = false;
+        }
+        return allow;
+
+      }
+
+      function dated(){
+        let allow = true;
+        const dateRegex = /^\d{4}-\d{1,2}-\d{1,2}$/;
+        if (dateRegex.test(document.getElementById("dob").value) === false) {
+          document.getElementById("dob").style.borderColor = "red";
+          allow = false;
+        }
+        return allow;
+      }
+
+      function passyear(){
+        let allow = true;
+        const year = /^\d{4}$/;
+        if (year.test(document.getElementById("spy").value) === false) {
+          document.getElementById("spy").style.borderColor = "red";
+          allow = false;
+        }
+        if (year.test(document.getElementById("hpy").value) === false) {
+          document.getElementById("hpy").style.borderColor = "red";
+          allow = false;
+        }
+        if (year.test(document.getElementById("bpy").value) === false) {
+          document.getElementById("bpy").style.borderColor = "red";
+          allow = false;
+        }
+        // if (year.test(document.getElementById("mpy").value) === false) {
+        //   document.getElementById("mpy").style.borderColor = "red";
+        // }
+      return allow;
+      }
+
+      function perc(){
+        let allow = true;
+         const per = /^\d{2}$/;
+        if (per.test(document.getElementById("sp").value) === false) {
+          document.getElementById("sp").style.borderColor = "red";
+          allow = false;
+        }
+        if (per.test(document.getElementById("hp").value) === false) {
+          document.getElementById("hp").style.borderColor = "red";
+          allow = false;
+        }
+        if (per.test(document.getElementById("bp").value) === false) {
+          document.getElementById("bp").style.borderColor = "red";
+          allow = false;
+        }
+        // if (per.test(document.getElementById("mp").value) === false) {
+        //   document.getElementById("mp").style.borderColor = "red";
+        // }
+        return allow;
+      }
+
+      function ft(){
+        let allow = true;
+        const character = /^[a-zA-Z]+$/;
+
+        var from = /^\d{4}-\d{2}-\d{2}$/;
+
+         const c1 = document.querySelectorAll(".compnay1");
+        c1.forEach((element) => {
+          if (element.value != "") mendetory = true;
+        });
+        if (mendetory) {
+          c1.forEach((element) => {
+            element.classList.add("mendetory");
+          });
+        }
+        const c11 = document.querySelectorAll(".mendetory");
+        c11.forEach((element) => {
+          if (element.value == "") {
+            element.style.borderColor = "red";
+            allow = false;
+          }
+        });
+        mendetory = false;
+
+        const c2 = document.querySelectorAll(".compnay2");
+        c2.forEach((element) => {
+          if (element.value != "") mendetory = true;
+        });
+        if (mendetory) {
+          c2.forEach((element) => {
+            element.classList.add("mendetory");
+          });
+        }
+        const c21 = document.querySelectorAll(".mendetory");
+        c21.forEach((element) => {
+          if (element.value == "") {
+            element.style.borderColor = "red";
+            allow = false;
+          }
+        });
+        mendetory = false;
+
+         //dynamic work validation
+        for (let i = 0; i < newwork; i++) {
+          const c2 = document.querySelectorAll(`.compnay${i + 3}`);
+          c2.forEach((element) => {
+            if (element.value != "") mendetory = true;
+          });
+          if (mendetory) {
+            c2.forEach((element) => {
+              element.classList.add("mendetory");
+            });
+          }
+          const c21 = document.querySelectorAll(".mendetory");
+          c21.forEach((element) => {
+            if (element.value == "") {
+              element.style.borderColor = "red";
+              allow = false;
+            }
+          });
+          mendetory = false;
+        }
+        return allow;
+
+      }
+
+      function refe(){
+        let allow = true;
+         for (let i = 0; i < newref; i++) {
+          const r1 = document.querySelectorAll(`.ref${i + 2}`);
+          r1.forEach((element) => {
+            if (element.value != "") mendetory = true;
+          });
+          if (mendetory) {
+            r1.forEach((element) => {
+              element.classList.add("mendetory");
+            });
+          }
+          const r11 = document.querySelectorAll(".mendetory");
+          r11.forEach((element) => {
+            if (element.value == "") {
+              element.style.borderColor = "red";
+              allow = false;
+            }
+          });
+          mendetory = false;
+        }
+
+        const r1 = document.querySelectorAll(".ref1");
+        r1.forEach((element) => {
+          if (element.value != "") mendetory = true;
+        });
+        if (mendetory) {
+          r1.forEach((element) => {
+            element.classList.add("mendetory");
+          });
+        }
+        const r11 = document.querySelectorAll(".mendetory");
+        r11.forEach((element) => {
+          if (element.value == "") {
+            element.style.borderColor = "red";
+            allow = false;
+          }
+        });
+        mendetory = false;
+
+        const r2 = document.querySelectorAll(".ref2");
+        r2.forEach((element) => {
+          if (element.value != "") mendetory = true;
+        });
+        if (mendetory) {
+          r2.forEach((element) => {
+            element.classList.add("mendetory");
+          });
+        }
+        const r21 = document.querySelectorAll(".mendetory");
+        r21.forEach((element) => {
+          if (element.value == "") {
+            element.style.borderColor = "red";
+            allow = false;
+          }
+        });
+        mendetory = false;
+
+        return allow;
+      }
+
+      function langu(){
+        let allow = true;
+         let cntt = 0;
+        const lan = document.getElementsByName("languages");
+        for (let i = 0; i < lan.length; i++) {
+          if (lan[i].checked === true) {
+            const r1 = document.getElementById(lan[i].value[0] + "1");
+            const w1 = document.getElementById(lan[i].value[0] + "2");
+            const s1 = document.getElementById(lan[i].value[0] + "3");
+
+            if (r1.checked || w1.checked || s1.checked) {
+              lreq2.innerHTML = ``;
+            } else {
+              lreq2.innerHTML = `<p>select atleast one field for ${lan[i].value}</p>`;
+              lreq2.style.color = "red";
+              lreq2.style.fontSize = "20px";
+              lreq2.style.textAlign = "center";
+              allow = false;
+
+            }
+          }
+
+          if (!lan[i].checked === true) {
+            cntt++;
+          }
+          if (cntt == lan.length) {
+            lreq.innerHTML = `<p>Select atleast One field</p>`;
+            lreq.style.color = "red";
+            lreq.style.fontSize = "20px";
+            lreq.style.textAlign = "center";
+            allow = false;
+
+          } else {
+            lreq.innerHTML = ``;
+          }
+        }
+        return allow;
+      }
+
+
+      function techno(){
+        let allow = true;
+          let cnt = 0;
+        const techno = document.getElementsByName("technologies");
+        for (let i = 0; i < techno.length; i++) {
+          if (techno[i].checked === true) {
+            const b1 = document.getElementById(techno[i].id + "b");
+            const m1 = document.getElementById(techno[i].id + "m");
+            const e1 = document.getElementById(techno[i].id + "e");
+
+            if (b1.checked || m1.checked || e1.checked) {
+              treq2.innerHTML = ``;
+            } else {
+              treq2.innerHTML = `<p>select atleast one field for ${techno[i].value}</p>`;
+              treq2.style.color = "red";
+              treq2.style.fontSize = "20px";
+              treq2.style.textAlign = "center";
+              allow = false;
+
+            }
+          }
+
+          if (!techno[i].checked === true) {
+            cnt++;
+          }
+
+          if (cnt == techno.length) {
+            treq.innerHTML = `<p>Select atleast One field</p>`;
+            treq.style.color = "red";
+            treq.style.fontSize = "20px";
+            treq.style.textAlign = "center";
+            allow = false;
+
+          } else {
+            treq.innerHTML = ``;
+          }
+        }
+        return allow;
+      }
+      
+      function ectc(){
+        let allow = true;
+         // // expected ctc
+        if (!document.getElementById("ec").value) {
+          document.getElementById("ec").style.borderColor = "red";
+          allow = false;
+        }
+        return allow;
+      }
+      
+
+     
 
       function addworkrow() {
         newwork++;
@@ -2120,6 +2061,25 @@
       let id;
       async function basicnext()
       {
+
+        if(!basicd())
+        {
+          return;
+        }
+
+        if(!zip())
+        {
+          return;
+        }
+
+        if(!phone()){
+          return;
+        }
+
+        if(!dated()){
+          return;
+        }
+
         const url = location.href;
         const idd = url.split("/");
         let fid = idd[idd.length - 1]
@@ -2181,6 +2141,19 @@
       
       async function edunext(){
 
+        if(!edud())
+        {
+          return;
+        }
+
+        if(!passyear()){
+          return;
+        }
+
+        if(!perc()){
+          return;
+        }
+
         const url = location.href;
         const idd = url.split("/");
         let fid = idd[idd.length - 1]
@@ -2216,6 +2189,10 @@
       }
       
       async function expnext(){
+
+        if(!ft()){
+          return
+        }
 
         const url = location.href;
         const idd = url.split("/");
@@ -2257,6 +2234,9 @@
     
       async function lannext(){
 
+        if(!langu()){
+          return;
+        }
         const url = location.href;
         const idd = url.split("/");
         let fid = idd[idd.length - 1]
@@ -2340,6 +2320,10 @@
       }
   
       async function technext(){
+
+        if(!techno()){
+          return;
+        }
 
         const url = location.href;
         const idd = url.split("/");
@@ -2446,6 +2430,10 @@ const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(t
       }
       
       async function refnext(){
+
+        if(!refe()){
+          return;
+        }
         const url = location.href;
         const idd = url.split("/");
         let fid = idd[idd.length - 1]
@@ -2489,6 +2477,10 @@ const temp = await fetch(form.action , {method : "post" , body: JSON.stringify(r
       }
      
      async function prefnext(){
+
+      if(!ectc()){
+        return;
+      }
 
       const url = location.href;
         const idd = url.split("/");
