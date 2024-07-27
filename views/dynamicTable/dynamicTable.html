@@ -41,11 +41,11 @@
 
       function insert_row() {
         numberrow++;
-        var t = document.getElementById("table");
-        var r = t.insertRow(0);
+        const t = document.getElementById("table");
+        const r = t.insertRow(0);
 
-        for (var i = 0; i < numbercollum; i++) {
-          var j = r.insertCell(i);
+        for (const i = 0; i < numbercollum; i++) {
+          const j = r.insertCell(i);
           j.innerHTML = "Ayush";
         }
 
